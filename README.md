@@ -9,3 +9,6 @@ __start project__
 팀원 신다정 <p>    
 팀원 조성훈 <p>
 팀원 이석원 <p>
+
+# google fit API
+https://developers.google.com/oauthplayground/
