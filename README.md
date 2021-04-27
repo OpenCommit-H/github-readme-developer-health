@@ -25,3 +25,6 @@ Run the command "vercel" in the root and follow the steps there
 Create a .env file in the root of the directory
 In the .env file add a new variable named "PAT_1" with your github Personal access token
 Run the command "vercel dev" to start a development server at https://localhost:3000
+
+console.log(JSON.stringify("보고싶은 json 형식 데이터", null, '\t'))
+ex) console.log(JSON.stringify(res.data, null, '\t'))
