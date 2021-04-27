@@ -28,3 +28,21 @@ Run the command "vercel dev" to start a development server at https://localhost:
 
 console.log(JSON.stringify("보고싶은 json 형식 데이터", null, '\t'))
 ex) console.log(JSON.stringify(res.data, null, '\t'))
+
+
+
+Google fit Api -  node.js
+
+/fitness
+
+모듈 다운로드
+
+$ npm i express googleapis request cors url-parse query-string body-parser axios
+
+서버실행
+
+$ node youtubeFit.js
+
+
+
+ 
