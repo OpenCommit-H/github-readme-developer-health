@@ -44,5 +44,10 @@ $ npm i express googleapis request cors url-parse query-string body-parser axios
 $ node googleFit.js
 
 
+url 요청 get postman
+
+http://localhost:1234/getURLTing
+
+
 
  
