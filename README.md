@@ -41,7 +41,7 @@ $ npm i express googleapis request cors url-parse query-string body-parser axios
 
 서버실행
 
-$ node youtubeFit.js
+$ node googleFit.js
 
 
 
