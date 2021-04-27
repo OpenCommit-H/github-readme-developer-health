@@ -31,7 +31,7 @@ ex) console.log(JSON.stringify(res.data, null, '\t'))
 
 
 
-Google fit Api -  node.js
+# Google fit Api -  node.js
 
 /fitness
 
