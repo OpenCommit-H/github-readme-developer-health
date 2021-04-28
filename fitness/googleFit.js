@@ -24,9 +24,9 @@ app.use(bodyParser.json());
 app.get("/getURLTing", (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
         // client id
-        "ClientID",
+        process.env.CLIENT_ID,
         // client secret
-        "client secret",
+        process.env.CLIENT_SECRET,
         // link to redirect to 
         "http://localhost:1234/steps"
     );
@@ -56,9 +56,9 @@ app.get("/steps", async (req, res) => {
     const code = queryParse.parse(queryURL.query).code;
     const oauth2Client = new google.auth.OAuth2(
         // client id
-        "ClientID",
+        process.env.CLIENT_ID,
         // client secret
-        "client secret",
+        process.env.CLIENT_SECRET,
         // link to redirect to 
         "http://localhost:1234/steps"
     );
@@ -94,9 +94,6 @@ app.get("/steps", async (req, res) => {
             },
 
         });
-        console.log("===========")
-        console.log(START)
-        console.log(END)       
         // console.log(result.data.bucket)       
         stepArray = result.data.bucket
     } catch (e) {
