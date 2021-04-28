@@ -9,12 +9,6 @@ const queryParse = require("query-string");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 
-// let weekAgo = new Date();
-// let dayOfMonth = weekAgo.getDate();
-// weekAgo.setDate(dayOfMonth - 7);
-// let END = Date.parse(new Date());
-// let START = Date.parse(weekAgo);
-
 const weekAgo = new Date();
 weekAgo.setHours(0,0,0,0);
 const dayOfMonth = weekAgo.getDate();
@@ -30,9 +24,9 @@ app.use(bodyParser.json());
 app.get("/getURLTing", (req, res) => {
     const oauth2Client = new google.auth.OAuth2(
         // client id
-        "31918457324-mjkmqridegrt407ok38m60lcknr6bqbn.apps.googleusercontent.com",
+        "ClientID",
         // client secret
-        "yJMavzcAj_9fVUMV30Xh15sj",
+        "client secret",
         // link to redirect to 
         "http://localhost:1234/steps"
     );
@@ -62,9 +56,9 @@ app.get("/steps", async (req, res) => {
     const code = queryParse.parse(queryURL.query).code;
     const oauth2Client = new google.auth.OAuth2(
         // client id
-        "31918457324-mjkmqridegrt407ok38m60lcknr6bqbn.apps.googleusercontent.com",
+        "ClientID",
         // client secret
-        "yJMavzcAj_9fVUMV30Xh15sj",
+        "client secret",
         // link to redirect to 
         "http://localhost:1234/steps"
     );
@@ -89,10 +83,6 @@ app.get("/steps", async (req, res) => {
                         dataTypeName: "com.google.step_count.delta",
                         dataSourceId: "derived:com.google.step_count.delta:com.google.android.gms:estimated_steps"
                     },
-                    // {
-                    //     dataTypeName: "com.google.weight.summary",
-                    //     dataSourceId: "derived:com.google.weight:com.google.android.gms:merge_weight"
-                    // },
                     {
                         dataTypeName: "com.google.distance.delta",
                         dataSourceId: "derived:com.google.distance.delta:com.google.android.gms:merge_distance_delta"
