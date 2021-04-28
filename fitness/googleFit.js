@@ -9,8 +9,18 @@ const queryParse = require("query-string");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 
-// 206650107599-go57ohpa7tt3k6bkbeqq40i2cr9cuofj.apps.googleusercontent.com
-// kzB43XkVSGixG0OLZF7-Foxv
+// let weekAgo = new Date();
+// let dayOfMonth = weekAgo.getDate();
+// weekAgo.setDate(dayOfMonth - 7);
+// let END = Date.parse(new Date());
+// let START = Date.parse(weekAgo);
+
+const weekAgo = new Date();
+weekAgo.setHours(0,0,0,0);
+const dayOfMonth = weekAgo.getDate();
+weekAgo.setDate(dayOfMonth - 6);
+const END = Date.parse(new Date());
+const START = Date.parse(weekAgo);
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -89,12 +99,14 @@ app.get("/steps", async (req, res) => {
                       }
                 ],
                 bucketByTime : {durationMillis: 86400000},
-                startTimeMillis: 1619449200000,
-                endTimeMillis: 1619500443000,
+                startTimeMillis: START,
+                endTimeMillis: END,
             },
 
         });
-        console.log(result)       
+        console.log("===========")
+        console.log(START)
+        console.log(END)       
         // console.log(result.data.bucket)       
         stepArray = result.data.bucket
     } catch (e) {
