@@ -30,6 +30,7 @@ module.exports = async (req, res) => {
     range,
     border_radius,
     border_color,
+    api_key,
   } = req.query;
 
   res.setHeader("Content-Type", "image/svg+xml");
@@ -39,7 +40,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const stats = await fetchWakatimeStats({ username, api_domain, range });
+    const stats = await fetchWakatimeStats({ username, api_domain, range, api_key });
 
     let cacheSeconds = clampValue(
       parseInt(cache_seconds || CONSTANTS.TWO_HOURS, 10),
