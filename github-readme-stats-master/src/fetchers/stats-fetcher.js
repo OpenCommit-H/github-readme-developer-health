@@ -61,8 +61,8 @@ const totalCommitsFetcher = async (username) => {
   const fetchTotalCommits = (variables, token) => {
     return axios({
       method: "get",
-      // url: `https://api.github.com/search/commits?q=author:${variables.login}`,
-      url: `https://api.github.com/search/commits?q=author:${variables.login} committer-date:2021-02-18&sort=committer-date&order=asc&per_page=1`,
+      url: `https://api.github.com/search/commits?q=author:${variables.login}`,
+      // url: `https://api.github.com/search/commits?q=author:${variables.login} committer-date:>${date}&sort=committer-date&order=asc&per_page=1`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/vnd.github.cloak-preview",
@@ -70,9 +70,62 @@ const totalCommitsFetcher = async (username) => {
       },
     });
   };
-
+  
   try {
     let res = await retryer(fetchTotalCommits, { login: username });
+    // console.log(JSON.stringify(res.data, null, '\t'))
+    if (res.data.total_count) {
+      return res.data.total_count;
+    }
+  } catch (err) {
+    logger.log(err);
+    // just return 0 if there is something wrong so that
+    // we don't break the whole app
+    return 0;
+  }
+};
+
+const day7CommitsFetcher = async (username) => {
+  if (!githubUsernameRegex.test(username)) {
+    logger.log("Invalid username");
+    return 0;
+  }
+
+  // https://developer.github.com/v3/search/#search-commits
+  const fetchday7Commits = (variables, token) => {
+    function getDateStr(myDate){
+      var year = myDate.getFullYear();
+      var month = (myDate.getMonth() + 1);
+      var day = myDate.getDate();
+      
+      month = (month < 10) ? "0" + String(month) : month;
+      day = (day < 10) ? "0" + String(day) : day;
+      
+      return  year + '-' + month + '-' + day;
+    }
+    function lastWeek() {
+      var d = new Date();
+      var dayOfMonth = d.getDate();
+      d.setDate(dayOfMonth - 7);
+      return getDateStr(d);
+    }
+    date = lastWeek();
+    console.log(date);
+    return axios({
+      method: "get",
+      // url: `https://api.github.com/search/commits?q=author:${variables.login}`,
+      url: `https://api.github.com/search/commits?q=author:${variables.login} committer-date:>2021-03-29&sort=committer-date&order=asc&per_page=1`,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/vnd.github.cloak-preview",
+        Authorization: `bearer ${token}`,
+      },
+    });
+  };
+  
+  try {
+    let res = await retryer(fetchday7Commits, { login: username });
+    // console.log(JSON.stringify(res.data, null, '\t'))
     if (res.data.total_count) {
       return res.data.total_count;
     }
@@ -98,6 +151,7 @@ async function fetchStats(
     totalIssues: 0,
     totalStars: 0,
     contributedTo: 0,
+    day7commits: 0,
     rank: { level: "C", score: 0 },
   };
 
@@ -123,6 +177,7 @@ async function fetchStats(
   // since totalCommitsFetcher already sends totalCommits no need to +=
   if (include_all_commits) {
     stats.totalCommits = await totalCommitsFetcher(username);
+    stats.day7commits = await day7CommitsFetcher(username);
   }
 
   // if count_private then add private commits to totalCommits so far.

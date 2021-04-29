@@ -53,6 +53,7 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
     totalIssues,
     totalPRs,
     contributedTo,
+    day7commits,
     rank,
   } = stats;
   const {
@@ -128,6 +129,12 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
       label: i18n.t("statcard.contribs"),
       value: contributedTo,
       id: "contribs",
+    },
+    day7commit: {
+      icon: icons.commits,
+      label: i18n.t("statcard.day7commit"),
+      value: day7commits,
+      id: "day7commits",
     },
   };
 
