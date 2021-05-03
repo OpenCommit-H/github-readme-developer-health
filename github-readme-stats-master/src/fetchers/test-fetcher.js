@@ -114,7 +114,7 @@ const day7CommitsFetcher = async (username) => {
     return axios({
       method: "get",
       // url: `https://api.github.com/search/commits?q=author:${variables.login}`,
-      url: `https://api.github.com/search/commits?q=author:${variables.login} committer-date:>2021-03-29&sort=committer-date&order=asc&per_page=1`,
+      url: `https://api.github.com/search/commits?q=author:${variables.login} committer-date:>${date}&sort=committer-date&order=asc&per_page=1`,
       headers: {
         "Content-Type": "application/json",
         Accept: "application/vnd.github.cloak-preview",
