@@ -1,6 +1,7 @@
 const I18n = require("../common/I18n");
 const Card = require("../common/Card");
 const icons = require("../common/icons");
+const animals = require("../common/animals");
 const { getStyles } = require("../getStyles");
 const { statCardLocales } = require("../translations");
 const {
@@ -235,11 +236,10 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
 
   <rect width="100%" height="100%" fill="white" />
   <circle cx="150" cy="100" r="80" fill="#8977ad" />
-  <text x="150" y="50" font-size="10" text-anchor="middle" fill="white">${name}님의 성향은</text>
-  <text x="190" y="70" font-size="20" text-anchor="middle" fill="white">${totalCommits}</text>
+  <text x="150" y="50" font-size="10" text-anchor="middle" fill="white">우유마시는 호랑이</text>
+  <text x="190" y="70" font-size="20" text-anchor="middle" fill="white">${day7commits} C/W</text>
   <image href="/src/cards/milk.png" x="120" y="0" height="200px" width="50px"/>
-  <image href="/src/cards/tiger.png" x="170" y="25" height="250px" width="70px"/>
-  
+  ${animals.tiger}
 </svg>
   `
 };
