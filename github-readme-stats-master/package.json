@@ -24,10 +24,16 @@
     "parse-diff": "^0.7.0"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "emoji-name-map": "^1.2.8",
     "github-username-regex": "^1.0.0",
+    "googleapis": "^73.0.0",
     "prettier": "^2.1.2",
+    "query-string": "^7.0.0",
+    "request": "^2.88.2",
+    "url-parse": "^1.5.1",
     "word-wrap": "^1.2.3"
   },
   "husky": {
