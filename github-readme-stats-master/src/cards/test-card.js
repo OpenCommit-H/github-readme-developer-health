@@ -231,15 +231,17 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   return `
     <svg version="1.1"
      baseProfile="full"
-     width="300" height="200"
+     width="200" height="200"
      xmlns="http://www.w3.org/2000/svg">
 
   <rect width="100%" height="100%" fill="white" />
-  <circle cx="150" cy="100" r="80" fill="#8977ad" />
-  <text x="150" y="50" font-size="10" text-anchor="middle" fill="white">우유마시는 호랑이</text>
-  <text x="190" y="70" font-size="20" text-anchor="middle" fill="white">${day7commits} C/W</text>
-  <image href="/src/cards/milk.png" x="120" y="0" height="200px" width="50px"/>
-  ${animals.tiger}
+  <circle cx="100" cy="100" r="90" fill="#8977ad" />
+  <text x="100" y="40" font-size="15" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" fill="white">사물하는 동물</text>
+  <text x="165" y="55" font-size="10" alignment-baseline="central" dominant-baseline="central" text-anchor="end" fill="white">${day7commits} C/W</text>
+  <svg preserveAspectRatio="xMidYMid meet"  x="0"  y="0"  viewBox="0 0 70 70" width="100"  height="100">
+  ${animals.egg}
+  </svg>
+  ${animals.dog}
 </svg>
   `
 };
