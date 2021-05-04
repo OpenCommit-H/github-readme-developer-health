@@ -99,7 +99,7 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
     custom_title,
     locale,
     layout,
-    langs_count = languages ? languages.length : 0,
+    // langs_count = languages ? languages.length : 0,
     border_radius,
     border_color,
     username,
@@ -112,7 +112,7 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
 
   const lheight = parseInt(line_height, 10);
 
-  langsCount = clampValue(parseInt(langs_count), 1, langs_count);
+  // langsCount = clampValue(parseInt(langs_count), 1, langs_count);
 
   // returns theme based colors with proper overrides and defaults
   const {
