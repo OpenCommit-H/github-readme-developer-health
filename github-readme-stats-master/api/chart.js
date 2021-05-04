@@ -60,8 +60,8 @@ module.exports = async (req, res) => {
     console.log(data);
 
 
-    var svgSizeWidth = 500;
-    var svgSizeHeight = 500;
+    var svgSizeWidth = 200;
+    var svgSizeHeight = 200;
 
     
     var chartStartX = 15;
@@ -88,50 +88,58 @@ module.exports = async (req, res) => {
     })
     maxCommit += 1;
     console.log(maxCommit);
+
+
+    var style = `
+        <defs>
+            <linearGradient id="myGradient" gradientTransform="rotate(90)">
+                <stop offset="5%"  stop-color="#0F2027" />
+                <stop offset="95%" stop-color="#2C5364" />
+            </linearGradient>
+        </defs>
+        <style>
+        circle {
+            fill: url('#myGradient');
+            stroke: maroon;
+            stroke-width: 0.4px;
+        }
+        .bar {
+            stroke: gray;
+            stroke-width: 0.3px;
+        }
+        #title {
+            text-anchor: middle;
+            fill: #ffaaaa;
+            font: bold 28px sans-selif;
+        }
+        #infoText {
+            fill: #ffaaaa;
+        }
+        polyline {
+            fill:none;
+            stroke:#a79c8e;
+            stroke-width:4;
+        }
+        #chart {
+            stroke:gray;
+            stroke-width:0.4px;
+        }
+        #sleep {
+            fill: #eb9f9f;
+        }
+        #waka {
+            fill: #f1bbba;
+        }
+        #fit {
+            fill: #f8ecc9;
+        }
+        </style>
+    `;
     
     var svg = `
       <svg version="1.1" width="${svgSizeWidth}" height="${svgSizeHeight}" xmlns="http://www.w3.org/2000/svg>
         <svg width="100%" height="100%">
-        <style>
-          circle {
-            fill: #020715;
-            stroke: maroon;
-            stroke-width: 0.4px;
-          }
-          .bar {
-            stroke: gray;
-            stroke-width: 0.3px;
-          }
-          #title {
-            text-anchor: middle;
-            fill: #ffaaaa;
-            font: bold 28px sans-selif;
-          }
-          #infoText {
-            fill: #ffaaaa;
-          }
-          #day {
-            text-anchor: middle;
-          }
-          polyline {
-            fill:none;
-            stroke:#a79c8e;
-            stroke-width:4;
-          }
-          #chart {
-            stroke:gray;
-            stroke-width:0.4px;
-          }
-          #sleep {
-            fill: #eb9f9f;
-          }
-          #waka {
-            fill: #f1bbba;
-          }
-          #fit {
-            fill: #f8ecc9;
-          }
-        </style>
+        ${style}
           <circle cx="50%" cy="50%" r="48%"/>
           <rect id="chart" fill="none" x="${chartStartX}%" y="${chartStartY}%" width="${chartEndX}%" height="${chartEndY}%"/>
     
@@ -166,15 +174,14 @@ module.exports = async (req, res) => {
     
           <svg width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="none">
             <g id="infoText">
-              <g id="day">
-                <text x="${chartStartX + dx[0] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[0].date}</text>
-                <text x="${chartStartX + dx[1] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[1].date}</text>
-                <text x="${chartStartX + dx[2] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[2].date}</text>
-                <text x="${chartStartX + dx[3] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[3].date}</text>
-                <text x="${chartStartX + dx[4] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[4].date}</text>
-                <text x="${chartStartX + dx[5] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[5].date}</text>
-                <text x="${chartStartX + dx[6] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[6].date}</text>
-              </g>
+              <text x="${chartStartX + dx[0] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[0].date}</text>
+              <text x="${chartStartX + dx[1] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[1].date}</text>
+              <text x="${chartStartX + dx[2] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[2].date}</text>
+              <text x="${chartStartX + dx[3] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[3].date}</text>
+              <text x="${chartStartX + dx[4] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[4].date}</text>
+              <text x="${chartStartX + dx[5] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[5].date}</text>
+              <text x="${chartStartX + dx[6] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[6].date}</text>
+
               <text x="${chartStartX - 6}%" y="${chartStartY -2}%">Hour</text>
               <text x="${chartStartX - 4}%" y="${chartStartY +4}%">${standardTime}</text>
               <text x="${chartStartX - 2}%" y="${chartStartY + chartEndY - 2}%">0</text>
