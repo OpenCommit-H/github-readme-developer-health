@@ -1,9 +1,5 @@
 const axios = require("axios");
 const { google } = require("googleapis");
-const cors = require("cors");
-const urlParse = require("url-parse");
-const queryParse = require("query-string");
-const bodyParser = require("body-parser");
 const request = require("request");
 
 
