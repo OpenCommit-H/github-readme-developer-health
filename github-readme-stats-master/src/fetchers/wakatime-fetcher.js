@@ -11,7 +11,7 @@ const fetchWakatimeStats = async ({ username, api_domain, range, api_key }) => {
     var dataList = new Array();
 
     dailyData.data.data.forEach(function (data, idx) {
-      data.grand_total.date = date.range.text;
+      data.grand_total.date = data.range.text;
       dataList.push(data.grand_total);
     });
 

@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "Dynamically generate stats for your github readmes",
   "main": "index.js",
-  "scripts": {
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "theme-readme-gen": "node scripts/generate-theme-doc",
-    "preview-theme": "node scripts/preview-theme"
-  },
   "author": "Anurag Hazra",
   "license": "MIT",
   "devDependencies": {
