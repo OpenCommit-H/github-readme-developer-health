@@ -110,6 +110,9 @@ module.exports = async (req, res) => {
           #infoText {
             fill: #ffaaaa;
           }
+          #day {
+            text-anchor: middle;
+          }
           polyline {
             fill:none;
             stroke:#a79c8e;
@@ -163,14 +166,15 @@ module.exports = async (req, res) => {
     
           <svg width="100%" height="100%" viewBox="0 0 500 500" preserveAspectRatio="none">
             <g id="infoText">
-              <text x="${chartStartX + dx[0] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[0].date}</text>
-              <text x="${chartStartX + dx[1] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[1].date}</text>
-              <text x="${chartStartX + dx[2] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[2].date}</text>
-              <text x="${chartStartX + dx[3] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[3].date}</text>
-              <text x="${chartStartX + dx[4] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[4].date}</text>
-              <text x="${chartStartX + dx[5] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[5].date}</text>
-              <text x="${chartStartX + dx[6] + 3}%" y="${chartStartY + chartEndY + 4}%">${data[6].date}</text>
-
+              <g id="day">
+                <text x="${chartStartX + dx[0] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[0].date}</text>
+                <text x="${chartStartX + dx[1] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[1].date}</text>
+                <text x="${chartStartX + dx[2] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[2].date}</text>
+                <text x="${chartStartX + dx[3] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[3].date}</text>
+                <text x="${chartStartX + dx[4] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[4].date}</text>
+                <text x="${chartStartX + dx[5] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[5].date}</text>
+                <text x="${chartStartX + dx[6] + 5}%" y="${chartStartY + chartEndY + 4}%">${data[6].date}</text>
+              </g>
               <text x="${chartStartX - 6}%" y="${chartStartY -2}%">Hour</text>
               <text x="${chartStartX - 4}%" y="${chartStartY +4}%">${standardTime}</text>
               <text x="${chartStartX - 2}%" y="${chartStartY + chartEndY - 2}%">0</text>
