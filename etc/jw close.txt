@@ -1,3 +1,13 @@
 *임의 수정 금지
 0421
 0422
+
+ <defs>
+    <linearGradient id="myGradient" gradientTransform="rotate(90)">
+      <stop offset="5%"  stop-color="#ffc3a0" />
+      <stop offset="95%" stop-color="#FFAFBD" />
+    </linearGradient>
+  </defs>
+
+
+  <circle cx="250" cy="250" r="100" stroke="black" stroke-width="0" fill="url('#myGradient')" />
