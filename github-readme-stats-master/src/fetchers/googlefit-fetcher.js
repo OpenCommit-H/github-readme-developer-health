@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { google } = require("googleapis");
 const request = require("request");
-
+const calculateActivity = require("../calculateActivity");
 
 const fetchGoogleFitGetUrl = async () => {
  
@@ -62,7 +62,8 @@ const fetchGoogleFitGetData = async (code) => {
         active_minutes: 0,
         heart_level: 0,
         heart_minutes: 0,
-        sleep: 0
+        sleep: 0,
+        animal: ""
     };
     
     // const queryURL = new urlParse(url);
@@ -195,6 +196,13 @@ const fetchGoogleFitGetData = async (code) => {
     } catch (e) {
         console.log(e);
     }
+     stats.animal = calculateActivity({
+        step: stats.step,
+        active_minutes: stats.active_minutes,
+        heart_minutes: stats.heart_minutes,
+        heart_level: stats.heart_level
+     });
+     
     return stats;
 };
 
