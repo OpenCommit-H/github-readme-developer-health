@@ -2,6 +2,7 @@ const I18n = require("../common/I18n");
 const Card = require("../common/Card");
 const icons = require("../common/icons");
 const animals = require("../common/animals");
+const drinks = require("../common/drinks");
 const { getStyles } = require("../getStyles");
 const { statCardLocales } = require("../translations");
 const {
@@ -79,7 +80,8 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
     border_color,
     locale,
     disable_animations = false,
-    character = 1,
+    animal = 1,
+    drink = 1,
   } = options;
 
   const lheight = parseInt(line_height, 10);
@@ -231,26 +233,51 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   card.setCSS(cssStyles);
 
   if (disable_animations) card.disableAnimations();
+  
+  const magni = 30;
 
   const selectAnimal = () => {
-    if (character == 1) {
+    if (animal == 1) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="50%" y="10%" viewBox="-30 -30 130 130">
+      <svg preserveAspectRatio="xMidYMid meet" x="20%" y="20%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${animals.sloth}
       </svg>
       `;
     };
-    if (character == 2) {
+    if (animal == 2) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="20%" y="20%" viewBox="-30 -30 130 130">
+      <svg preserveAspectRatio="xMidYMid meet" x="20%" y="20%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${animals.pig}
       </svg>
       `;
     };
-    if (character == 3) {
+    if (animal == 3) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" viewBox="-30 -30 130 130">
+      <svg preserveAspectRatio="xMidYMid meet" x="20%" y="20%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${animals.pig}
+      </svg>
+      `;
+    };
+  };
+  const selectDrink = () => {
+    if (drink == 1) {
+      return `
+      <svg preserveAspectRatio="xMidYMid meet" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      ${drinks.babyBottle}
+      </svg>
+      `;
+    };
+    if (drink == 2) {
+      return `
+      <svg preserveAspectRatio="xMidYMid meet" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      ${drinks.tea}
+      </svg>
+      `;
+    };
+    if (drink == 3) {
+      return `
+      <svg preserveAspectRatio="xMidYMid meet" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      ${drinks.tea}
       </svg>
       `;
     };
@@ -259,7 +286,7 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   return `
     <svg version="1.1"
      baseProfile="full"
-     width="200" height="200"
+     width="${magni*10}" height="${magni*10}"
      xmlns="http://www.w3.org/2000/svg">
  
   <defs>
@@ -272,11 +299,10 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   <circle cx="50%" cy="50%" r="50%" stroke="black" stroke-width="0" fill="url('#myGradient')" />
   <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
     <text x="50%" y="10%" font-size="15" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" fill="white">drink milk dog</text>
-    <text x="82.5%" y="20%" font-size="10" alignment-baseline="central" dominant-baseline="central" text-anchor="end" fill="white">${day7commits} dafsdasfC/W</text>
+    <text x="82.5%" y="20%" font-size="10" alignment-baseline="central" dominant-baseline="central" text-anchor="end" fill="white">${day7commits} C/W</text>
   </svg>
   ${selectAnimal()}
-
-  ${animals.dog}
+  ${selectDrink()}
 </svg>
   `
 };

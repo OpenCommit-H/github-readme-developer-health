@@ -1,4 +1,4 @@
-const animals = {
+const drinks = {
   babyBottle: `
     <g id="color">
       <path fill="#FCEA2B" stroke="none" d="M51.5334,37.3844L35.2339,21.0847c6.2853-6.2853,8.5839,1.4216,15.9401-5.9347l1.5737-1.5734 c1.738-1.7383,4.5563-1.7383,6.2938,0c1.7383,1.7377,1.7383,4.5561,0.0005,6.2938l-1.5739,1.574 C50.112,28.8005,57.8188,31.0989,51.5334,37.3844z"/>
@@ -46,4 +46,4 @@ const animals = {
 
 };
 
-module.exports = animals;
+module.exports = drinks;
