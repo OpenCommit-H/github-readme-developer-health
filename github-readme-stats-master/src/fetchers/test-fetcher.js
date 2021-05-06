@@ -172,7 +172,7 @@ async function fetchStats(
 
   // normal commits
   stats.totalCommits = user.contributionsCollection.totalCommitContributions;
-
+  stats.day7commits = await day7CommitsFetcher(username);
   // if include_all_commits then just get that,
   // since totalCommitsFetcher already sends totalCommits no need to +=
   if (include_all_commits) {
