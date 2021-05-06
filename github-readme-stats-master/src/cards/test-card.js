@@ -13,6 +13,9 @@ const {
 } = require("../common/utils");
 const { commits } = require("../common/icons");
 
+
+
+
 const createTextNode = ({
   icon,
   label,
@@ -76,6 +79,7 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
     border_color,
     locale,
     disable_animations = false,
+    character = 1,
   } = options;
 
   const lheight = parseInt(line_height, 10);
@@ -198,7 +202,7 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   const calculateTextWidth = () => {
     return measureText(custom_title ? custom_title : i18n.t("statcard.title"));
   };
-
+  
   const width = hide_rank
     ? clampValue(
         50 /* padding */ + calculateTextWidth() * 2,
@@ -228,19 +232,50 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
 
   if (disable_animations) card.disableAnimations();
 
+  const selectAnimal = () => {
+    if (character == 1) {
+      return `
+      <svg preserveAspectRatio="xMidYMid meet" x="50%" y="10%" viewBox="-30 -30 130 130">
+      ${animals.sloth}
+      </svg>
+      `;
+    };
+    if (character == 2) {
+      return `
+      <svg preserveAspectRatio="xMidYMid meet" x="20%" y="20%" viewBox="-30 -30 130 130">
+      ${animals.pig}
+      </svg>
+      `;
+    };
+    if (character == 3) {
+      return `
+      <svg preserveAspectRatio="xMidYMid meet" viewBox="-30 -30 130 130">
+      ${animals.pig}
+      </svg>
+      `;
+    };
+  };
+
   return `
     <svg version="1.1"
      baseProfile="full"
      width="200" height="200"
      xmlns="http://www.w3.org/2000/svg">
-
+ 
+  <defs>
+    <linearGradient id="myGradient" gradientTransform="rotate(90)">
+      <stop offset="5%"  stop-color="#ffc3a0" />
+      <stop offset="95%" stop-color="#FFAFBD" />
+    </linearGradient>
+  </defs>
   <rect width="100%" height="100%" fill="white" />
-  <circle cx="100" cy="100" r="90" fill="#8977ad" />
-  <text x="100" y="40" font-size="15" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" fill="white">사물하는 동물</text>
-  <text x="165" y="55" font-size="10" alignment-baseline="central" dominant-baseline="central" text-anchor="end" fill="white">${day7commits} C/W</text>
-  <svg preserveAspectRatio="xMidYMid meet"  x="0"  y="0"  viewBox="0 0 70 70" width="100"  height="100">
-  ${animals.egg}
+  <circle cx="50%" cy="50%" r="50%" stroke="black" stroke-width="0" fill="url('#myGradient')" />
+  <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
+    <text x="50%" y="10%" font-size="15" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" fill="white">drink milk dog</text>
+    <text x="82.5%" y="20%" font-size="10" alignment-baseline="central" dominant-baseline="central" text-anchor="end" fill="white">${day7commits} dafsdasfC/W</text>
   </svg>
+  ${selectAnimal()}
+
   ${animals.dog}
 </svg>
   `

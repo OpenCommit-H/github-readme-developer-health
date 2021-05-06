@@ -80,6 +80,7 @@ module.exports = async (req, res) => {
         border_color,
         locale: locale ? locale.toLowerCase() : null,
         disable_animations: parseBoolean(disable_animations),
+        character: 2,
       }),
     );
   } catch (err) {
