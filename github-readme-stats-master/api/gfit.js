@@ -9,12 +9,13 @@ module.exports = async (req, res) => {
 
   const {
     username,
-    wakaname
+    wakaname,
+    api_key
   } = req.query;
 
    try{
      
-      const url = await fetchGoogleFitGetUrl({username, wakaname});
+      const url = await fetchGoogleFitGetUrl({username, wakaname, api_key});
       //const test = await fetchGoogleFitGetData({url});
       res.send(url);
 

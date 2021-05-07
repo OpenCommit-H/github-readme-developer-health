@@ -3,7 +3,7 @@ const { google } = require("googleapis");
 const request = require("request");
 const calculateActivity = require("../calculateActivity");
 
-const fetchGoogleFitGetUrl = async ({username, wakaname}) => {
+const fetchGoogleFitGetUrl = async ({username, wakaname, api_key}) => {
  
     const oauth2Client = new google.auth.OAuth2(
         // client id
@@ -28,7 +28,8 @@ const fetchGoogleFitGetUrl = async ({username, wakaname}) => {
         scope: scopes,
         state: JSON.stringify({
             username :username,
-            wakaname: wakaname
+            wakaname: wakaname,
+            api_key: api_key
         })
     });
     request(url, (err, response, body) => {
