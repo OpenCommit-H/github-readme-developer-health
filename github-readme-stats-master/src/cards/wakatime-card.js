@@ -85,7 +85,7 @@ const createTextNode = ({
 };
 
 const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
-  const { languages } = stats;
+  //const { languages } = stats;
   const {
     hide_title = false,
     hide_border = false,
@@ -99,9 +99,10 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
     custom_title,
     locale,
     layout,
-    langs_count = languages ? languages.length : 0,
+    // langs_count = languages ? languages.length : 0,
     border_radius,
     border_color,
+    username,
   } = options;
 
   const i18n = new I18n({
@@ -111,7 +112,7 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
 
   const lheight = parseInt(line_height, 10);
 
-  langsCount = clampValue(parseInt(langs_count), 1, langs_count);
+  // langsCount = clampValue(parseInt(langs_count), 1, langs_count);
 
   // returns theme based colors with proper overrides and defaults
   const {
@@ -129,16 +130,19 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
     theme,
   });
 
-  const statItems = languages
-    ? languages
-        .filter((language) => language.hours || language.minutes)
-        .slice(0, langsCount)
-        .map((language) => {
+  var totSec = 0;
+  stats.forEach(element => {
+    totSec += element.total_seconds;
+  });
+
+  const statItems = stats
+    ? stats
+        .map((stat) => {
           return createTextNode({
-            id: language.name,
-            label: language.name,
-            value: language.text,
-            percent: language.percent,
+            id: stat.date.split(" ")[0],
+            label: stat.date.split(" ")[0],
+            value: stat.text,
+            percent: (stat.total_seconds/totSec)*100,
             progressBarColor: titleColor,
             progressBarBackgroundColor: textColor,
             hideProgress: hide_progress,
@@ -220,7 +224,7 @@ const renderWakatimeCard = (stats = {}, options = { hide: [] }) => {
 
   const card = new Card({
     customTitle: custom_title,
-    defaultTitle: i18n.t("wakatimecard.title"),
+    defaultTitle: username + "'s development time",
     width: 495,
     height,
     border_radius,

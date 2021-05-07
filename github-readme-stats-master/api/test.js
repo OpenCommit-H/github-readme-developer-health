@@ -93,10 +93,9 @@ module.exports = async (req, res) => {
         border_color,
         locale: locale ? locale.toLowerCase() : null,
         disable_animations: parseBoolean(disable_animations),
-        // hide_progress,
-        // layout,
-        // langs_count
-      })
+        animal: 2,
+        drink: 1,
+      }),
     );
   } catch (err) {
     return res.send(renderError(err.message, err.secondaryMessage));
