@@ -29,13 +29,19 @@ const renderChartCard = (data, username, themes) => {
 
     const theme = themes ? chartThemes[themes] : chartThemes["defaultTheme"];
     
+    var minus = [-1, 1];
 
     var sleepData = data.map((element, idx) => {
         const output = `
         <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40}%" width="8%" height="${(element.sleep / standardTime) * 40}%" rx="2" ry="2">
-            <animate attributeName="height" dur="2s"
+            <animate attributeName="height" dur="1s"
             from="0%"
             to="${(element.sleep / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+            <animate attributeName="y" dur="1s"
+            from="40%"
+            to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40}%"
             begin="0s"
             fill="freeze"/>
         </rect>
@@ -51,6 +57,11 @@ const renderChartCard = (data, username, themes) => {
             to="${(element.waka / standardTime) * 40}%"
             begin="0s"
             fill="freeze"/>
+            <animate attributeName="y" dur="2s"
+            from="40%"
+            to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
         </rect>
         `;
         return output;
@@ -58,9 +69,15 @@ const renderChartCard = (data, username, themes) => {
 
     var fitData = data.map((element, idx) => {
         const output = `
-        <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%" width="8%" height="${(element.fit / standardTime) * 40}%" rx="2" ry="2">    <animate attributeName="height" dur="2s"
+        <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%" width="8%" height="${(element.fit / standardTime) * 40}%" rx="2" ry="2">
+            <animate attributeName="height" dur="3s"
             from="0%"
             to="${(element.fit / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+            <animate attributeName="y" dur="3s"
+            from="40%"
+            to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%"
             begin="0s"
             fill="freeze"/>
         </rect>
