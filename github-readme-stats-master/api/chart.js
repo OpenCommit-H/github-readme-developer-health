@@ -11,7 +11,7 @@ const renderChartCard = require("../src/cards/chart-card");
 
 module.exports = async (req, res) => {
     const {
-        username,
+        wakaname,
         api_key,
         range,
         api_domain,
@@ -68,7 +68,7 @@ module.exports = async (req, res) => {
     ];
 
     try {
-        const wakaStats = await fetchWakatimeStats({ username, api_domain, range, api_key });
+        const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
         
         // find day index
         var dayIdx = 0;
@@ -88,7 +88,7 @@ module.exports = async (req, res) => {
         // last 7days goofle fit api
         // make data
 
-        res.send(renderChartCard(data, username, themes));
+        res.send(renderChartCard(data, wakaname, themes));
     } catch (err) {
         return res.send(renderError(err.message, err.secondaryMessage));
     }
