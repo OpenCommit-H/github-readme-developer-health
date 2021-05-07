@@ -52,12 +52,12 @@ const renderChartCard = (data, username, themes) => {
     var wakaData = data.map((element, idx) => {
         const output = `
         <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40}%" width="8%" height="${(element.waka / standardTime) * 40}%" rx="2" ry="2">
-            <animate attributeName="height" dur="2s"
+            <animate attributeName="height" dur="1.5s"
             from="0%"
             to="${(element.waka / standardTime) * 40}%"
             begin="0s"
             fill="freeze"/>
-            <animate attributeName="y" dur="2s"
+            <animate attributeName="y" dur="1.5s"
             from="40%"
             to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40}%"
             begin="0s"
@@ -70,12 +70,12 @@ const renderChartCard = (data, username, themes) => {
     var fitData = data.map((element, idx) => {
         const output = `
         <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%" width="8%" height="${(element.fit / standardTime) * 40}%" rx="2" ry="2">
-            <animate attributeName="height" dur="3s"
+            <animate attributeName="height" dur="2s"
             from="0%"
             to="${(element.fit / standardTime) * 40}%"
             begin="0s"
             fill="freeze"/>
-            <animate attributeName="y" dur="3s"
+            <animate attributeName="y" dur="2s"
             from="40%"
             to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%"
             begin="0s"
@@ -192,7 +192,26 @@ const renderChartCard = (data, username, themes) => {
                               ${500 * (chartStartX + dx[3] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[3].commits/maxCommit) * 200} 
                               ${500 * (chartStartX + dx[4] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[4].commits/maxCommit) * 200} 
                               ${500 * (chartStartX + dx[5] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[5].commits/maxCommit) * 200} 
-                              ${500 * (chartStartX + dx[6] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[6].commits/maxCommit) * 200}"/>
+                              ${500 * (chartStartX + dx[6] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[6].commits/maxCommit) * 200}">
+
+            <animate attributeName="points" dur="2s"
+            from="${500 * (chartStartX + dx[0] + 5)/100},${500 * (chartStartY + chartEndY)/100}
+            ${500 * (chartStartX + dx[1] + 5)/100},${500 * (chartStartY + chartEndY)/100}
+            ${500 * (chartStartX + dx[2] + 5)/100},${500 * (chartStartY + chartEndY)/100}
+            ${500 * (chartStartX + dx[3] + 5)/100},${500 * (chartStartY + chartEndY)/100}
+            ${500 * (chartStartX + dx[4] + 5)/100},${500 * (chartStartY + chartEndY)/100}
+            ${500 * (chartStartX + dx[5] + 5)/100},${500 * (chartStartY + chartEndY)/100}
+            ${500 * (chartStartX + dx[6] + 5)/100},${500 * (chartStartY + chartEndY)/100}"
+            to="${500 * (chartStartX + dx[0] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[0].commits/maxCommit) * 200} 
+            ${500 * (chartStartX + dx[1] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[1].commits/maxCommit) * 200} 
+            ${500 * (chartStartX + dx[2] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[2].commits/maxCommit) * 200} 
+            ${500 * (chartStartX + dx[3] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[3].commits/maxCommit) * 200} 
+            ${500 * (chartStartX + dx[4] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[4].commits/maxCommit) * 200} 
+            ${500 * (chartStartX + dx[5] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[5].commits/maxCommit) * 200} 
+            ${500 * (chartStartX + dx[6] + 5)/100},${500 * (chartStartY + chartEndY)/100 - (data[6].commits/maxCommit) * 200}"
+            begin="0s"
+            fill="freeze"/>
+            </polyline>
     
     
             <text id="title" x="50%" y="25%">${username}'s health stats</text>
