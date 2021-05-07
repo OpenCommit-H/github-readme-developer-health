@@ -75,7 +75,6 @@ module.exports = async (req, res) => {
         data.forEach((element, idx) => {
             if (element.date == wakaStats[0].date.split(" ")[0]) {
                 dayIdx = idx;
-                console.log(element.date);
             }
         });
         
