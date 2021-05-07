@@ -27,7 +27,64 @@ const renderChartCard = (data, username, themes) => {
     })
     maxCommit += 1;
 
-    const theme = themes? chartThemes[themes] : chartThemes["defaultTheme"];
+    const theme = themes ? chartThemes[themes] : chartThemes["defaultTheme"];
+    
+    var minus = [-1, 1];
+
+    var sleepData = data.map((element, idx) => {
+        const output = `
+        <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40}%" width="8%" height="${(element.sleep / standardTime) * 40}%" rx="2" ry="2">
+            <animate attributeName="height" dur="1s"
+            from="0%"
+            to="${(element.sleep / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+            <animate attributeName="y" dur="1s"
+            from="40%"
+            to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+        </rect>
+        `;
+        return output;
+    }).join("");
+
+    var wakaData = data.map((element, idx) => {
+        const output = `
+        <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40}%" width="8%" height="${(element.waka / standardTime) * 40}%" rx="2" ry="2">
+            <animate attributeName="height" dur="2s"
+            from="0%"
+            to="${(element.waka / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+            <animate attributeName="y" dur="2s"
+            from="40%"
+            to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+        </rect>
+        `;
+        return output;
+    }).join("");
+
+    var fitData = data.map((element, idx) => {
+        const output = `
+        <rect class="bar" x="${chartStartX + dx[idx] + 1}%" y="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%" width="8%" height="${(element.fit / standardTime) * 40}%" rx="2" ry="2">
+            <animate attributeName="height" dur="3s"
+            from="0%"
+            to="${(element.fit / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+            <animate attributeName="y" dur="3s"
+            from="40%"
+            to="${chartStartY + chartEndY - (element.sleep / standardTime) * 40 - (element.waka / standardTime) * 40 - (element.fit / standardTime) * 40}%"
+            begin="0s"
+            fill="freeze"/>
+        </rect>
+        `;
+        return output;
+    }).join("");
+
 
     var style = `
         <defs>
@@ -89,34 +146,16 @@ const renderChartCard = (data, username, themes) => {
           <rect id="chart" fill="none" x="${chartStartX}%" y="${chartStartY}%" width="${chartEndX}%" height="${chartEndY}%"/>
     
           <g class="sleep">
-            <rect class="bar" x="${chartStartX + dx[0] + 1}%" y="${chartStartY + chartEndY - (data[0].sleep / standardTime) * 40}%" width="8%" height="${(data[0].sleep / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[1] + 1}%" y="${chartStartY + chartEndY - (data[1].sleep / standardTime) * 40}%" width="8%" height="${(data[1].sleep / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[2] + 1}%" y="${chartStartY + chartEndY - (data[2].sleep / standardTime) * 40}%" width="8%" height="${(data[2].sleep / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[3] + 1}%" y="${chartStartY + chartEndY - (data[3].sleep / standardTime) * 40}%" width="8%" height="${(data[3].sleep / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[4] + 1}%" y="${chartStartY + chartEndY - (data[4].sleep / standardTime) * 40}%" width="8%" height="${(data[4].sleep / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[5] + 1}%" y="${chartStartY + chartEndY - (data[5].sleep / standardTime) * 40}%" width="8%" height="${(data[5].sleep / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[6] + 1}%" y="${chartStartY + chartEndY - (data[6].sleep / standardTime) * 40}%" width="8%" height="${(data[6].sleep / standardTime) * 40}%" rx="2" ry="2"/>
+           ${sleepData}
             <rect class="bar" x="${chartStartX + 5}%" y="${chartStartY - 10}%" width="2%" height="2%" />
           </g>
           <g class="waka">
-            <rect class="bar" x="${chartStartX + dx[0] + 1}%" y="${chartStartY + chartEndY - (data[0].sleep / standardTime) * 40 - (data[0].waka / standardTime) * 40}%" width="8%" height="${(data[0].waka / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[1] + 1}%" y="${chartStartY + chartEndY - (data[1].sleep / standardTime) * 40 - (data[1].waka / standardTime) * 40}%" width="8%" height="${(data[1].waka / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[2] + 1}%" y="${chartStartY + chartEndY - (data[2].sleep / standardTime) * 40 - (data[2].waka / standardTime) * 40}%" width="8%" height="${(data[2].waka / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[3] + 1}%" y="${chartStartY + chartEndY - (data[3].sleep / standardTime) * 40 - (data[3].waka / standardTime) * 40}%" width="8%" height="${(data[3].waka / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[4] + 1}%" y="${chartStartY + chartEndY - (data[4].sleep / standardTime) * 40 - (data[4].waka / standardTime) * 40}%" width="8%" height="${(data[4].waka / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[5] + 1}%" y="${chartStartY + chartEndY - (data[5].sleep / standardTime) * 40 - (data[5].waka / standardTime) * 40}%" width="8%" height="${(data[5].waka / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[6] + 1}%" y="${chartStartY + chartEndY - (data[6].sleep / standardTime) * 40 - (data[6].waka / standardTime) * 40}%" width="8%" height="${(data[6].waka / standardTime) * 40}%" rx="2" ry="2"/>
+            ${wakaData}
             <rect class="bar" x="${chartStartX + 20}%" y="${chartStartY - 10}%" width="2%" height="2%" />
           </g>
     
           <g class="fit">
-            <rect class="bar" x="${chartStartX + dx[0] + 1}%" y="${chartStartY + chartEndY - (data[0].sleep / standardTime) * 40 - (data[0].waka / standardTime) * 40 - (data[0].fit / standardTime) * 40}%" width="8%" height="${(data[0].fit / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[1] + 1}%" y="${chartStartY + chartEndY - (data[1].sleep / standardTime) * 40 - (data[1].waka / standardTime) * 40 - (data[1].fit / standardTime) * 40}%" width="8%" height="${(data[1].fit / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[2] + 1}%" y="${chartStartY + chartEndY - (data[2].sleep / standardTime) * 40 - (data[2].waka / standardTime) * 40 - (data[2].fit / standardTime) * 40}%" width="8%" height="${(data[2].fit / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[3] + 1}%" y="${chartStartY + chartEndY - (data[3].sleep / standardTime) * 40 - (data[3].waka / standardTime) * 40 - (data[3].fit / standardTime) * 40}%" width="8%" height="${(data[3].fit / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[4] + 1}%" y="${chartStartY + chartEndY - (data[4].sleep / standardTime) * 40 - (data[4].waka / standardTime) * 40 - (data[4].fit / standardTime) * 40}%" width="8%" height="${(data[4].fit / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[5] + 1}%" y="${chartStartY + chartEndY - (data[5].sleep / standardTime) * 40 - (data[5].waka / standardTime) * 40 - (data[5].fit / standardTime) * 40}%" width="8%" height="${(data[5].fit / standardTime) * 40}%" rx="2" ry="2"/>
-            <rect class="bar" x="${chartStartX + dx[6] + 1}%" y="${chartStartY + chartEndY - (data[6].sleep / standardTime) * 40 - (data[6].waka / standardTime) * 40 - (data[6].fit / standardTime) * 40}%" width="8%" height="${(data[6].fit / standardTime) * 40}%" rx="2" ry="2"/>
+            ${fitData}
             <rect class="bar" x="${chartStartX + 35}%" y="${chartStartY - 10}%" width="2%" height="2%" />
           </g>
 
