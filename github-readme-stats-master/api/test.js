@@ -61,7 +61,9 @@ module.exports = async (req, res) => {
       parseBoolean(include_all_commits),
     );
     const wakaname = JSON.parse(state).wakaname;
-    const wakastats = await fetchWakatimeStats({ wakaname, api_domain, range });
+    console.log(wakaname)
+    const api_key = JSON.parse(state).api_key;
+    const wakastats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
     const cacheSeconds = clampValue(
       parseInt(cache_seconds || CONSTANTS.TWO_HOURS, 10),
       CONSTANTS.TWO_HOURS,

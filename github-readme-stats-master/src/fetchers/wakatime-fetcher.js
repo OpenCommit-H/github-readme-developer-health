@@ -1,11 +1,11 @@
 const axios = require("axios");
 
-const fetchWakatimeStats = async ({ username, api_domain, range, api_key }) => {
+const fetchWakatimeStats = async ({ wakaname, api_domain, range, api_key }) => {
   try {
     const dailyData = await axios.get(
       `https://${
         api_domain ? api_domain.replace(/[^a-z-.0-9]/gi, "") : "wakatime.com"
-      }/api/v1/users/${username}/summaries?range=last_7_days&api_key=${api_key}`,
+      }/api/v1/users/${wakaname}/summaries?range=last_7_days&api_key=${api_key}`,
     );
 
     var dataList = new Array();
