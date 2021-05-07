@@ -10,10 +10,10 @@ const fetchStats = require("../src/fetchers/test-fetcher");
 const renderStatsCard = require("../src/cards/test-card");
 const blacklist = require("../src/common/blacklist");
 const { isLocaleAvailable } = require("../src/translations");
-
+const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
+const { fetchGoogleFitGetData } = require("../src/fetchers/googlefit-fetcher");
 module.exports = async (req, res) => {
   const {
-    username,
     hide,
     hide_title,
     hide_border,
@@ -33,12 +33,20 @@ module.exports = async (req, res) => {
     disable_animations,
     border_radius,
     border_color,
+    api_domain,
+    range,
+    code,
+    state
+    // hide_progress,
+    // layout,
+    // langs_count
   } = req.query;
+  // const user = JSON.parse(state);
   let stats;
-
   res.setHeader("Content-Type", "image/svg+xml");
-
-  if (blacklist.includes(username)) {
+  const test = await fetchGoogleFitGetData(code);
+  console.log(test)
+  if (blacklist.includes(JSON.parse(state).username)) {
     return res.send(renderError("Something went wrong"));
   }
 
@@ -48,11 +56,12 @@ module.exports = async (req, res) => {
 
   try {
     stats = await fetchStats(
-      username,
+      JSON.parse(state).username,
       parseBoolean(count_private),
       parseBoolean(include_all_commits),
     );
-
+    const wakaname = JSON.parse(state).wakaname;
+    const wakastats = await fetchWakatimeStats({ wakaname, api_domain, range });
     const cacheSeconds = clampValue(
       parseInt(cache_seconds || CONSTANTS.TWO_HOURS, 10),
       CONSTANTS.TWO_HOURS,
@@ -60,6 +69,10 @@ module.exports = async (req, res) => {
     );
 
     res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
+    
+    console.log(wakastats);
+    console.log("===========");
+    console.log(stats);
 
     return res.send(
       renderStatsCard(stats, {
@@ -80,7 +93,10 @@ module.exports = async (req, res) => {
         border_color,
         locale: locale ? locale.toLowerCase() : null,
         disable_animations: parseBoolean(disable_animations),
-      }),
+        // hide_progress,
+        // layout,
+        // langs_count
+      })
     );
   } catch (err) {
     return res.send(renderError(err.message, err.secondaryMessage));

@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const request = require("request");
 
 
-const fetchGoogleFitGetUrl = async () => {
+const fetchGoogleFitGetUrl = async ({username, wakaname}) => {
  
     const oauth2Client = new google.auth.OAuth2(
         // client id
@@ -15,7 +15,7 @@ const fetchGoogleFitGetUrl = async () => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "http://localhost:3000/api/data"
+        "http://localhost:3000/api/test"
         
     );
     
@@ -30,10 +30,10 @@ const fetchGoogleFitGetUrl = async () => {
     const url = oauth2Client.generateAuthUrl({
         access_type: "offline",
         scope: scopes,
-        // state: JSON.stringify({
-        //     callbackUrl :'',
-        //     userId: ''
-        // })
+        state: JSON.stringify({
+            username :username,
+            wakaname: wakaname
+        })
     });
     request(url, (err, response, body) => {
         console.log("error : " , err);
@@ -79,7 +79,7 @@ const fetchGoogleFitGetData = async (code) => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "http://localhost:3000/api/data"
+        "http://localhost:3000/api/test"
     );
 
     const tokens = await oauth2Client.getToken(code);
