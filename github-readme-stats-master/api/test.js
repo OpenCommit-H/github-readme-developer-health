@@ -11,7 +11,8 @@ const renderStatsCard = require("../src/cards/test-card");
 const blacklist = require("../src/common/blacklist");
 const { isLocaleAvailable } = require("../src/translations");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
-const { fetchGoogleFitGetData } = require("../src/fetchers/googlefit-fetcher");
+const { fetchGoogleFitGetData, getRefreshToken } = require("../src/fetchers/googlefit-fetcher");
+const { getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 module.exports = async (req, res) => {
   const {
     hide,
@@ -44,7 +45,11 @@ module.exports = async (req, res) => {
   // const user = JSON.parse(state);
   let stats;
   res.setHeader("Content-Type", "image/svg+xml");
-  const test = await fetchGoogleFitGetData(code);
+  const refresh_token = await getRefreshToken(code)
+  console.log(refresh_token)
+  const access_token = await getAccessToken('1//0eLJPFnKPoGI5CgYIARAAGA4SNwF-L9IraV1-OmrK_PWAWPTr_mUqXW0qPcZ6axKGUuGwuJRBbV77gjKYTwVEQBdpgYkDmGZrc0g');
+  console.log(access_token)
+  const test = await fetchGoogleFitGetData(access_token);
   console.log(test)
   if (blacklist.includes(JSON.parse(state).username)) {
     return res.send(renderError("Something went wrong"));
