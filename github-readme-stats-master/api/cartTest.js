@@ -23,8 +23,6 @@ app.listen(port, function(){ // port변수를 이용하여 3000번 포트에 nod
   console.log('server on! http://localhost:'+ port); //서버가 실행되면 콘솔창에 표시될 메세지입니다.
 });
 
-
-
 module.exports = async (req, res) => {
   const {
     username,
@@ -47,7 +45,7 @@ module.exports = async (req, res) => {
     disable_animations,
     border_radius,
     border_color,
-  } = req.query;
+  } = req.query; 
   let stats;
 
   res.setHeader("Content-Type", "image/svg+xml");
