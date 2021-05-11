@@ -240,21 +240,21 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   const selectAnimal = () => {
     if (animal == 1) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="15%" y="15%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="10%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${animals.sloth}
       </svg>
       `;
     };
     if (animal == 2) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="15%" y="15%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="10%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${animals.pig}
       </svg>
       `;
     };
     if (animal == 3) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="15%" y="15%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="10%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${animals.pig}
       </svg>
       `;
@@ -263,24 +263,24 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
   const selectDrink = () => {
     if (drink == 1) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${drinks.babyBottle}
       </svg>
       `;
     };
     if (drink == 2) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${drinks.tea}
       </svg>
       `;
     };
     if (drink == 3) {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
+      <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="${-magni} ${-magni} ${72+2*magni} ${72+2*magni}">
       ${drinks.tea}
       </svg>
-      `;
+      `;  
     };
   };
 
@@ -292,73 +292,66 @@ const renderStatsCard = (stats = {}, options = { hide: [] }) => {
      xmlns:xlink="http://www.w3.org/1999/xlink">
      <defs>
       <path d="M15,100a85,85 0 1,0 170,0a85,85 0 1,0 -170,0" id="coffeecircle" />
-      <path d="M100,37c34.8,0,63,28.2,63,63s-28.2,63-63,63s-63-28.2-63-63S65.2,37,100,37z" id="starbuckscircle" transform="rotate(-30 100 100)" />
+      <path d="M 25 100 A 50 50 0 1 1 175 100 " id="starbuckscircle" />
     </defs>
+    <style>
+    text { 
+      font-family: Santana-Black, sans-serif; 
+      fill: #fff;
+      text-transform: uppercase;
+      font-size: 20px;
+  }
+  .coffee { letter-spacing: 6px; }
+    </style>
   <svg>
     <rect width="100%" height="100%" fill="white" />
     
-
-    <svg preserveAspectRatio="xMidYMid meet" viewBox="-12 -12 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g id="Group 2">
-    <circle id="Ellipse 5" cx="106" cy="106" r="100" fill="#1E3945"/>
-    <g id="Ellipse 6" style="mix-blend-mode:multiply" filter="url(#filter0_f)">
-    </g>
-    <g id="Ellipse 8" filter="url(#filter1_f)">
-    </g>
-    <g>
-    <animateTransform 
+    
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 2">
+<animateTransform 
          attributeName="transform" 
          attributeType="XML" 
          type="rotate"
          dur="5s" 
-         from="0 106 106"
-         to="-360 106 106" 
+         from="0 100 100"
+         to="-360 100 100" 
          repeatCount="1" />
-    <path id="Star 17" d="M10.5 101L11.0613 102.727H12.8776L11.4082 103.795L11.9695 105.523L10.5 104.455L9.03054 105.523L9.59182 103.795L8.12236 102.727H9.93871L10.5 101Z" fill="white"/>
-    <path id="Star 18" d="M39.5 35L40.0613 36.7275H41.8776L40.4082 37.7951L40.9695 39.5225L39.5 38.4549L38.0305 39.5225L38.5918 37.7951L37.1224 36.7275H38.9387L39.5 35Z" fill="white"/>
-    <path id="Star 19" d="M70.5 14L71.0613 15.7275H72.8776L71.4082 16.7951L71.9695 18.5225L70.5 17.4549L69.0305 18.5225L69.5918 16.7951L68.1224 15.7275H69.9387L70.5 14Z" fill="white"/>
-    <path id="Star 20" d="M105.5 8L106.061 9.72746H107.878L106.408 10.7951L106.969 12.5225L105.5 11.4549L104.031 12.5225L104.592 10.7951L103.122 9.72746H104.939L105.5 8Z" fill="white"/>
-    <path id="Star 21" d="M141.5 15L142.061 16.7275H143.878L142.408 17.7951L142.969 19.5225L141.5 18.4549L140.031 19.5225L140.592 17.7951L139.122 16.7275H140.939L141.5 15Z" fill="white"/>
-    <path id="Star 22" d="M172.5 35L173.061 36.7275H174.878L173.408 37.7951L173.969 39.5225L172.5 38.4549L171.031 39.5225L171.592 37.7951L170.122 36.7275H171.939L172.5 35Z" fill="white"/>
-    <path id="Star 23" d="M193.5 65L194.061 66.7275H195.878L194.408 67.7951L194.969 69.5225L193.5 68.4549L192.031 69.5225L192.592 67.7951L191.122 66.7275H192.939L193.5 65Z" fill="white"/>
-    <path id="Star 24" d="M201.5 101L202.061 102.727H203.878L202.408 103.795L202.969 105.523L201.5 104.455L200.031 105.523L200.592 103.795L199.122 102.727H200.939L201.5 101Z" fill="white"/>
-    <path id="Star 25" d="M195.5 137L196.061 138.727H197.878L196.408 139.795L196.969 141.523L195.5 140.455L194.031 141.523L194.592 139.795L193.122 138.727H194.939L195.5 137Z" fill="white"/>
-    <path id="Star 26" d="M176.5 169L177.061 170.727H178.878L177.408 171.795L177.969 173.523L176.5 172.455L175.031 173.523L175.592 171.795L174.122 170.727H175.939L176.5 169Z" fill="white"/>
-    <path id="Star 27" d="M144.5 192L145.061 193.727H146.878L145.408 194.795L145.969 196.523L144.5 195.455L143.031 196.523L143.592 194.795L142.122 193.727H143.939L144.5 192Z" fill="white"/>
-    <path id="Star 28" d="M105.5 199L106.061 200.727H107.878L106.408 201.795L106.969 203.523L105.5 202.455L104.031 203.523L104.592 201.795L103.122 200.727H104.939L105.5 199Z" fill="white"/>
-    <path id="Star 29" d="M67.5 191L68.0613 192.727H69.8776L68.4082 193.795L68.9695 195.523L67.5 194.455L66.0305 195.523L66.5918 193.795L65.1224 192.727H66.9387L67.5 191Z" fill="white"/>
-    <path id="Star 30" d="M36.5 170L37.0613 171.727H38.8776L37.4082 172.795L37.9695 174.523L36.5 173.455L35.0305 174.523L35.5918 172.795L34.1224 171.727H35.9387L36.5 170Z" fill="white"/>
-    <path id="Star 31" d="M16.5 137L17.0613 138.727H18.8776L17.4082 139.795L17.9695 141.523L16.5 140.455L15.0305 141.523L15.5918 139.795L14.1224 138.727H15.9387L16.5 137Z" fill="white"/>
-    <path id="Star 32" d="M18.5 65L19.0613 66.7275H20.8776L19.4082 67.7951L19.9695 69.5225L18.5 68.4549L17.0305 69.5225L17.5918 67.7951L16.1224 66.7275H17.9387L18.5 65Z" fill="white"/>
-    </g>
-    </g>
-    <defs>
-    <filter id="filter0_f" x="0" y="0" width="212" height="212" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-    <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur"/>
-    </filter>
-    <filter id="filter1_f" x="41" y="37" width="128" height="128" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-    <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur"/>
-    </filter>
-    </defs>
-    </svg>
+<circle id="Ellipse 5" cx="100" cy="100" r="100" fill="#CEFBC9"/>
+<circle id="Ellipse 7" cx="100" cy="100" r="60" fill="white"/>
+<path id="Star 16" d="M64.5 8L65.0613 9.72746H66.8776L65.4082 10.7951L65.9695 12.5225L64.5 11.4549L63.0305 12.5225L63.5918 10.7951L62.1224 9.72746H63.9387L64.5 8Z" fill="white"/>
+<path id="Star 15" d="M33.5 29L34.0613 30.7275H35.8776L34.4082 31.7951L34.9695 33.5225L33.5 32.4549L32.0305 33.5225L32.5918 31.7951L31.1224 30.7275H32.9387L33.5 29Z" fill="white"/>
+<path id="Star 14" d="M12.5 59L13.0613 60.7275H14.8776L13.4082 61.7951L13.9695 63.5225L12.5 62.4549L11.0305 63.5225L11.5918 61.7951L10.1224 60.7275H11.9387L12.5 59Z" fill="white"/>
+<path id="Star 13" d="M4.5 95L5.06129 96.7275H6.87764L5.40818 97.7951L5.96946 99.5225L4.5 98.4549L3.03054 99.5225L3.59182 97.7951L2.12236 96.7275H3.93871L4.5 95Z" fill="white"/>
+<path id="Star 12" d="M10.5 131L11.0613 132.727H12.8776L11.4082 133.795L11.9695 135.522L10.5 134.455L9.03054 135.522L9.59182 133.795L8.12236 132.727H9.93871L10.5 131Z" fill="white"/>
+<path id="Star 11" d="M30.5 164L31.0613 165.727H32.8777L31.4082 166.795L31.9695 168.522L30.5 167.455L29.0306 168.522L29.5919 166.795L28.1224 165.727H29.9387L30.5 164Z" fill="white"/>
+<path id="Star 10" d="M61.5 185L62.0613 186.728H63.8776L62.4082 187.795L62.9695 189.523L61.5 188.455L60.0305 189.523L60.5918 187.795L59.1224 186.728H60.9387L61.5 185Z" fill="white"/>
+<path id="Star 9" d="M99.5 193L100.061 194.727H101.878L100.408 195.795L100.969 197.523L99.5 196.455L98.0305 197.523L98.5918 195.795L97.1224 194.727H98.9387L99.5 193Z" fill="white"/>
+<path id="Star 8" d="M138.5 186L139.061 187.728H140.878L139.408 188.795L139.969 190.523L138.5 189.455L137.031 190.523L137.592 188.795L136.122 187.728H137.939L138.5 186Z" fill="white"/>
+<path id="Star 7" d="M170.5 163L171.061 164.727H172.878L171.408 165.795L171.969 167.523L170.5 166.455L169.031 167.523L169.592 165.795L168.122 164.727H169.939L170.5 163Z" fill="white"/>
+<path id="Star 6" d="M189.5 131L190.061 132.727H191.878L190.408 133.795L190.969 135.522L189.5 134.455L188.031 135.522L188.592 133.795L187.122 132.727H188.939L189.5 131Z" fill="white"/>
+<path id="Star 5" d="M195.5 95L196.061 96.7275H197.878L196.408 97.7951L196.969 99.5225L195.5 98.4549L194.031 99.5225L194.592 97.7951L193.122 96.7275H194.939L195.5 95Z" fill="white"/>
+<path id="Star 4" d="M187.5 59L188.061 60.7275H189.878L188.408 61.7951L188.969 63.5225L187.5 62.4549L186.031 63.5225L186.592 61.7951L185.122 60.7275H186.939L187.5 59Z" fill="white"/>
+<path id="Star 3" d="M166.5 29L167.061 30.7275H168.878L167.408 31.7951L167.969 33.5225L166.5 32.4549L165.031 33.5225L165.592 31.7951L164.122 30.7275H165.939L166.5 29Z" fill="white"/>
+<path id="Star 2" d="M135.5 9L136.061 10.7275H137.878L136.408 11.7951L136.969 13.5225L135.5 12.4549L134.031 13.5225L134.592 11.7951L133.122 10.7275H134.939L135.5 9Z" fill="white"/>
+<path id="Star 1" d="M99.5 2L100.061 3.72746H101.878L100.408 4.79508L100.969 6.52254L99.5 5.45492L98.0305 6.52254L98.5918 4.79508L97.1224 3.72746H98.9387L99.5 2Z" fill="white"/>
+</g>
+</svg>
+
 
   </svg>
   
   <svg width="100%" height="100%" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">
-  <text>
-    <textPath xlink:href="#starbuckscircle" fill="white">${name}</textPath>
-</text>
-  <text x="50%" y="10%" font-size="15" alignment-baseline="central" dominant-baseline="central" text-anchor="middle" fill="white">drink milk dog</text>
-  <text x="82.5%" y="20%" font-size="10" alignment-baseline="central" dominant-baseline="central" text-anchor="end" fill="white">${day7commits} C/W</text>
-
+  <text lengthAdjust="spacingAndGlyphs">
+    <textPath xlink:href="#starbuckscircle" startOffset="50%" text-anchor="middle" fill="white">drink milk dog</textPath>
+  </text>
+ 
     </svg>
   
   ${selectDrink()}
   ${selectAnimal()}
+
+
 </svg>
   `
 };
