@@ -229,12 +229,14 @@ form button:hover {
     <div class="wrapper">
       <div class="container">
         <h1>Welcome</h1>
+        <h2><%=github_id%></h2>
+        <h2><%=waka_id%></h2>
         
 <form action="/api/post" method="POST">
-            <input type="text" name = "id" enctype="application/x-www-form-urlencoded">
+            <input type="text" name = "github_id">
           
 
-<input type="password" name = "pwd" enctype="application/x-www-form-urlencoded">
+<input type="text" name = "waka_id">
 
 
             <button>submit</button>
