@@ -128,10 +128,6 @@ const fetchGoogleFitGetData = async (access_token) => {
                         dataSourceId: "derived:com.google.distance.delta:com.google.android.gms:merge_distance_delta"
                     },
                     {
-                        dataTypeName: "com.google.heart_rate.bpm",
-                        dataSourceId: "derived:com.google.heart_rate.bpm:com.google.android.gms:merge_heart_rate_bpm"
-                    },
-                    {
                         dataTypeName: "com.google.active_minutes",
                         dataSourceId: "derived:com.google.active_minutes:com.google.android.gms:merge_active_minutes"
                     },
