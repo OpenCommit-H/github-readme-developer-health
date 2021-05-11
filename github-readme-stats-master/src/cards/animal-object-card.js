@@ -40,7 +40,7 @@ const createTextNode = ({
       <text class="stat bold" ${labelOffset} y="12.5">${label}:</text>
       <text 
         class="stat" 
-        x="${(showIcons ? 140 : 120) + shiftValuePos}" 
+        x="${(showIcons ? 140 : 120) + shiftValuePos}"
         y="12.5" 
         data-testid="${id}"
       >${kValue}</text>
