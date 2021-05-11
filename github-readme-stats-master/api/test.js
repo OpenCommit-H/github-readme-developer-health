@@ -47,7 +47,7 @@ module.exports = async (req, res) => {
   res.setHeader("Content-Type", "image/svg+xml");
   const refresh_token = await getRefreshToken(code)
   console.log(refresh_token)
-  const access_token = await getAccessToken('1//0eLJPFnKPoGI5CgYIARAAGA4SNwF-L9IraV1-OmrK_PWAWPTr_mUqXW0qPcZ6axKGUuGwuJRBbV77gjKYTwVEQBdpgYkDmGZrc0g');
+  const access_token = await getAccessToken(refresh_token);
   console.log(access_token)
   const test = await fetchGoogleFitGetData(access_token);
   console.log(test)
