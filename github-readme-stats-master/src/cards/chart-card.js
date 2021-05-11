@@ -1,8 +1,14 @@
 const chartThemes = require("../../themes/chartTheme");
 
+<<<<<<< HEAD
 const renderChartCard = (data, username, themes) => {
     var svgSizeWidth = 500;
     var svgSizeHeight = 500;
+=======
+const renderChartCard = (data, wakaname, themes) => {
+    var svgSizeWidth = 200;
+    var svgSizeHeight = 200;
+>>>>>>> a6a78f57838522724fb7db27839fc6e76105bee0
 
     
     var chartStartX = 15;
@@ -239,7 +245,7 @@ const renderChartCard = (data, username, themes) => {
             </polyline>
     
     
-            <text id="title" x="50%" y="25%">${username}'s health stats</text>
+            <text id="title" x="50%" y="25%">${wakaname}'s health stats</text>
           </svg>
         </svg>
       </svg>
