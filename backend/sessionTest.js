@@ -11,18 +11,32 @@ const queryParse = require("query-string");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+const session = require('express-session');	//세션관리용 미들웨어
+const fileStore = require('session-file-store')(session);
+ 
+app.use(session({
+  
+  secret: '@#@$MYSIGN#@$#$',
+  resave: false,
+  saveUninitialized: true,
+  store: new fileStore({
+    path:  require('path').join(require('os').tmpdir(), 'sessions')
+ })
+}));
+  
 app.get('/api', (req, res) => {
   var mainPage = fs.readFileSync('./api/views/abc.ejs', 'utf-8');
   var page = ejs.render(mainPage, {
     github_id: 'github_id',
     waka_id: 'waka_id'
   });
+  console.log(req.session.id+"들어온곳");
   res.send(page);
 });
 
@@ -48,4 +62,28 @@ app.post('/api/post', function(req,res){
 });
 
 
+
+app.get('/api/tt', function (req, res, next) {
+  
+    req.session.user = "userObj";
+    req.session.save(function(err) {
+      // session saved
+      console.log(req.session.id+"<----id/tt에서 입력");
+      console.log(req.session.user+"<-----user/tt에서 입력");
+      res.redirect('/api/hi')
+    })
+})
+
+app.get('/api/hi', function (req, res, next) {
+
+    //console.log(req);
+    console.log(req.session.id+"--->들어온곳");
+    console.log(req.session.user+"->hi");
+    
+    
+    req.session.destroy(function(err) {
+     
+    })
+    res.send("ㅎㅎ삭제됨");
+})
 module.exports = app
