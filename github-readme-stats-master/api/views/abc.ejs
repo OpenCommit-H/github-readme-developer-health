@@ -62,7 +62,7 @@ body :-ms-input-placeholder {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 400px;
+  height: 500px;
   margin-top: -200px;
   overflow: hidden;
 }
@@ -229,8 +229,7 @@ form button:hover {
     <div class="wrapper">
       <div class="container">
         <h1>Welcome</h1>
-        <h2><%=github_id%></h2>
-        <h2><%=waka_id%></h2>
+        
         
 <form action="/api/post" method="POST">
   <input type='button' onClick="location.href='<%=data%>'" value='버튼'/>
@@ -238,7 +237,8 @@ form button:hover {
           
 
 <input type="text" name = "waka_id">
-<input type="text" id = "refresh_token" enctype="application/x-www-form-urlencoded" value="<%=token%>">
+<input type="text" name = "api_key">
+<input type="text" name = "refresh_token" value="<%=token%>">
 
 
             
@@ -261,14 +261,4 @@ form button:hover {
       </ul>
     </div>
   </body>
-  <script>
-
-    function getToken() {
-      document.getElementById("refresh_token").value = 'test';
-    }
-
-    function getCode() {
-      // location.href = ""
-    }
-  </script>
 </html>
