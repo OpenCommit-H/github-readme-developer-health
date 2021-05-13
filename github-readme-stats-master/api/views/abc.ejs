@@ -233,13 +233,16 @@ form button:hover {
         <h2><%=waka_id%></h2>
         
 <form action="/api/post" method="POST">
+  <input type='button' onClick="location.href='<%=data%>'" value='버튼'/>
             <input type="text" name = "github_id">
           
 
 <input type="text" name = "waka_id">
+<input type="text" id = "refresh_token" enctype="application/x-www-form-urlencoded" value="<%=token%>">
 
 
-            <button>submit</button>
+            
+<button>버튼</button>
 
         </form>
       </div>
@@ -258,4 +261,14 @@ form button:hover {
       </ul>
     </div>
   </body>
+  <script>
+
+    function getToken() {
+      document.getElementById("refresh_token").value = 'test';
+    }
+
+    function getCode() {
+      // location.href = ""
+    }
+  </script>
 </html>

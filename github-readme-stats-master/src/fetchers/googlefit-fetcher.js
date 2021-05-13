@@ -4,7 +4,7 @@ const request = require("request");
 const calculateActivity = require("../calculateActivity");
 const querystring = require('querystring')
 
-const fetchGoogleFitGetUrl = async ({username, wakaname, api_key}) => {
+const fetchGoogleFitGetUrl = async () => {
  
     const oauth2Client = new google.auth.OAuth2(
         // client id
@@ -12,7 +12,7 @@ const fetchGoogleFitGetUrl = async ({username, wakaname, api_key}) => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "http://localhost:3000/api/test"
+        "http://localhost:3000/api/googleFit"
         
     );
     
@@ -27,11 +27,6 @@ const fetchGoogleFitGetUrl = async ({username, wakaname, api_key}) => {
     const url = oauth2Client.generateAuthUrl({
         access_type: "offline",
         scope: scopes,
-        state: JSON.stringify({
-            username :username,
-            wakaname: wakaname,
-            api_key: api_key
-        })
     });
     request(url, (err, response, body) => {
         console.log("error : " , err);
@@ -48,10 +43,9 @@ const getRefreshToken = async code => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "http://localhost:3000/api/test"
+        "http://localhost:3000/api/googleFit"
     );
 
-    
     const tokens = await oauth2Client.getToken(code);
     return tokens.tokens.refresh_token;
 };
