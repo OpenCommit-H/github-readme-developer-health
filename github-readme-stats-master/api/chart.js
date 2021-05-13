@@ -7,17 +7,15 @@ const {
     isLocaleAvailable,
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
+const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
 const renderChartCard = require("../src/cards/chart-card");
 
 module.exports = async (req, res) => {
     const {
-        wakaname,
-        api_key,
-        range,
-        api_domain,
-        count_private,
-        include_all_commits,
-        themes,
+      username,
+      range,
+      api_domain,
+      themes,
     } = req.query;
 
     // default data
@@ -68,8 +66,12 @@ module.exports = async (req, res) => {
     ];
 
     try {
-        const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
-        
+      const userStats = await userinfoStats({ username });
+
+      const { wakaname, api_key, refresh_token } = userStats;
+      
+      
+      const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
         // find day index
         var dayIdx = 0;
         data.forEach((element, idx) => {

@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 var mongoose = require('mongoose');
 // 2. testDB 세팅
-mongoose.connect('mongodb://localhost:17017/ssafyDB', {useNewUrlParser: true,useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/ssafyDB', {useNewUrlParser: true,useUnifiedTopology: true });
 
 // 3. 연결된 testDB 사용
 var db = mongoose.connection;
@@ -103,17 +103,19 @@ app.post('/getUserInfo/:username', function(req, res){
     Open_id.findOne({github_id:req.params.username}, function(error,open_id){
         if(error){
             console.log(error);
+            res.send(error);
         }else{
             if(open_id==null){
-             console.log("유저 없음");
+                console.log("유저 없음");
+                res.send("유저없음");
             }
             else{
-                console.log(open_id);    
+                console.log(open_id);
+                res.send(open_id);
             }
         }
     
     }); 
-    res.send("뿅");
 });
 
 
