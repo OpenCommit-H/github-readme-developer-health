@@ -12,7 +12,7 @@ const fetchGoogleFitGetUrl = async () => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "http://localhost:3000/api/googleFit"
+        "http://k4a302.p.ssafy.io:3000/api/googleFit"
         
     );
     
@@ -43,7 +43,7 @@ const getRefreshToken = async code => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "http://localhost:3000/api/googleFit"
+        "http://k4a302.p.ssafy.io:3000/api/googleFit"
     );
 
     const tokens = await oauth2Client.getToken(code);
