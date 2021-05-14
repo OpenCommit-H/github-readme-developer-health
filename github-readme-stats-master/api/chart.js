@@ -8,16 +8,14 @@ const {
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
 const renderChartCard = require("../src/cards/chart-card");
-
+const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
+const { getAccessToken, fetchGoogleFitGetData } = require("../src/fetchers/googlefit-fetcher");
 module.exports = async (req, res) => {
     const {
-        wakaname,
-        api_key,
+        username,
         range,
         api_domain,
-        count_private,
-        include_all_commits,
-        themes,
+        themes
     } = req.query;
 
     // default data
@@ -68,8 +66,15 @@ module.exports = async (req, res) => {
     ];
 
     try {
-        const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
+        const userStats = await userinfoStats({ username });
+        const wakaname = userStats.wakaname
+        const api_key = userStats.api_key
+        const refresh_token = userStats.refresh_token
         
+        const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
+        const access_token = await getAccessToken(refresh_token);
+        const fitDate = await fetchGoogleFitGetData(access_token);
+       
         // find day index
         var dayIdx = 0;
         data.forEach((element, idx) => {
@@ -79,14 +84,30 @@ module.exports = async (req, res) => {
         });
         
         // input last 7 days wakatime api data
+        dayIdx = 0;
         wakaStats.forEach((element) => {
-            dayIdx %= 7;
             data[dayIdx++].waka = element.total_seconds / 3600;
         });
 
         // last 7days github api
         // last 7days goofle fit api
+        dayIdx = 0;
+        fitDate.active_minutes.forEach((element) => {
+          data[dayIdx++].fit = element / 60
+        })
+
+        dayIdx = 0;
+        fitDate.sleep.forEach((element) => {
+          data[dayIdx++].sleep = element / 60
+        })
         // make data
+        const now = new Date();
+        const week = new Array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+        for(let i=0; i<7; i++){
+          var num = now.getDay() - i;
+          if(num < 0 ) num = num + 7;
+          data[6-i].date = week[num];
+        }
 
         res.send(renderChartCard(data, wakaname, themes));
     } catch (err) {
