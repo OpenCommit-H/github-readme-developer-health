@@ -3,9 +3,7 @@ const { v4 } = require('uuid');
 const { fetchGoogleFitGetUrl, getRefreshToken } = require("../src/fetchers/googlefit-fetcher");
 const fs = require('fs');
 const ejs = require('ejs');
-app.set("view engine", "ejs");
-app.set("views", "./api/views");
-
+const port = 3000;
 const cors = require("cors");
 const urlParse = require("url-parse");
 const queryParse = require("query-string");
@@ -17,6 +15,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const fileStore = require('session-file-store')(session);
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -30,12 +30,12 @@ app.use(session({
 
 app.get('/api', async (req, res) => {
   const url = await fetchGoogleFitGetUrl();
- 
+  console.log('test')
   if(req.session.refresh_token){
     const refresh_token = req.session.refresh_token;
-    req.session.destroy(function(){ 
-      req.session;
-    });      
+    req.session.destroy(function(err) {
+     
+    })
     res.render('abc', {data : url, token: refresh_token});
   }
   else {
@@ -73,4 +73,5 @@ app.get('/api/googleFit', async (req, res)=>{
   });
 });
 
+app.listen(port, () => console.log("Listening on", port));
 module.exports = app
