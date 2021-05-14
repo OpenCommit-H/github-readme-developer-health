@@ -106,6 +106,8 @@ const day7CommitsFetcher = async (username) => {
         commits.push(res.data.items[i].commit)
       }
       return commits;
+    } else {
+      return res.data;
     }
   } catch (err) {
     logger.log(err);
@@ -137,7 +139,6 @@ async function fetchStats(
   const user = res.data.data.user;
   stats.name = user.name || user.login;
   stats.day7commits = await day7CommitsFetcher(username);
-
 
   // console.log(stats)
   // console.log(username)
