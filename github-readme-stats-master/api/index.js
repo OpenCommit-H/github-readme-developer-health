@@ -32,8 +32,6 @@ app.get('/api', async (req, res) => {
   const url = await fetchGoogleFitGetUrl();
  
   if(req.session.refresh_token){
-    console.log("토큰 발급 후")
-    console.log(req.session.id)
     const refresh_token = req.session.refresh_token;
     req.session.destroy(function(){ 
       req.session;
@@ -41,8 +39,6 @@ app.get('/api', async (req, res) => {
     res.render('abc', {data : url, token: refresh_token});
   }
   else {
-      console.log("처음 화면")
-      console.log(req.session.id)
       res.render('abc', {data : url, token: ""});
   }
 });
@@ -51,9 +47,9 @@ app.get('/api/get', (req, res)=>{
   res.send("GET");
 });
 
-app.post('/api/post', function(req,res){
+app.post('/api/post', async (req,res) => {
   console.log(req.body);
-
+  const url = await fetchGoogleFitGetUrl();
   //backend 를 별도로 실행해야 합니다.
   axios.post('http://localhost:1234/input_userInfo', {
     github_id: req.body.github_id,
@@ -63,9 +59,7 @@ app.post('/api/post', function(req,res){
   })
   
   console.log('등록 완료')
-  var mainPage = fs.readFileSync('./api/views/abc.ejs', 'utf-8');
-  var page = ejs.render(mainPage);
-  res.send(page);
+  res.render('abc', {data : url, token: ""});
 });
 
 app.get('/api/googleFit', async (req, res)=>{

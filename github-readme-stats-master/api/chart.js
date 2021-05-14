@@ -13,8 +13,7 @@ const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googl
 
 module.exports = async (req, res) => {
     const {
-        wakaname,
-        api_key,
+        username,
         range,
         api_domain,
         count_private,
