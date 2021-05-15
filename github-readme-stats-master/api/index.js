@@ -3,9 +3,7 @@ const { v4 } = require('uuid');
 const { fetchGoogleFitGetUrl, getRefreshToken } = require("../src/fetchers/googlefit-fetcher");
 const fs = require('fs');
 const ejs = require('ejs');
-app.set("view engine", "ejs");
-app.set("views", "./api/views");
-
+const port = 3000;
 const cors = require("cors");
 const urlParse = require("url-parse");
 const queryParse = require("query-string");
@@ -17,6 +15,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const fileStore = require('session-file-store')(session);
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -30,19 +30,15 @@ app.use(session({
 
 app.get('/api', async (req, res) => {
   const url = await fetchGoogleFitGetUrl();
- 
+  console.log('test')
   if(req.session.refresh_token){
-    console.log("토큰 발급 후")
-    console.log(req.session.id)
     const refresh_token = req.session.refresh_token;
-    req.session.destroy(function(){ 
-      req.session;
-    });      
+    req.session.destroy(function(err) {
+     
+    })
     res.render('abc', {data : url, token: refresh_token});
   }
   else {
-      console.log("처음 화면")
-      console.log(req.session.id)
       res.render('abc', {data : url, token: ""});
   }
 });
@@ -51,9 +47,9 @@ app.get('/api/get', (req, res)=>{
   res.send("GET");
 });
 
-app.post('/api/post', function(req,res){
+app.post('/api/post', async (req,res) => {
   console.log(req.body);
-
+  const url = await fetchGoogleFitGetUrl();
   //backend 를 별도로 실행해야 합니다.
   axios.post('http://localhost:1234/input_userInfo', {
     github_id: req.body.github_id,
@@ -63,9 +59,7 @@ app.post('/api/post', function(req,res){
   })
   
   console.log('등록 완료')
-  var mainPage = fs.readFileSync('./api/views/abc.ejs', 'utf-8');
-  var page = ejs.render(mainPage);
-  res.send(page);
+  res.render('abc', {data : url, token: ""});
 });
 
 app.get('/api/googleFit', async (req, res)=>{
@@ -79,4 +73,8 @@ app.get('/api/googleFit', async (req, res)=>{
   });
 });
 
+var chartview = require('../api/routes/chartview');
+app.get('/api/chart', chartview.renderChart);
+
+app.listen(port, () => console.log("Listening on", port));
 module.exports = app

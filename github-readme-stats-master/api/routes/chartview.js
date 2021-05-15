@@ -1,18 +1,14 @@
 require("dotenv").config();
 const {
     renderError,
-    parseBoolean,
-    clampValue,
-    CONSTANTS,
-    isLocaleAvailable,
-} = require("../src/common/utils");
-const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
-const renderChartCard = require("../src/cards/chart-card");
-const fetchStats = require("../src/fetchers/test-fetcher");
-const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
-const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
+} = require("../../src/common/utils");
+const { fetchWakatimeStats } = require("../../src/fetchers/wakatime-fetcher");
+const renderChartCard = require("../../src/cards/chart-card");
+const fetchStats = require("../../src/fetchers/test-fetcher");
+const { fetchGoogleFitGetData, getAccessToken } = require("../../src/fetchers/googlefit-fetcher");
+const { userinfoStats } = require("../../src/fetchers/userinfo-fetcher");
 
-module.exports = async (req, res) => {
+exports.renderChart = async (req, res) => {
     const {
       range,
       api_domain,

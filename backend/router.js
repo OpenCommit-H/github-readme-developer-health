@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 var mongoose = require('mongoose');
 // 2. testDB 세팅
-mongoose.connect('mongodb://localhost:27017/ssafyDB', {useNewUrlParser: true,useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:17017/ssafyDB', {useNewUrlParser: true,useUnifiedTopology: true });
 
 // 3. 연결된 testDB 사용
 var db = mongoose.connection;
