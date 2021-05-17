@@ -24,7 +24,6 @@ function calculateActivity({
     const ACTIVITY_MAX_SCORE=13125;
   
     const totalScore = getActivity_week(step, active_minutes, heart_minutes,heart_level);
-
     let animal = "";
   
     if(ACTIVITY_WEEK_HORSE<=totalScore){

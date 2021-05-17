@@ -70,7 +70,7 @@ try {
     heart_level: temp.heart_level.reduce(reducer),
     heart_minutes: temp.heart_minutes.reduce(reducer),
     sleep: temp.sleep.reduce(reducer),
-    animal: 'aaaaaaaaaaaa',
+    animal: temp.animal,
     rank: { level: 'A+', score: 50.9662800308734 },
   }
   console.log(stats)
