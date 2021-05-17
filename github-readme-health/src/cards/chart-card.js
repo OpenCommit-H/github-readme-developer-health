@@ -89,8 +89,8 @@ const renderChartCard = (data, wakaname, themes) => {
     var style = `
         <defs>
             <linearGradient id="myGradient" gradientTransform="rotate(90)">
-                <stop offset="5%"  stop-color=${theme.gradientStart} />
-                <stop offset="95%" stop-color=${theme.gradientEnd} />
+                <stop offset="5%"  stop-color="${theme.gradientStart}" />
+                <stop offset="95%" stop-color="${theme.gradientEnd}" />
             </linearGradient>
         </defs>
         <style>
@@ -139,7 +139,7 @@ const renderChartCard = (data, wakaname, themes) => {
     `;
     
     var svg = `
-      <svg version="1.1" width="${svgSizeWidth}" height="${svgSizeHeight}" xmlns="http://www.w3.org/2000/svg>
+      <svg version="1.1" width="${svgSizeWidth}" height="${svgSizeHeight}" xmlns="http://www.w3.org/2000/svg">
         <svg width="100%" height="100%">
         ${style}
           <circle cx="50%" cy="50%" r="48%"/>
