@@ -1,6 +1,6 @@
 const chartThemes = require("../../themes/chartTheme");
 
-const renderChartCard = (data, wakaname, themes) => {
+const renderChartCard = (data, wakaname, themes, size) => {
     var svgSizeWidth = 200;
     var svgSizeHeight = 200;
 
@@ -28,6 +28,8 @@ const renderChartCard = (data, wakaname, themes) => {
     maxCommit += 1;
 
     const theme = themes ? chartThemes[themes] : chartThemes["defaultTheme"];
+    const len = size ? size : 250;
+    svgSizeWidth = svgSizeHeight = len;
     
     var minus = [-1, 1];
 
