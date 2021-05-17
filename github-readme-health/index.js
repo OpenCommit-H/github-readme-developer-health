@@ -1,3 +1,4 @@
+require("dotenv").config();
 const app = require('express')();
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -25,7 +26,8 @@ app.use(session({
 
 var mongoose = require('mongoose');
 // 2. testDB 세팅
-mongoose.connect(process.env.MONGO_DB, {useNewUrlParser: true,useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:17017/githupHealthDB', {useNewUrlParser: true,useUnifiedTopology: true });
 
 // 3. 연결된 testDB 사용
 var db = mongoose.connection;
