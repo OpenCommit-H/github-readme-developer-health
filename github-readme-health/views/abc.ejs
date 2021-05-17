@@ -232,13 +232,13 @@ form button:hover {
         
         
 <form action="/users/input" method="POST">
-  <input type='button' onClick="location.href='<%=data%>'" value='버튼'/>
-            <input type="text" name = "github_id">
+  <input type='button' onClick="location.href='<%=data%>'" value='Receive Google Token' style="background-color:#50a3a2; color:#f5f7f9"/>
+            <input type="text" name = "github_id" placeholder="Github Username">
           
 
-<input type="text" name = "waka_id">
-<input type="text" name = "api_key">
-<input type="text" name = "refresh_token" value="<%=token%>">
+<input type="text" name = "waka_id" placeholder="Wakatime Username">
+<input type="text" name = "api_key" placeholder="Wakatime Api key">
+<input type="text" name = "refresh_token" value="<%=token%>" readonly>
 
 
             
