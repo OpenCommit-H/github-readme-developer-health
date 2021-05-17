@@ -1,7 +1,7 @@
 const I18n = require("../common/I18n");
 const Card = require("../common/Card");
 const icons = require("../common/icons");
-const renderTestCard = require("./animal-object-card");
+const renderTestCard = require("./animal-card");
 const { getStyles } = require("../getStyles");
 const { statCardLocales } = require("../translations");
 const {
@@ -168,8 +168,8 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
     hide_rank ? 0 : 150,
   );
     var stats = {
-      name: "aaaaaaa",
-      animal: 4,
+      name: name,
+      animal: animal,
       drink: 4,
       theme: "default"
     };
@@ -178,7 +178,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
     ? ""
     : `
     <g data-testid="rank-circle" 
-          transform="translate(270, 0)">
+          transform="translate(280, -30)">
     ${renderTestCard(stats)}
     </g>`
 
