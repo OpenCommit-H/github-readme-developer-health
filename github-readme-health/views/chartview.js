@@ -1,6 +1,7 @@
 require("dotenv").config();
 const {
     renderError,
+    CONSTANTS,
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
 const renderChartCard = require("../src/cards/chart-card");
@@ -14,7 +15,21 @@ exports.renderChart = async (req, res) => {
       api_domain,
       themes,
       username,
-    } = req.query;
+      cache_seconds,
+  } = req.query;
+  res.setHeader("Content-Type", "image/svg+xml");
+
+  let cacheSeconds = clampValue(
+    parseInt(cache_seconds || CONSTANTS.TWO_HOURS, 10),
+    CONSTANTS.TWO_HOURS,
+    CONSTANTS.ONE_DAY,
+  );
+
+  if (!cache_seconds) {
+    cacheSeconds = CONSTANTS.FOUR_HOURS;
+  }
+
+  res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
 
     // default data
     // if create total fetcher, then fit, commits, sleep will erase
