@@ -6,11 +6,10 @@ const {
     parseArray,
     CONSTANTS,
 } = require("../src/common/utils");
-const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
-const fetchStats = require("../src/fetchers/test-fetcher");
 const renderFitStatsCard = require("../src/cards/fit-card");
 const blacklist = require("../src/common/blacklist");
 const { isLocaleAvailable } = require("../src/translations");
+const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 
 exports.renderFitCard = async (req, res) => {
@@ -55,33 +54,27 @@ try {
   if (locale && !isLocaleAvailable(locale)) {
     return res.send(renderError("Something went wrong", "Language not found"));
   }
-
+  const userStats = await userinfoStats({ username });
+  const { refresh_token } = userStats;
+  const access_token = await getAccessToken(refresh_token);
+  const temp = await fetchGoogleFitGetData(access_token);
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  
+  console.log(temp)
+  
   var stats = {
-    name: 'clalsw',
-    totalPRs: 1,
-    totalCommits: 16,
-    totalIssues: 0,
-    totalStars: 0,
-    contributedTo: 1,
-    day7commits: 0,
-    rank: { level: 'A+', score: 50.9662800308734 }
-  }
-  var abc = {
-    name:"clalsw",
-    step: 1,
-    distance: 2,
-    heart_rate_avg: 3,
-    heart_rate_max: 4,
-    heart_rate_min: 5,
-    active_minutes: 6,
-    heart_level: 7,
-    heart_minutes: 8,
-    sleep: 9,
+    name: username,
+    step: temp.step.reduce(reducer),
+    distance: temp.distance.reduce(reducer),
+    active_minutes: temp.active_minutes.reduce(reducer),
+    heart_level: temp.heart_level.reduce(reducer),
+    heart_minutes: temp.heart_minutes.reduce(reducer),
+    sleep: temp.sleep.reduce(reducer),
     animal: 'aaaaaaaaaaaa',
-    rank: { level: 'A+', score: 50.9662800308734 }
+    rank: { level: 'A+', score: 50.9662800308734 },
   }
-
-  res.send(renderFitStatsCard(abc, {
+  console.log(stats)
+  res.send(renderFitStatsCard(stats, {
     hide: parseArray(hide),
     show_icons: parseBoolean(show_icons),
     hide_title: parseBoolean(hide_title),
