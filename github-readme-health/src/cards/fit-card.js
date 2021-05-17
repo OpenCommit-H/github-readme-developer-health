@@ -194,7 +194,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
   });
 
   const calculateTextWidth = () => {
-    return measureText(custom_title ? custom_title : i18n.t("statcard.title"));
+    return measureText(custom_title ? custom_title : `${name}'s Health Stats`);
   };
 
   const width = hide_rank
@@ -207,7 +207,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
 
   const card = new Card({
     customTitle: custom_title,
-    defaultTitle: i18n.t("statcard.title"),
+    defaultTitle: `${name}'s Health Stats`,
     width,
     height,
     border_radius,
