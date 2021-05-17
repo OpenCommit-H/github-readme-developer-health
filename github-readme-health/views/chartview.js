@@ -2,6 +2,7 @@ require("dotenv").config();
 const {
     renderError,
     CONSTANTS,
+    clampValue,
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
 const renderChartCard = require("../src/cards/chart-card");
@@ -16,6 +17,7 @@ exports.renderChart = async (req, res) => {
       themes,
       username,
       cache_seconds,
+      size,
   } = req.query;
   res.setHeader("Content-Type", "image/svg+xml");
 
@@ -111,7 +113,7 @@ exports.renderChart = async (req, res) => {
       })
         // make data
 
-        res.send(renderChartCard(data, wakaname, themes));
+        res.send(renderChartCard(data, wakaname, themes, size));
     } catch (err) {
         return res.send(renderError(err.message, err.secondaryMessage));
     }
