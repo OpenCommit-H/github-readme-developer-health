@@ -156,12 +156,12 @@ for example,
 
 
 
-### <img src="C:\Users\kjw11\git\s04p31a302\README\ssafy.PNG" width='120px'>- Samsung Software Academy for Youth
+### <img src="./README/ssafy.PNG" width='120px'>                 Samsung Software Academy for Youth
 
 
 
-### <img src="C:\Users\kjw11\git\s04p31a302\README\Samsung_wordmark.svg" width='200px' >- Samsung Electronics
+### <img src="./README/Samsung_wordmark.svg" width='200px' >    Samsung Electronics
 
 
 
-### <img src="C:\Users\kjw11\git\s04p31a302\README\ministry_of_employment_and_labor.jpg" width='200px'>- Ministry of Employment and Labor, Korea
+### <img src="./README/ministry_of_employment_and_labor.jpg" width='200px'>    Ministry of Employment and Labor, Korea
