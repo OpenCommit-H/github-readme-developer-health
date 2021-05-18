@@ -79,25 +79,7 @@ try {
     rank: { level: 'A+', score: 50.9662800308734 },
   }
   console.log(stats)
-  res.send(calendarCard(stats, {
-    hide: parseArray(hide),
-    show_icons: parseBoolean(show_icons),
-    hide_title: parseBoolean(hide_title),
-    hide_border: parseBoolean(hide_border),
-    hide_rank: parseBoolean(hide_rank),
-    include_all_commits: parseBoolean(include_all_commits),
-    line_height,
-    title_color,
-    icon_color,
-    text_color,
-    bg_color,
-    theme,
-    custom_title,
-    border_radius,
-    border_color,
-    locale: locale ? locale.toLowerCase() : null,
-    disable_animations: parseBoolean(disable_animations),
-  }));
+  res.send(calendarCard(stats));
 } catch (err) {
   return res.send(renderError(err.message, err.secondaryMessage));
 }
