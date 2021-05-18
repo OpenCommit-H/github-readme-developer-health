@@ -21,6 +21,8 @@
 
 
 
+
+
 # Introduction
 
 Today, developers work in the same position for a long time.
@@ -30,6 +32,8 @@ And we can't exercise steadily.
 This causes problems such as gaining weight or poor posture.
 
 So, **Our service is aimed at a one-day one-exercise campaign for developers.**
+
+
 
 
 
@@ -45,6 +49,8 @@ Our servive use wakatime for gathering development time, and google fitness appl
 - [Install google fitness application on your cell phone](https://play.google.com/store/apps/details?id=com.google.android.apps.fitness&hl=ko&gl=US)
 
 _As a note, If you use wakatime, then have to register username and set public your develop Info._
+
+
 
 
 
@@ -65,6 +71,8 @@ https://k4a302.p.ssafy.io/api
 3. Get a google api token by using button.
 
 4. Register your Infos.
+
+
 
 
 
@@ -90,6 +98,8 @@ defaultTheme, forest, blue
 
 
 
+
+
 ## Customization
 
 You can customize the appearence of your Chart card-view with URL params.
@@ -103,6 +113,8 @@ for example,
 - size - Card-view's size in your readme (pixel)
 
 - themes - name of the themes, choose [available themes](./themes.md)
+
+
 
 
 
@@ -122,6 +134,8 @@ for example,
 
 
 
+
+
 # Tech
 
 | Platform                               | Languages           | Environment             |
@@ -138,15 +152,17 @@ for example,
 
 # Contributer
 
-### _Open-mind_
+### Team Name: _Open-mind_
 
-| Name                                             | Github                                            | Role                |
-| ------------------------------------------------ | ------------------------------------------------- | ------------------- |
-| <img src="./README/kjw.png" width="50px"/>김정웅 | [real100woong](https://github.com/real100woong)   | Team Leader         |
-| <img src="./README/sdj.png" width="50px"/>신다정 | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
-| <img src="./README/lsw.png" width="50px"/>이석원 | [clalsw](https://github.com/clalsw)               | Presentation Leader |
-| <img src="./README/csh.png" width="50px"/>조성훈 | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
-| <img src="./README/pkd.png" width="50px"/>표기동 | [pyoki32](https://github.com/pyoki32)             | Ending Leader       |
+| Name                                                         | Github                                            | Role                |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------- |
+| <img src="./README/kjw.png" width="50px"/>김정웅, Jeongung Kim | [real100woong](https://github.com/real100woong)   | Team Leader         |
+| <img src="./README/sdj.png" width="50px"/>신다정, Dajeong Sin | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
+| <img src="./README/lsw.png" width="50px"/>이석원, Seokwon Lee | [clalsw](https://github.com/clalsw)               | Presentation Leader |
+| <img src="./README/csh.png" width="50px"/>조성훈, Seunghun Cho | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
+| <img src="./README/pkd.png" width="50px"/>표기동, Kidong Pyo | [pyoki32](https://github.com/pyoki32)             | Ending Leader       |
+
+
 
 
 
@@ -165,3 +181,4 @@ for example,
 
 
 ### <img src="./README/ministry_of_employment_and_labor.jpg" width='200px'>    Ministry of Employment and Labor, Korea
+
