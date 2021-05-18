@@ -258,7 +258,7 @@ for example,
 
 
 
-###         [<img src="./README/ssafy.PNG" width='120px'>](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp)         Samsung Software Academy for Youth
+###                 [<img src="./README/ssafy.PNG" width='120px'>](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp)         Samsung Software Academy for Youth
 
 
 
