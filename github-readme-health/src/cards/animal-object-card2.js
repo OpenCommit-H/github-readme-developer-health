@@ -29,11 +29,6 @@ const createTextNode = ({
 }) => {
   const kValue = kFormatter(value);
   const staggerDelay = (index + 3) * 150;
-
-
-  d
-
-
   const labelOffset = showIcons ? `x="25"` : "";
   const iconSvg = showIcons
     ? `
