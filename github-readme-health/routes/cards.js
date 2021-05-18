@@ -8,4 +8,6 @@ var badgeview = require('../views/badgeview');
 router.get('/badge', badgeview.renderBadge);
 var fitcardview = require('../views/fitcardview');
 router.get('/fit', fitcardview.renderFitCard);
+var calendarview = require('../views/calendarview');
+router.get('/calendar', calendarview.rendercalendarCard);
 module.exports = router;
