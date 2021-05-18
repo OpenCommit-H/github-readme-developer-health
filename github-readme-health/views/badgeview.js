@@ -53,7 +53,7 @@ exports.renderBadge = async (req, res) => {
       function calculateActivity(inputTime) {
     
         const DVELOPTIME_WEEK_BABYBOTTLE = 1;
-        const DVELOPTIME_WEEK_TEA = 20;
+        const DVELOPTIME_WEEK_TEA = 2;
         const DVELOPTIME_WEEK_COFFEE= 40;
         console.log(inputTime)
         let drink = "";
@@ -80,7 +80,8 @@ exports.renderBadge = async (req, res) => {
         name: username,
         animal: temp.animal,
         drink: selectedDrink,
-        theme: "default"
+        theme: "default",
+        size: size,
       };
         res.send(renderAnimalObjectCard(stats));
     } catch (err) {
