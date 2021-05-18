@@ -111,7 +111,7 @@ You can customize the appearence of your Chart card-view with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/chart?username=pyoki32username&size=250&themes=forest```
+```https://github-readme-developer-health.com/cards/chart?username=pyoki32&size=250&themes=forest```
 
 #### Common Options:
 
