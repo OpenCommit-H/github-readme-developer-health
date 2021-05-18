@@ -153,7 +153,7 @@ You can customize the appearence of your Health-badge with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/badge?username=pyoki32username&size=250&themes=forest```
+```https://github-readme-developer-health.com/cards/badge?username=pyoki32&size=250&themes=forest```
 
 #### Common Options:
 
