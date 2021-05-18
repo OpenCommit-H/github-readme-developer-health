@@ -32,6 +32,18 @@ You can test how it looks using url parameter as ```themes=```.
 
 
 
+# Animator Contribution
+
+Our card-views and badge can be adapted to animation.
+
+If you want to apply a different animation, __please edit, capture and document it__.
+
+And we welcome the UCC producer as well. You can suggest various ideas or edit UCC newly.
+
+We will continue the campaign with your ideas.
+
+
+
 ## License
 
 By contributing, you agree that your contributions will be licensed under its [MIT License](./LICENSE).
