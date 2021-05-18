@@ -86,6 +86,10 @@ Change the `?username=` value to your Github username.
 ![Openmind's Github Readme Health](https://k4a302.p.ssafy.io/cards/chart?username=pyoki32)
 ```
 
+
+
+
+
 ## Themes
 
 You can use variouse themes that we provide.
@@ -172,11 +176,15 @@ for example,
 
 
 
-### <img src="./README/ssafy.PNG" width='120px'>                 Samsung Software Academy for Youth
+###         <img src="./README/ssafy.PNG" width='120px'>         Samsung Software Academy for Youth
+
+
 
 
 
 ### <img src="./README/Samsung_wordmark.svg" width='200px' >    Samsung Electronics
+
+
 
 
 
