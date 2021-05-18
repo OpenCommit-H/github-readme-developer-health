@@ -12,11 +12,8 @@ const fetchGoogleFitGetUrl = async () => {
         process.env.CLIENT_ID,
         // client secret
         process.env.CLIENT_SECRET,
-        // link to redirect to 
-        //"https://k4a302.p.ssafy.io:3000/api/googleFit"
-        //local test
-        "http://localhost:3000/api/googleFit"
-        
+        // link to redirect to  https://domain/api/googleFit
+        process.env.REDIRECT_URL   
     );
     
     const scopes=["https://www.googleapis.com/auth/fitness.activity.read profile email openid",
@@ -45,10 +42,8 @@ const getRefreshToken = async code => {
         process.env.CLIENT_ID,
         // client secret
         process.env.CLIENT_SECRET,
-        // link to redirect to 
-        //"https://k4a302.p.ssafy.io:3000/api/googleFit"
-         //local test
-         "http://localhost:3000/api/googleFit"
+        // link to redirect to  https://domain/api/googleFit
+        process.env.REDIRECT_URL   
     );
 
     const tokens = await oauth2Client.getToken(code);
