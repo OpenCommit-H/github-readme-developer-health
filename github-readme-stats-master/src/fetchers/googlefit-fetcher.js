@@ -12,7 +12,7 @@ const fetchGoogleFitGetUrl = async () => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "https://k4a302.p.ssafy.io:3000/api/googleFit"
+        "https://k4a302.p.ssafy.io/api/googleFit"
         
     );
     
@@ -43,7 +43,7 @@ const getRefreshToken = async code => {
         // client secret
         process.env.CLIENT_SECRET,
         // link to redirect to 
-        "https://k4a302.p.ssafy.io:3000/api/googleFit"
+        "https://k4a302.p.ssafy.io/api/googleFit"
     );
 
     const tokens = await oauth2Client.getToken(code);
@@ -225,7 +225,6 @@ const fetchGoogleFitGetData = async (access_token) => {
      
     return stats;
 };
-
 
 module.exports = {
     fetchGoogleFitGetUrl,

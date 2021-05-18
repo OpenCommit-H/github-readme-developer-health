@@ -2,7 +2,8 @@ const axios = require("axios");
 const { google } = require("googleapis");
 const request = require("request");
 const calculateActivity = require("../calculateActivity");
-const querystring = require('querystring')
+const querystring = require('querystring');
+const { stat } = require("fs");
 
 const fetchGoogleFitGetUrl = async () => {
  
@@ -231,10 +232,70 @@ const fetchGoogleFitGetData = async (access_token) => {
     return stats;
 };
 
+const fetchGoogleFitGetMonthlyData = async (access_token, month) => {
+    const date = new Date();
+    const start = new Date(date.getFullYear(), month-1);
+    const end = new Date(date.getFullYear(), month, 0, 23, 59, 59, 999);
+
+    const END = Date.parse(end);
+    const START = Date.parse(start);
+    const len = new Date(date.getFullYear(),month, 0).getDate();
+    const WEEKDAY = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+    const stats = {
+        active_minutes : new Array(len).fill(0),
+        start_day : WEEKDAY[start.getDay()]
+    };
+
+    let fitnessArray = [];
+
+    try {
+        const result = await axios ({
+            method: "POST",
+            headers: {
+                authorization: "Bearer " + access_token
+            },
+            "Content-Type": "application/json",
+            url: `https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate`,
+            data: {
+                aggregateBy : [
+                    {
+                        dataTypeName: "com.google.active_minutes",
+                        dataSourceId: "derived:com.google.active_minutes:com.google.android.gms:merge_active_minutes"
+                    }
+                ],
+                // 86400000 밀리초 = 24시간
+                bucketByTime : {durationMillis: 86400000},
+                startTimeMillis: START,
+                endTimeMillis: END
+            }
+
+        });
+        fitnessArray = result.data.bucket
+
+        let i=0;
+        for(const dataSet of fitnessArray){
+            for(const points of dataSet.dataset){
+                for(const p of points.point){
+                    stats.active_minutes[i] += p.value[0].intVal
+                    
+                }
+            }
+            i++
+        }
+        
+    } catch (e) {
+        console.log(e)
+    }
+
+    return stats;
+
+};
 
 module.exports = {
     fetchGoogleFitGetUrl,
     fetchGoogleFitGetData,
     getAccessToken,
-    getRefreshToken
+    getRefreshToken,
+    fetchGoogleFitGetMonthlyData
 };
