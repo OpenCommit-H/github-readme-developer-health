@@ -17,6 +17,9 @@ const calendarCard = (abc = {}) => {
   const {
     active_minutes,
     start_day,
+    selectedMonth,
+    username,
+    size,
   } = abc;
   var calendarSvg = "";
   for (i=0; i<42; i++){
@@ -38,6 +41,7 @@ const calendarCard = (abc = {}) => {
 
   var monthActive = new Array(42);
   var idx = 0;
+  const month = ['Jan.', 'Feb.', 'Mar.', 'Apr', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov', 'Dec'];
   const weeks = ['SUM', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   idx = weeks.indexOf(start_day)
   commitColor = "";
@@ -65,11 +69,11 @@ const calendarCard = (abc = {}) => {
   var textNode = "";
   for (i=idx; i<idx+active_minutes.length; i++){
     textNode += `
-    <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}">${monthActive[i][0]}</text>
-    <text x="${20+(i%7)*100}" y="${200+parseInt((i/7)%7)*100}">${monthActive[i][1]}분</text>`
+    <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}" font-size="25">${monthActive[i][0]}</text>
+    <text x="${20+(i%7)*100}" y="${200+parseInt((i/7)%7)*100}" font-size="20">${monthActive[i][1]}분</text>`
   }
   return `
-  <svg width="710" height="761" viewBox="0 0 710 761" xmlns="http://www.w3.org/2000/svg">
+  <svg width="${71*size}" height="${76.1*size}" viewBox="0 0 710 761" xmlns="http://www.w3.org/2000/svg">
 
 <svg width="710" height="761" viewBox="0 0 710 761" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
@@ -77,17 +81,17 @@ ${commitColor}
 </style>
 ${calendarSvg}
 <g id="week">
-<text id="SAT" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="639.566" y="135.909">SAT</tspan></text>
-<text id="FRI" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="540.99" y="135.909">FRI</tspan></text>
-<text id="THU" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="436.596" y="135.909">THU</tspan></text>
-<text id="WED" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="334.179" y="135.909">WED</tspan></text>
-<text id="TUE" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="238.011" y="135.909">TUE</tspan></text>
-<text id="MON" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="134.082" y="135.909">MON</tspan></text>
-<text id="SUN" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="36.8857" y="135.909">SUN</tspan></text>
+<text id="SAT" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="639.566" y="135.909">SAT</tspan></text>
+<text id="FRI" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="540.99" y="135.909">FRI</tspan></text>
+<text id="THU" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="436.596" y="135.909">THU</tspan></text>
+<text id="WED" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="334.179" y="135.909">WED</tspan></text>
+<text id="TUE" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="238.011" y="135.909">TUE</tspan></text>
+<text id="MON" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="134.082" y="135.909">MON</tspan></text>
+<text id="SUN" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="20" letter-spacing="0em"><tspan x="36.8857" y="135.909">SUN</tspan></text>
 </g>
 <g id="title">
-<text id="clalsw&#226;&#128;&#153;s health commit" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="48" letter-spacing="0em"><tspan x="143.008" y="50.424">clalsw&#x2019;s health commit</tspan></text>
-<text id="january" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="48" letter-spacing="0em"><tspan x="283.586" y="100.424">january</tspan></text>
+<text id="health commit" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="48" letter-spacing="0em" alignment-baseline="middle" text-anchor="middle"><tspan x="50%" y="50.424">${username}'s Health Commit</tspan></text>
+<text id="january" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="middle"><tspan x="50%" y="100.424">${month[selectedMonth-1]}</tspan></text>
 </g>
 <defs>
 ${filterSvg}

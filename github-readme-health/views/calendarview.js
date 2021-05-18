@@ -38,12 +38,17 @@ exports.rendercalendarCard = async (req, res) => {
         disable_animations,
         border_radius,
         border_color,
+        month,
+        size,
     } = req.query;
    // default data
 // if create total fetcher, then fit, commits, sleep will erase
+var date = new Date()
+var selectedMonth = month? month: date.getMonth()+1;
+var selectedsize = size? size: 5;
 
 try {
-  
+  console.log(selectedMonth)
   // make data
   res.setHeader("Content-Type", "image/svg+xml");
 
@@ -58,9 +63,11 @@ try {
   const { refresh_token } = userStats;
   const access_token = await getAccessToken(refresh_token);
   const temp = await fetchGoogleFitGetData(access_token);
-  const month = await fetchGoogleFitGetMonthlyData(access_token,4);
+  const month = await fetchGoogleFitGetMonthlyData(access_token,selectedMonth);
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  
+  month.selectedMonth = selectedMonth;
+  month.username = username;
+  month.size = selectedsize;
   console.log(temp)
   console.log(month)
   
