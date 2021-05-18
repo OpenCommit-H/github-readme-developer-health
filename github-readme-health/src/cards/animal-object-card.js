@@ -55,7 +55,7 @@ const createTextNode = ({
 const renderAnimalObjectCard = (stats = {}) => {
   const {
     name,
-    animal = 4,
+    animal = "sloth",
     drink = 4,
     theme = "default"
   } = stats;
@@ -65,28 +65,28 @@ const renderAnimalObjectCard = (stats = {}) => {
   const selectTheme = theme ? circleThemes[theme] : circleThemes["default"];
 
   const selectAnimal = () => {
-    if (animal == 1) {
+    if (animal == "sloth") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-20 -20 112 112">
       ${animals.sloth}
       </svg>
       `;
     };
-    if (animal == 2) {
+    if (animal == "pig") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-20 -20 112 112">
       ${animals.pig}
       </svg>
       `;
     };
-    if (animal == 3) {
+    if (animal == "dog") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-20 -20 112 112">
       ${animals.dog}
       </svg>
       `;
     };
-    if (animal == 4) {
+    if (animal == "horse") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-30 -30 132 132">
       ${animals.horse}
@@ -95,28 +95,28 @@ const renderAnimalObjectCard = (stats = {}) => {
     };
   };
   const selectDrink = () => {
-    if (drink == 1) {
+    if (drink == "babyBottle") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="-10%" y="-10%" viewBox="-20 -20 112 112">
       ${drinks.babyBottle}
       </svg>
       `;
     };
-    if (drink == 2) {
+    if (drink == "tea") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="-20 -20 112 112">
       ${drinks.tea}
       </svg>
       `;
     };
-    if (drink == 3) {
+    if (drink == "coffee") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="-20 -20 112 112">
       ${drinks.coffee}
       </svg>
       `;  
     };
-    if (drink == 4) {
+    if (drink == "fire") {
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="-20 -20 112 112">
       ${drinks.fire}
