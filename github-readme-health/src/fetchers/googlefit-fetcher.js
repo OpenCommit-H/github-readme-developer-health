@@ -220,12 +220,13 @@ const fetchGoogleFitGetData = async (access_token) => {
     } catch (e) {
         console.log(e);
     }
-     stats.animal = calculateActivity({
-        step: stats.step,
-        active_minutes: stats.active_minutes,
-        heart_minutes: stats.heart_minutes,
-        heart_level: stats.heart_level
-     });
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    stats.animal = calculateActivity({
+        step: stats.step.reduce(reducer),
+        active_minutes: stats.active_minutes.reduce(reducer),
+        heart_minutes: stats.heart_minutes.reduce(reducer),
+        heart_level: stats.heart_level.reduce(reducer),
+    });
      
     return stats;
 };

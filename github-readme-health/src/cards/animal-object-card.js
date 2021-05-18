@@ -55,76 +55,92 @@ const createTextNode = ({
 const renderAnimalObjectCard = (stats = {}) => {
   const {
     name,
-    animal = 4,
+    animal = "sloth",
     drink = 4,
-    theme = "default"
+    theme = "default",
+    size = 20,
   } = stats;
 
   // 여기서부터 코드 작성한거
-  const magni = 20;
+  const magni = size;
   const selectTheme = theme ? circleThemes[theme] : circleThemes["default"];
-
+  var describeDrink = ""
   const selectAnimal = () => {
-    if (animal == 1) {
+    if (animal == "sloth") {
+      
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="20%" y="3%" viewBox="-20 -20 128 128">
       ${animals.sloth}
       </svg>
       `;
     };
-    if (animal == 2) {
+    if (animal == "pig") {
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="25%" y="6%" viewBox="-20 -20 128 128">
       ${animals.pig}
       </svg>
       `;
     };
-    if (animal == 3) {
+    if (animal == "dog") {
+      
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="25%" y="5%" viewBox="-20 -20 128 128">
       ${animals.dog}
       </svg>
       `;
     };
-    if (animal == 4) {
+    if (animal == "horse") {
+     
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="10%" y="0%" viewBox="-30 -30 132 132">
+      <svg preserveAspectRatio="xMidYMid meet" x="15%" y="-3%" viewBox="-30 -30 128 128">
       ${animals.horse}
       </svg>
       `;
     };
   };
   const selectDrink = () => {
-    if (drink == 1) {
+    if (drink == "babyBottle") {
+      describeDrink = "beginning"
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="-10%" y="-10%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="-3%" y="2%" viewBox="-20 -20 140 140">
       ${drinks.babyBottle}
       </svg>
       `;
     };
-    if (drink == 2) {
+    if (drink == "tea") {
+      describeDrink = "Relaxed"
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="6%" y="10%" viewBox="-20 -20 168 168">
       ${drinks.tea}
       </svg>
       `;
     };
-    if (drink == 3) {
+    if (drink == "coffee") {
+      describeDrink = "passion"
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="0%" y="4%" viewBox="-20 -20 140 140">
       ${drinks.coffee}
       </svg>
       `;  
     };
-    if (drink == 4) {
+    if (drink == "fire") {
+      describeDrink = "flaming"
       return `
-      <svg preserveAspectRatio="xMidYMid meet" x="-5%" y="-5%" viewBox="-20 -20 112 112">
+      <svg preserveAspectRatio="xMidYMid meet" x="2%" y="3%" viewBox="-20 -20 150 150">
       ${drinks.fire}
       </svg>
       `;  
     };
   };
-
+  if (drink == "babyBottle") {
+    describeDrink = "beginning"
+  } else if (drink == "tea") {
+    describeDrink = "Relaxed"
+  } else if (drink == "coffee") {
+    describeDrink = "passion"
+  } else if (drink == "fire") {
+    describeDrink = "flaming"
+  }
   return `
     
 <svg version="1.1"
@@ -149,7 +165,7 @@ const renderAnimalObjectCard = (stats = {}) => {
       <circle id="outCircle" cx="100" cy="100" r="100" fill="${selectTheme.outcircleColor}"/>
       <circle id="inCircle" cx="100" cy="100" r="60" fill="${selectTheme.incircleColor}"/>
       <text class="describeText" lengthAdjust="spacingAndGlyphs">
-        <textPath xlink:href="#usernameCircle" startOffset="50%" alignment-baseline="middle" text-anchor="middle">Drink Milk Pig</textPath>
+        <textPath xlink:href="#usernameCircle" startOffset="50%" alignment-baseline="middle" text-anchor="middle">${describeDrink} ${animal}</textPath>
       </text>
       <g id="stars">
         <animateTransform 

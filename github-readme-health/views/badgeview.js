@@ -10,6 +10,7 @@ const fetchStats = require("../src/fetchers/test-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
 
+
 exports.renderBadge = async (req, res) => {
     const {
       range,
@@ -32,27 +33,62 @@ exports.renderBadge = async (req, res) => {
   }
 
   res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
-
+  // last 7days goofle fit api
+  
+  
     try {
       const userStats = await userinfoStats({ username });
 
       const { wakaname, api_key, refresh_token } = userStats;
-
+      const access_token = await getAccessToken(refresh_token);
+      const temp = await fetchGoogleFitGetData(access_token);
       const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
-
-
+      // console.log(wakaStats)
+      var totaltime = wakaStats.reduce(function(prev, cur) {
+        return prev + cur.total_seconds;
+      }, 0);
+      // console.log(totaltime)
+      totaltime = totaltime/3600
+      console.log(totaltime)
+      function calculateActivity(inputTime) {
+    
+        const DVELOPTIME_WEEK_BABYBOTTLE = 1;
+        const DVELOPTIME_WEEK_TEA = 2;
+        const DVELOPTIME_WEEK_COFFEE= 40;
+        console.log(inputTime)
+        let drink = "";
+      
+        if(inputTime<DVELOPTIME_WEEK_BABYBOTTLE){
+          drink="babyBottle";
+        }else if(DVELOPTIME_WEEK_BABYBOTTLE<=inputTime&&inputTime<DVELOPTIME_WEEK_TEA){
+          drink="tea";
+        
+        }else if(DVELOPTIME_WEEK_TEA<=inputTime&&inputTime<DVELOPTIME_WEEK_COFFEE){
+          drink="coffee";
+        }
+        if(DVELOPTIME_WEEK_COFFEE<=inputTime){
+          drink="fire";
+        }
+        return drink;
+      }
         // last 7days github api
         const githubStats = await fetchStats(username);
-
-        // last 7days goofle fit api
-      const access_token = await getAccessToken(refresh_token);
-      const test = await fetchGoogleFitGetData(access_token);
+      var selectedDrink = calculateActivity(totaltime);
+      console.log(selectedDrink)
       // console.log(test);
       var stats = {
+<<<<<<< HEAD
         name: "aaaaaaa",
         animal: 1,
         drink: 1,
         theme: "default"
+=======
+        name: username,
+        animal: temp.animal,
+        drink: selectedDrink,
+        theme: "default",
+        size: size,
+>>>>>>> 18c75ac3cee772a13c32df0ff932863ca8417403
       };
         res.send(renderAnimalObjectCard(stats));
     } catch (err) {
