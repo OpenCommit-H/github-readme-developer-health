@@ -99,9 +99,9 @@ You can use variouse themes that we provide.
 
 defaultTheme, forest, blue, darkforest, cherry, night
 
-<img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="300px"/>
+<img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="30%"/>
 
-<img src="./README/darkforestChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/cherryChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/nightChart.PNG" alt="Github Readme Health Themes" width="300px"/>
+<img src="./README/darkforestChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/cherryChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/nightChart.PNG" alt="Github Readme Health Themes" width="30%"/>
 
 
 
@@ -143,9 +143,9 @@ You can use variouse themes that we provide.
 
 default, pink, sky, forest, dark, sunset
 
-<img src="./README/defaultBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/pinkBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/skyBadge.PNG" alt="Github Readme Health Themes" width="300px"/>
+<img src="./README/defaultBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/pinkBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/skyBadge.PNG" alt="Github Readme Health Themes" width="30%"/>
 
-<img src="./README/forestBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/darkBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/sunsetBadge.PNG" alt="Github Readme Health Themes" width="300px"/>
+<img src="./README/forestBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/darkBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/sunsetBadge.PNG" alt="Github Readme Health Themes" width="30%"/>
 
 ## Customization
 
