@@ -15,9 +15,12 @@
 - [Gather Your Data](#gather-your-data)
 - [Register Your Data](#register-your-data)
 - [Chart Card](#chart-card)
+- [Health Badge](#health-badge)
+- [Health Stats](#health-stats)
 - [Deploy on Your Own](#deploy-on-your-own)
 - [Tech](#tech)
 - [Contributer](#contributer)
+- [Supported](#supported)
 
 
 
@@ -78,29 +81,25 @@ https://k4a302.p.ssafy.io/api
 
 # Chart Card
 
+> This chart card shows exercise time, development time, sleep time, and number of commits over a week.
+
 Copy-paste this into your readme or other markdown editor.
 
 Change the `?username=` value to your Github username.
 
 ```
-![Openmind's Github Readme Health](https://k4a302.p.ssafy.io/cards/chart?username=pyoki32)
+![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/chart?username=pyoki32)
 ```
-
-
-
-
 
 ## Themes
 
 You can use variouse themes that we provide.
 
-#### All thems:
+#### All themes:
 
 defaultTheme, forest, blue
 
 <img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="200px"/>
-
-
 
 
 
@@ -110,15 +109,94 @@ You can customize the appearence of your Chart card-view with URL params.
 
 for example,
 
-```https://k4a302.p.ssafy.io/cards/chart?username=username&size=250&themes=forest```
+```https://github-readme-developer-health.com/cards/chart?username=pyoki32username&size=250&themes=forest```
 
 #### Common Options:
 
 - size - Card-view's size in your readme (pixel)
 
-- themes - name of the themes, choose [available themes](./themes.md)
+- themes - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
 
 
+
+# Health Badge
+
+> This badge calculates development time and exercise time to express your development habits in a cute way.
+>
+> If you work out hard, you can get dynamic animal picture, and if you work hard on developing, your drink will be upgraded.
+
+Copy-paste this into your readme or other markdown editor.
+
+Change the `?username=` value to your Github username.
+
+```
+![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/badge?username=pyoki32)
+```
+
+## Themes
+
+You can use variouse themes that we provide.
+
+#### All themes:
+
+default, pink, sky, forest
+
+<img src="./README/defaultBadge.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/pinkBadge.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/skyBadge.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/forestBadge.PNG" alt="Github Readme Health Themes" width="200px"/>
+
+## Customization
+
+You can customize the appearence of your Health-badge with URL params.
+
+for example,
+
+```https://github-readme-developer-health.com/cards/badge?username=pyoki32username&size=250&themes=forest```
+
+#### Common Options:
+
+- size - Health-badge's size in your readme (pixel)
+- themes - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
+
+
+
+# Health Stats
+
+> This Health stats shows a week's workout stats and shows dynamic animals if you exercise hard.
+
+Copy-paste this into your readme or other markdown editor.
+
+Change the `?username=` value to your Github username.
+
+```
+![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/fit?username=pyoki32)
+```
+
+## Themes
+
+You can use variouse themes that we provide.
+
+#### All themes:
+
+default, dark, radical, merko, tokyonight, onedark, cobalt, synthwave, highcontrast, dracula
+
+<img src="./README/defaultHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/darkHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+
+<img src="./README/radicalHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/merkoHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+
+<img src="./README/tokyonightHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/onedarkHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+
+<img src="./README/cobaltHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/synthwaveHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+
+## Customization
+
+You can customize the appearence of your Health-badge with URL params.
+
+for example,
+
+```https://github-readme-developer-health.com/cards/badge?username=pyoki32username&themes=forest```
+
+#### Common Options:
+
+- theme - name of the themes, choose [available themes](./github-readme-health/themes/index.js)
 
 
 
@@ -130,7 +208,7 @@ for example,
 4. [Install mongoDB](https://www.mongodb.com/try/download/community)
 5. Add 'MONGO_DB' as a key and host address of mongodb as a value in .env file.
 6.  install packages ```npm install```
-7. run application ```npm start``` or ```pm2 start ./bin/www```
+7. run application ```npm start``` or ```pm2 start ./bin/www```
 
 *As a note, .env file example*
 
@@ -176,17 +254,17 @@ for example,
 
 
 
-###         <img src="./README/ssafy.PNG" width='120px'>         Samsung Software Academy for Youth
+###         [<img src="./README/ssafy.PNG" width='120px'>](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp)         Samsung Software Academy for Youth
 
 
 
 
 
-### <img src="./README/Samsung_wordmark.svg" width='200px' >    Samsung Electronics
+### [<img src="./README/Samsung_wordmark.svg" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics
 
 
 
 
 
-### <img src="./README/ministry_of_employment_and_labor.jpg" width='200px'>    Ministry of Employment and Labor, Korea
+### [<img src="./README/ministry_of_employment_and_labor.jpg" width='200px'>](http://www.moel.go.kr/index.do)    Ministry of Employment and Labor, Korea
 
