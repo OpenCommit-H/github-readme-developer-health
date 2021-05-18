@@ -5,7 +5,7 @@ const {
     clampValue,
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
-const renderAnimalObjectCard = require("../src/cards/animal-object-card2");
+const renderAnimalObjectCard = require("../src/cards/animal-object-card");
 const fetchStats = require("../src/fetchers/test-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");

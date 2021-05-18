@@ -10,7 +10,7 @@ const calendarCard = require("../src/cards/calendar-card");
 const blacklist = require("../src/common/blacklist");
 const { isLocaleAvailable } = require("../src/translations");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
-const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
+const { fetchGoogleFitGetData,fetchGoogleFitGetMonthlyData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 
 exports.rendercalendarCard = async (req, res) => {
     const {
@@ -38,12 +38,17 @@ exports.rendercalendarCard = async (req, res) => {
         disable_animations,
         border_radius,
         border_color,
+        month,
+        size,
     } = req.query;
    // default data
 // if create total fetcher, then fit, commits, sleep will erase
+var date = new Date()
+var selectedMonth = month? month: date.getMonth()+1;
+var selectedsize = size? size: 5;
 
 try {
-  
+  console.log(selectedMonth)
   // make data
   res.setHeader("Content-Type", "image/svg+xml");
 
@@ -58,12 +63,15 @@ try {
   const { refresh_token } = userStats;
   const access_token = await getAccessToken(refresh_token);
   const temp = await fetchGoogleFitGetData(access_token);
+  const month = await fetchGoogleFitGetMonthlyData(access_token,selectedMonth);
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
-  
+  month.selectedMonth = selectedMonth;
+  month.username = username;
+  month.size = selectedsize;
   console.log(temp)
+  console.log(month)
   
   var stats = {
-    name: username,
     step: temp.step.reduce(reducer),
     distance: temp.distance.reduce(reducer),
     active_minutes: [
@@ -78,8 +86,7 @@ try {
     animal: temp.animal,
     rank: { level: 'A+', score: 50.9662800308734 },
   }
-  console.log(stats)
-  res.send(calendarCard(stats));
+  res.send(calendarCard(month));
 } catch (err) {
   return res.send(renderError(err.message, err.secondaryMessage));
 }
