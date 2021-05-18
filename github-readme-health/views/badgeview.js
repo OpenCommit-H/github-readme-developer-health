@@ -5,7 +5,7 @@ const {
     clampValue,
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
-const renderAnimalObjectCard = require("../src/cards/animal-object-card");
+const renderAnimalObjectCard = require("../src/cards/animal-object-card2");
 const fetchStats = require("../src/fetchers/test-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
@@ -50,8 +50,8 @@ exports.renderBadge = async (req, res) => {
       // console.log(test);
       var stats = {
         name: "aaaaaaa",
-        animal: 4,
-        drink: 4,
+        animal: 1,
+        drink: 1,
         theme: "default"
       };
         res.send(renderAnimalObjectCard(stats));
