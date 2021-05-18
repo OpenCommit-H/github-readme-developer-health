@@ -15,37 +15,66 @@ const {
 
 const calendarCard = (abc = {}) => {
   const {
-    name,
-    step,
-    distance,
     active_minutes,
-    heart_level,
-    heart_minutes,
-    sleep,
-    animal,
-    rank,
+    start_day,
   } = abc;
   var calendarSvg = "";
-  for (i=0; i<35; i++){
+  for (i=0; i<42; i++){
     calendarSvg += `
-    <g id="Rectangle ${i+1}" filter="url(#filter${34-i}_f)">
-    <rect x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100" fill="white"/>
+    <g id="Rectangle ${i+1}" filter="url(#filter${41-i}_f)">
+    <rect id="commit${i+1}" x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100"/>
     <rect x="${4.5+(i%7)*100}" y="${155.5+parseInt((i/7)%7)*100}" width="101" height="101" stroke="black"/>
     </g>`
   }
   var filterSvg = "";
-  for (i=0; i<35; i++){
+  for (i=0; i<42; i++){
     filterSvg += `
-    <filter id="filter${i}_f" x="${600-(i%7)*100}" y="${551-parseInt((i/7)%7)*100}" width="110" height="110" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="filter${i}_f" x="${600-(i%7)*100}" y="${651-parseInt((i/7)%7)*100}" width="110" height="110" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
     <feFlood flood-opacity="0" result="BackgroundImageFix"/>
     <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
     <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur"/>
     </filter>`
   }
-  return `
-  <svg width="355" height="330.5" viewBox="0 0 710 661" xmlns="http://www.w3.org/2000/svg">
 
-<svg width="710" height="661" viewBox="0 0 710 661" fill="none" xmlns="http://www.w3.org/2000/svg">
+  var monthActive = new Array(42);
+  var idx = 0;
+  const weeks = ['SUM', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  idx = weeks.indexOf(start_day)
+  commitColor = "";
+  const level1 = 1;
+  const level2 = 30;
+  const level3= 90;
+  for (i=0; i<active_minutes.length; i++){
+    monthActive[i+idx] = [i+1, active_minutes[i]];
+  }
+  console.log(monthActive)
+  for (i=0; i<monthActive.length; i++){
+    if(monthActive[i]){
+      if(monthActive[i][1]<level1){
+        commitColor += `#commit${i+1} {fill: #ffffff;}`
+      }else if(level1<=monthActive[i][1]&&monthActive[i][1]<level2){
+        commitColor += `#commit${i+1} {fill: #D7FFF1;}`
+      }else if(level2<=monthActive[i][1]&&monthActive[i][1]<level3){
+        commitColor += `#commit${i+1} {fill: #8CD790;}`
+      }else{
+        commitColor += `#commit${i+1} {fill: #77AF9C;}`
+      }
+    }
+  }
+
+  var textNode = "";
+  for (i=idx; i<idx+active_minutes.length; i++){
+    textNode += `
+    <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}">${monthActive[i][0]}</text>
+    <text x="${20+(i%7)*100}" y="${200+parseInt((i/7)%7)*100}">${monthActive[i][1]}분</text>`
+  }
+  return `
+  <svg width="710" height="761" viewBox="0 0 710 761" xmlns="http://www.w3.org/2000/svg">
+
+<svg width="710" height="761" viewBox="0 0 710 761" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+${commitColor}
+</style>
 ${calendarSvg}
 <g id="week">
 <text id="SAT" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rakkas" font-size="18" letter-spacing="0em"><tspan x="639.566" y="135.909">SAT</tspan></text>
@@ -64,18 +93,7 @@ ${calendarSvg}
 ${filterSvg}
 </defs>
 </svg>
-  <text x="120" y="180">1</text>
-  <text x="120" y="200">${active_minutes[0]}분</text>
-  <text x="220" y="180">2</text>
-  <text x="220" y="200">${active_minutes[1]}분</text>
-  <text x="320" y="180">3</text>
-  <text x="320" y="200">${active_minutes[2]}분</text>
-  <text x="420" y="180">4</text>
-  <text x="420" y="200">${active_minutes[3]}분</text>
-  <text x="520" y="180">5</text>
-  <text x="620" y="180">6</text>
-  <text x="720" y="180">7</text>
-  <text x="20" y="280">8</text>
+  ${textNode}
 </svg>
 
 

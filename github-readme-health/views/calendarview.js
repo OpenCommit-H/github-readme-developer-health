@@ -10,7 +10,7 @@ const calendarCard = require("../src/cards/calendar-card");
 const blacklist = require("../src/common/blacklist");
 const { isLocaleAvailable } = require("../src/translations");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
-const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
+const { fetchGoogleFitGetData,fetchGoogleFitGetMonthlyData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 
 exports.rendercalendarCard = async (req, res) => {
     const {
@@ -58,12 +58,13 @@ try {
   const { refresh_token } = userStats;
   const access_token = await getAccessToken(refresh_token);
   const temp = await fetchGoogleFitGetData(access_token);
+  const month = await fetchGoogleFitGetMonthlyData(access_token,4);
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   
   console.log(temp)
+  console.log(month)
   
   var stats = {
-    name: username,
     step: temp.step.reduce(reducer),
     distance: temp.distance.reduce(reducer),
     active_minutes: [
@@ -78,8 +79,7 @@ try {
     animal: temp.animal,
     rank: { level: 'A+', score: 50.9662800308734 },
   }
-  console.log(stats)
-  res.send(calendarCard(stats));
+  res.send(calendarCard(month));
 } catch (err) {
   return res.send(renderError(err.message, err.secondaryMessage));
 }
