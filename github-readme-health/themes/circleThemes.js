@@ -111,5 +111,61 @@ const circleThemes = {
             }
         `,
     },
+    "dark": {
+        outcircleColor: "#404146",
+        incircleColor: "#FFFFFF",
+        describeText: `
+            .describeText { 
+                font-family: Santana-Black, sans-serif; 
+                fill: #fff1b9;
+                text-transform: uppercase;
+                font-size: 20px;
+            }
+        `,
+        nameText: `
+            .nameText { 
+                font-size: 15px;
+                fill: #fdc23e;
+            }
+        `,
+        ribbonColor: `
+            #ribbon path{
+                fill: #0F2027;
+            }
+        `,
+        starColor: `
+            #stars path{
+                fill: #f8ca00;
+            }
+        `,
+    },
+    "sunset": {
+        outcircleColor: "#ffc952",
+        incircleColor: "#FFFFFF",
+        describeText: `
+            .describeText { 
+                font-family: Santana-Black, sans-serif; 
+                fill: #8b8687;
+                text-transform: uppercase;
+                font-size: 20px;
+            }
+        `,
+        nameText: `
+            .nameText { 
+                font-size: 15px;
+                fill: #0F2027;
+            }
+        `,
+        ribbonColor: `
+            #ribbon path{
+                fill: #ff7761;
+            }
+        `,
+        starColor: `
+            #stars path{
+                fill: #0F2027;
+            }
+        `,
+    },
 }
 module.exports = circleThemes;
