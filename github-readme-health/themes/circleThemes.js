@@ -23,7 +23,7 @@ const circleThemes = {
         `,
         starColor: `
             #stars path{
-                fill: #FFFFFF;
+                fill: #d499b9;
             }
         `,
     },
@@ -97,7 +97,7 @@ const circleThemes = {
         nameText: `
             .nameText { 
                 font-size: 15px;
-                fill: #fff;
+                fill: #534847;
             }
         `,
         ribbonColor: `
@@ -107,7 +107,7 @@ const circleThemes = {
         `,
         starColor: `
             #stars path{
-                fill: #FFFFFF;
+                fill: #6f3826;
             }
         `,
     },
