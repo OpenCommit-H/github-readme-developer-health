@@ -57,7 +57,7 @@ const renderAnimalObjectCard = (stats = {}) => {
     name,
     animal = "sloth",
     drink = 4,
-    theme = "default",
+    theme,
     size = 20,
   } = stats;
 

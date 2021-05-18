@@ -80,7 +80,7 @@ exports.renderBadge = async (req, res) => {
         name: username,
         animal: temp.animal,
         drink: selectedDrink,
-        theme: "default",
+        theme: themes,
         size: size,
       };
         res.send(renderAnimalObjectCard(stats));
