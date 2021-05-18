@@ -77,18 +77,11 @@ exports.renderBadge = async (req, res) => {
       console.log(selectedDrink)
       // console.log(test);
       var stats = {
-<<<<<<< HEAD
-        name: "aaaaaaa",
-        animal: 1,
-        drink: 1,
-        theme: "default"
-=======
         name: username,
         animal: temp.animal,
         drink: selectedDrink,
         theme: "default",
         size: size,
->>>>>>> 18c75ac3cee772a13c32df0ff932863ca8417403
       };
         res.send(renderAnimalObjectCard(stats));
     } catch (err) {
