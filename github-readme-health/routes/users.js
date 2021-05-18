@@ -37,47 +37,17 @@ Open_id.findOne({github_id:req.body.github_id}, function(error,open_id){
          console.log("new saved");
          newOpen_id.save();
      }else{
-         Open_id.findOne({github_id:req.body.github_id}, function(error,open_id){
-             console.log('--- Update(PUT) ---');
-             if(error){
-                 console.log(error);
-             }else{
-                 open_id.access_token = req.body.access_token;
-                 open_id.refresh_token = req.body.refresh_token;
-                 open_id.waka_id =  req.body.waka_id;
-                 open_id.api_key=req.body.api_key;
-                 newOpen_id.save();
-             }
-         });
-
+        console.log("Del and save");
+        Open_id.deleteOne({github_id:req.body.github_id}, function(err, obj) {
+            if (err) throw err;
+            console.log("Del");
+          }); 
+        newOpen_id.save();
      }
-     }
+    }
  }); 
  res.send("Registration was successful");
 });
-
-
-
-
-router.delete('/delete/:username', function(req, res){
-
- Open_id.findOne({github_id:req.params.username}, function(error,open_id){
-     if(error){
-         console.log(error);
-     }else{
-         if(open_id==null){
-          console.log("유저 없음");
-         }
-         else{
-             console.log('--- Delete ---');
-             Open_id.remove({github_id:req.params.username});
-         }
-     }
- 
- }); 
- res.send("뿅");
-});
-
 
 
 

@@ -224,6 +224,33 @@ form button:hover {
 }
 
     </style>
+<script type="text/javascript">
+ 
+  function checkfield(){
+   
+   if(document.addjoin.github_id.value==""){ 
+   alert("Please enter your github ID");        
+   document.addjoin.github_id.focus();
+   exit;
+   
+   }else if(document.addjoin.waka_id.value==""){
+   alert("Please enter your wakatime ID");
+   document.addjoin.waka_id.focus();
+   exit;
+   
+   }else if(document.addjoin.api_key.value==""){
+   alert("Please enter your wakatime api key");
+   document.addjoin.api_key.focus();
+   exit;
+   
+   }else if(document.addjoin.refresh_token.value==""){
+   alert("Please Get a your googleApi-refresh-token");
+   document.addjoin.refresh_token.focus();
+   exit;
+   }
+   document.addjoin.submit();
+  }
+  </script>    
   </head>
   <body>
     <div class="wrapper">
@@ -231,20 +258,14 @@ form button:hover {
         <h1>Welcome</h1>
         
         
-<form action="/users/input" method="POST">
+<form action="/users/input" name="addjoin" method="POST">
   <input type='button' onClick="location.href='<%=data%>'" value='Receive Google Token' style="background-color:#50a3a2; color:#f5f7f9"/>
-            <input type="text" name = "github_id" placeholder="Github Username">
-          
-
-<input type="text" name = "waka_id" placeholder="Wakatime Username">
-<input type="text" name = "api_key" placeholder="Wakatime Api key">
-<input type="text" name = "refresh_token" value="<%=token%>" readonly>
-
-
-            
-<button>버튼</button>
-
-        </form>
+  <input type="text" name = "github_id" placeholder="Github Username">      
+  <input type="text" name = "waka_id" placeholder="Wakatime Username">
+  <input type="text" name = "api_key" placeholder="Wakatime Api key">
+  <input type="text" name = "refresh_token" value="<%=token%>" readonly>
+  <input type="button" value="Enrollment" onClick ="checkfield();" style="background-color:#f5f7f9; color:#50a3a2" >
+ </form>
       </div>
       
       <ul class="bg-bubbles">
