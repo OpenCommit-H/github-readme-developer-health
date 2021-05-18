@@ -1,8 +1,9 @@
 <p algin="center">
-    <img width="100px" src="./README/gym.png" aling="center" alt="Github Readme Health" />
-    <h2 align="center">Github Readme Health</h2>
+    <img width="300px" src="./README/gym.png" aling="center" alt="Github Readme Health" />
+    <h1 align="center">Github Readme Health</h1>
 	<p align="center">Let's do one-day one-exercise!</p>
 </p>
+
 
 
 
@@ -14,6 +15,7 @@
 - [Gather Your Data](#gather-your-data)
 - [Register Your Data](#register-your-data)
 - [Chart Card](#chart-card)
+- [Deploy on Your Own](#deploy-on-your-own)
 - [Tech](#tech)
 - [Contributer](#contributer)
 
@@ -43,6 +45,8 @@ Our servive use wakatime for gathering development time, and google fitness appl
 - [Install google fitness application on your cell phone](https://play.google.com/store/apps/details?id=com.google.android.apps.fitness&hl=ko&gl=US)
 
 _As a note, If you use wakatime, then have to register username and set public your develop Info._
+
+
 
 # Register Your Infos
 
@@ -80,7 +84,7 @@ You can use variouse themes that we provide.
 
 #### All thems:
 
-default, forest, blue
+defaultTheme, forest, blue
 
 <img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="200px"/>
 
@@ -90,13 +94,31 @@ default, forest, blue
 
 You can customize the appearence of your Chart card-view with URL params.
 
+for example,
+
+```https://k4a302.p.ssafy.io/cards/chart?username=username&size=250&themes=forest```
+
 #### Common Options:
 
-- size - Card-view's size in your readme.
+- size - Card-view's size in your readme (pixel)
+
+- themes - name of the themes, choose [available themes](./themes.md)
 
 
 
+# Deploy on Your Own
 
+1. Clone our project
+2. [make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md)
+3. [Create github application token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token), then add token as a value and 'PAT_1' as a key in .env file.
+4. [Install mongoDB](https://www.mongodb.com/try/download/community)
+5. Add 'MONGO_DB' as a key and host address of mongodb as a value in .env file.
+6.  install packages ```npm install```
+7. run application ```npm start``` or ```pm2 start ./bin/www```
+
+*As a note, .env file example*
+
+ <img src="./README/dotenv.PNG" width="500px" />
 
 
 
@@ -106,77 +128,27 @@ You can customize the appearence of your Chart card-view with URL params.
 | -------------------------------------- | ------------------- | ----------------------- |
 | Gitlab, Jira, Notion, Node js, MongoDB | JavaScript,CSS,HTML | VS Code, AWS EC2, NginX |
 
-architecture image
+|              |                                                    |
+| ------------ | -------------------------------------------------- |
+| architecture | <img src='./README/architecture.PNG' width='100%'> |
+
+
 
 
 
 # Contributer
 
-| Name   | Github | Role |
-| ------ | ------ | ---- |
-| 김정웅 |        |      |
-| 신다정 |        |      |
-| 이석원 |        |      |
-| 조성훈 |        |      |
-| 표기동 |        |      |
+### _Open-mind_
+
+| Name                                             | Github                                            | Role                |
+| ------------------------------------------------ | ------------------------------------------------- | ------------------- |
+| <img src="./README/kjw.png" width="50px"/>김정웅 | [real100woong](https://github.com/real100woong)   | Team Leader         |
+| <img src="./README/sdj.png" width="50px"/>신다정 | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
+| <img src="./README/lsw.png" width="50px"/>이석원 | [clalsw](https://github.com/clalsw)               | Presentation Leader |
+| <img src="./README/csh.png" width="50px"/>조성훈 | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
+| <img src="./README/pkd.png" width="50px"/>표기동 | [pyoki32](https://github.com/pyoki32)             | Ending Leader       |
 
 
 
+### __*This Project is supported by Samsung Software Academy for Youth*__ [<img src='./README/ssafy.PNG' width='80px'>](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp)[<img src='./README/samsung.PNG' width='80px'>](https://www.samsung.com/sec/business/)
 
-
-__start project__
-
-> Open Source
-
-# health
-깃 개발자 건강지표 카드뷰<p>
-🌴🌴🌴🌴🌴🌴🌴🌴🌴
-<p>🌴🌴🌴팀장 김정웅🌴🌴🌴  
-</p>
-🌴🌴🌴🌴🌴🌴🌴🌴🌴
-<p><p></p></p>
-<p>팀원 표기동 </p>
-<p>팀원 신다정 </p>    
-<p>팀원 조성훈 </p>
-<p>팀원 이석원 </p>
-
-
-# google fit API
-https://developers.google.com/oauthplayground/
-
-# how to run status
-To run & test github-readme-stats you need to follow few simple steps :-
-(make sure you already have a vercel account)
-
-Install Vercel CLI
-Fork the repository and clone the code to your local machine
-Run the command "vercel" in the root and follow the steps there
-Create a .env file in the root of the directory
-In the .env file add a new variable named "PAT_1" with your github Personal access token
-Run the command "vercel dev" to start a development server at https://localhost:3000
-
-console.log(JSON.stringify("보고싶은 json 형식 데이터", null, '\t'))
-ex) console.log(JSON.stringify(res.data, null, '\t'))
-
-
-
-# Google fit Api -  node.js
-
-/fitness
-
-모듈 다운로드
-
-$ npm i express googleapis request cors url-parse query-string body-parser axios
-
-서버실행
-
-$ node googleFit.js
-
-
-url 요청 get postman
-
-http://localhost:1234/getURLTing
-
-
-
- 커밋???
