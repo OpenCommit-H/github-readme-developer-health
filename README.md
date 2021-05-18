@@ -97,9 +97,11 @@ You can use variouse themes that we provide.
 
 #### All themes:
 
-defaultTheme, forest, blue
+defaultTheme, forest, blue, darkforest, cherry, night
 
-<img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="200px"/>
+<img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="300px"/>
+
+<img src="./README/darkforestChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/cherryChart.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/nightChart.PNG" alt="Github Readme Health Themes" width="300px"/>
 
 
 
@@ -139,9 +141,11 @@ You can use variouse themes that we provide.
 
 #### All themes:
 
-default, pink, sky, forest
+default, pink, sky, forest, dark, sunset
 
-<img src="./README/defaultBadge.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/pinkBadge.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/skyBadge.PNG" alt="Github Readme Health Themes" width="200px"/><img src="./README/forestBadge.PNG" alt="Github Readme Health Themes" width="200px"/>
+<img src="./README/defaultBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/pinkBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/skyBadge.PNG" alt="Github Readme Health Themes" width="300px"/>
+
+<img src="./README/forestBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/darkBadge.PNG" alt="Github Readme Health Themes" width="300px"/><img src="./README/sunsetBadge.PNG" alt="Github Readme Health Themes" width="300px"/>
 
 ## Customization
 
@@ -192,7 +196,7 @@ You can customize the appearence of your Health-badge with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/badge?username=pyoki32username&themes=forest```
+```https://github-readme-developer-health.com/cards/badge?username=pyoki32username&theme=dark```
 
 #### Common Options:
 
