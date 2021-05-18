@@ -157,9 +157,9 @@ for example,
 | Name                                                         | Github                                            | Role                |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------- |
 | <img src="./README/kjw.png" width="50px"/>김정웅, Jeongung Kim | [real100woong](https://github.com/real100woong)   | Team Leader         |
-| <img src="./README/sdj.png" width="50px"/>신다정, Dajeong Sin | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
+| <img src="./README/sdj.png" width="50px"/>신다정, Dajeong Shin | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
 | <img src="./README/lsw.png" width="50px"/>이석원, Seokwon Lee | [clalsw](https://github.com/clalsw)               | Presentation Leader |
-| <img src="./README/csh.png" width="50px"/>조성훈, Seunghun Cho | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
+| <img src="./README/csh.png" width="50px"/>조성훈, Sunghoon Cho | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
 | <img src="./README/pkd.png" width="50px"/>표기동, Kidong Pyo | [pyoki32](https://github.com/pyoki32)             | Ending Leader       |
 
 
