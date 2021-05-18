@@ -196,7 +196,7 @@ You can customize the appearence of your Health-badge with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/badge?username=pyoki32username&theme=dark```
+```https://github-readme-developer-health.com/cards/fit?username=pyoki32&theme=dark```
 
 #### Common Options:
 
