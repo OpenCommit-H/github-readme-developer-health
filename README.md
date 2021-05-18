@@ -66,7 +66,7 @@ We need your github username, wakatime username, wakatime api_key and google api
 1. Access our register page.
 
 ```
-https://k4a302.p.ssafy.io/api
+https://github-readme-developer-health.com/api
 ```
 
 2. Write your usernames and api_key.
