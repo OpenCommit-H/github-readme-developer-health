@@ -16,25 +16,23 @@ function calculateActivity({
     heart_minutes,
     heart_level,
   }) {
-
-    const ACTIVITY_WEEK_SLOTH = 1;
-    const ACTIVITY_WEEK_DOG = 5250;
-    const ACTIVITY_WEEK_COW= 9187.5;
-    const ACTIVITY_WEEK_HORSE= 10500;
-    const ACTIVITY_MAX_SCORE=13125;
+ 
+    //weekly least levels of physical activity 
+    const MIN_WEEK_ACTIVITY = 5250;
+    const MAX_WEEK_ACTIVETY = 15750;
   
     const totalScore = getActivity_week(step, active_minutes, heart_minutes,heart_level);
     let animal = "";
   
-    if(ACTIVITY_WEEK_HORSE<=totalScore){
+    if(MAX_WEEK_ACTIVETY<=totalScore){
         animal="horse";
-    }else if(ACTIVITY_WEEK_COW<=totalScore&&totalScore<ACTIVITY_WEEK_HORSE){
+    }else if(MIN_WEEK_ACTIVITY<=totalScore&&totalScore<MAX_WEEK_ACTIVETY){
         animal="dog";
     
-    }else if(ACTIVITY_WEEK_DOG<=totalScore&&totalScore<ACTIVITY_WEEK_COW){
+    }else if((MIN_WEEK_ACTIVITY/2)<=totalScore&&totalScore<ACTIVITY_WEEK_COW){
         animal="pig";
     }
-    if(totalScore<ACTIVITY_WEEK_DOG){
+    if(totalScore<(MIN_WEEK_ACTIVITY/2)){
         animal="sloth";
     }
     return animal;
