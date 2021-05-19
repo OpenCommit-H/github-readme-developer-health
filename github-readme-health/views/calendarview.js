@@ -1,6 +1,7 @@
 require("dotenv").config();
 const {
-    renderError,
+  parseBoolean,
+  renderError,
 } = require("../src/common/utils");
 const calendarCard = require("../src/cards/calendar-card");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
@@ -33,7 +34,7 @@ exports.rendercalendarCard = async (req, res) => {
     data.selectedMonth = selectedMonth;
     data.username = username;
 
-    res.send(calendarCard(data,{ size, theme, outline, hide }));
+    res.send(calendarCard(data,{ size, theme, outline: parseBoolean(outline), hide: parseBoolean(hide) }));
   } catch (err) {
     return res.send(renderError(err.message, err.secondaryMessage));
   }
