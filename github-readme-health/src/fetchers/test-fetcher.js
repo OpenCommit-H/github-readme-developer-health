@@ -133,7 +133,7 @@ async function fetchStats(
     logger.error(res.data.errors);
     throw new CustomError(
       res.data.errors[0].message || "Could not fetch user",
-      CustomError.USER_NOT_FOUND,
+      "Your username is not exist in github. Please re-enroll your account",
     );
   }
   const user = res.data.data.user;
