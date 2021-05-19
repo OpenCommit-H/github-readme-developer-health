@@ -15,6 +15,7 @@ exports.rendercalendarCard = async (req, res) => {
     theme,
     outline,
     hide,
+    animation,
   } = req.query;
 
   var date = new Date();
@@ -34,7 +35,7 @@ exports.rendercalendarCard = async (req, res) => {
     data.selectedMonth = selectedMonth;
     data.username = username;
 
-    res.send(calendarCard(data,{ size, theme, outline: parseBoolean(outline), hide: parseBoolean(hide) }));
+    res.send(calendarCard(data,{ size, theme, outline: parseBoolean(outline), hide: parseBoolean(hide), animation: parseBoolean(animation) }));
   } catch (err) {
     return res.send(renderError(err.message, err.secondaryMessage));
   }

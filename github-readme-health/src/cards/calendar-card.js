@@ -12,6 +12,7 @@ const calendarCard = (data = {}, options = {} ) => {
     size = 5,
     outline = true,
     hide = false,
+    animation = true,
   } = options;
 
   const selectTheme = calendarThemes[theme];
@@ -93,21 +94,24 @@ const calendarCard = (data = {}, options = {} ) => {
   <text id="total" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="690.424">${totalTime} Min/Month</tspan></text>
   <text id="average" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="730.424">${avgTime} Min/Day</tspan></text>`;
 
+  var selectAnimation = animation ? `<animateTransform attributeName="transform" type="scale" additive="sum" from="0 0" to="1 1" begin="0s" dur="1s" repeatCount="1"></animateTransform>` : ``;
+  var selecthover = animation ? `.section:hover {
+    transform: scale(1.3);
+  }
+  .section {
+    transition: all 0.1s;
+  }` : ``;
+
   return `
     <svg width="${71*size}" height="${76.1*size}" viewBox="0 0 710 761" xmlns="http://www.w3.org/2000/svg">
-      <animateTransform attributeName="transform" type="scale" additive="sum" from="0 0" to="1 1" begin="0s" dur="1s" repeatCount="1"></animateTransform>  
+      ${selectAnimation}
       <svg width="710" height="761" viewBox="0 0 710 761" fill="none" xmlns="http://www.w3.org/2000/svg">
         <style>
           ${commitColor}
           text {
             font-family: 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
           }
-          .section:hover {
-            transform: scale(1.3);
-          }
-          .section {
-            transition: all 0.1s;
-          }
+          ${selecthover}
         </style>
         <defs>
           ${filterSvg}
