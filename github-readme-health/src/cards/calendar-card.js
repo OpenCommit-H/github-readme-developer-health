@@ -37,13 +37,14 @@ const calendarCard = (data = {}, options = {} ) => {
 
   var calendarSvg = "";
   for (i=0; i<calendarSize; i++){
-    calendarSvg += `<rect id="commit${i}" x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100" rx="50" ry="50"/>`
+    calendarSvg += `
+    <g id="Rectangle ${i}" filter="url(#filter${i}_f)" class="section">
+      <rect id="commit${i}" x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100" rx="50" ry="50"/>`
     if (outline){
       calendarSvg +=`
-        <g id="Rectangle ${i}" filter="url(#filter${i}_f)">
-          <rect x="${4.5+(i%7)*100}" y="${155.5+parseInt((i/7)%7)*100}" width="101" height="101" stroke="black" rx="50" ry="50"/>
-        </g>`
+          <rect x="${4.5+(i%7)*100}" y="${155.5+parseInt((i/7)%7)*100}" width="101" height="101" stroke="black" rx="50" ry="50"/>`
     }
+    calendarSvg += `</g>`
   }
 
   var filterSvg = "";
@@ -78,25 +79,34 @@ const calendarCard = (data = {}, options = {} ) => {
   
   var textNode = "";
   for (i=idx; i<idx+active_minutes.length; i++){
-    textNode += `
+    textNode += `<g class="section">
       <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}" font-size="25">${monthActive[i][0]}</text>`
     if (monthActive[i][1]){
       textNode +=`
         <text x="${20+(i%7)*100}" y="${205+parseInt((i/7)%7)*100}" font-size="20">${monthActive[i][1]} Min</text>`
     }
+    textNode +=`</g>`
   }
   var avgTime = parseInt(totalTime/activeDay) ? parseInt(totalTime/activeDay) : 0;
   var time = hide ? `` : `
-  <text id="total" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="690.424">total ${totalTime} Min</tspan></text>
-  <text id="average" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="730.424">average ${avgTime} Min</tspan></text>`;
+  <text id="total" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="690.424">${totalTime} Min/Month</tspan></text>
+  <text id="average" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="730.424">${avgTime} Min/Day</tspan></text>`;
 
   return `
     <svg width="${71*size}" height="${76.1*size}" viewBox="0 0 710 761" xmlns="http://www.w3.org/2000/svg">
+      <animateTransform attributeName="transform" type="scale" additive="sum" from="0 0" to="1 1" begin="0s" dur="1s" repeatCount="1"></animateTransform>  
       <svg width="710" height="761" viewBox="0 0 710 761" fill="none" xmlns="http://www.w3.org/2000/svg">
         <style>
           ${commitColor}
           text {
             font-family: 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
+          }
+          .section:hover {
+            transform: scale(1.2);
+          }
+          .section {
+            transition: all 1s;
+            transform-origin: center;
           }
         </style>
         <defs>
@@ -116,9 +126,10 @@ const calendarCard = (data = {}, options = {} ) => {
           <text id="MON" fill="black" xml:space="preserve" style="white-space: pre" font-size="20" letter-spacing="0em"><tspan x="134.082" y="135.909">MON</tspan></text>
           <text id="SUN" fill="black" xml:space="preserve" style="white-space: pre" font-size="20" letter-spacing="0em"><tspan x="36.8857" y="135.909">SUN</tspan></text>
         </g>
-        ${calendarSvg}
+          ${calendarSvg}   
       </svg>
       ${textNode}
+      
     </svg>
   `
 };

@@ -17,11 +17,23 @@ const calendarThemes = {
         level2Color: "#1ec0ff",
         level3Color: "#0080ff",
     },
-    "grass": {
+    "green": {
         level0Color: "#EBEDF0",
         level1Color: "#9BE9A8",
         level2Color: "#40C463",
         level3Color: "#30A14E",
+    },
+    "orange": {
+        level0Color: "#EBEDF0",
+        level1Color: "#ede574",
+        level2Color: "#f9d423",
+        level3Color: "#fc913a",
+    },
+    "grass": {
+        level0Color: "#EBEDF0",
+        level1Color: "#cff09e",
+        level2Color: "#a8dba8",
+        level3Color: "#79bd9a",
     },
 }
 module.exports = calendarThemes;
