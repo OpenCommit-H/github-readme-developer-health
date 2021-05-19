@@ -95,6 +95,9 @@ exports.renderChart = async (req, res) => {
         }
         // last 7days goofle fit api
       const access_token = await getAccessToken(refresh_token);
+      if (access_token == null) {
+        return res.send(renderError("Your google api token is wrong","Please re-enorll your account with right token"));
+      }
       const test = await fetchGoogleFitGetData(access_token);
       // console.log(test);
       

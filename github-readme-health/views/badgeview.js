@@ -41,6 +41,9 @@ exports.renderBadge = async (req, res) => {
 
       const { wakaname, api_key, refresh_token } = userStats;
       const access_token = await getAccessToken(refresh_token);
+      if (access_token == null) {
+        return res.send(renderError("Your google api token is wrong","Please re-enorll your account with right token"));
+      }
       const temp = await fetchGoogleFitGetData(access_token);
       const wakaStats = await fetchWakatimeStats({ wakaname, api_domain, range, api_key });
       // console.log(wakaStats)
