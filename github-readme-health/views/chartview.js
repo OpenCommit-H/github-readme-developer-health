@@ -6,7 +6,7 @@ const {
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
 const renderChartCard = require("../src/cards/chart-card");
-const fetchStats = require("../src/fetchers/test-fetcher");
+const fetchGithubGetWeeklyData = require("../src/fetchers/github-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
 
@@ -88,7 +88,7 @@ exports.renderChart = async (req, res) => {
         });
 
         // last 7days github api
-        const githubStats = await fetchStats(username);
+        const githubStats = await fetchGithubGetWeeklyData(username);
         console.log(githubStats.day7commits)
         for (i=0; i<githubStats.day7commits.length; i++){
           data[githubStats.day7commits[i].day].commits ++

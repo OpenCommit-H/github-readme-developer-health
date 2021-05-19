@@ -6,7 +6,7 @@ const {
 } = require("../src/common/utils");
 const { fetchWakatimeStats } = require("../src/fetchers/wakatime-fetcher");
 const renderAnimalObjectCard = require("../src/cards/animal-object-card");
-const fetchStats = require("../src/fetchers/test-fetcher");
+const fetchGithubGetWeeklyData = require("../src/fetchers/github-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
 
@@ -75,7 +75,7 @@ exports.renderBadge = async (req, res) => {
         return drink;
       }
         // last 7days github api
-        const githubStats = await fetchStats(username);
+        const githubStats = await fetchGithubGetWeeklyData(username);
       var selectedDrink = calculateActivity(totaltime);
       console.log(selectedDrink)
       // console.log(test);
