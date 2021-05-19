@@ -62,8 +62,8 @@ body :-ms-input-placeholder {
   top: 50%;
   left: 0;
   width: 100%;
-  height: 500px;
-  margin-top: -200px;
+  height: 600px;
+  margin-top: -300px;
   overflow: hidden;
 }
 .wrapper.form-success .container h1 {
@@ -81,6 +81,7 @@ body :-ms-input-placeholder {
   transition-duration: 1s;
   transition-timing-function: ease-in-put;
   font-weight: 200;
+  padding-bottom: 20px;
 }
 form {
   padding: 20px 0;
@@ -223,7 +224,52 @@ form button:hover {
   }
 }
 
+
+.view-on-github {
+  position: absolute;
+  width: 100%;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  bottom: 30px;
+  z-index: 2;
+}
+
+.help {
+  width: 40px;
+  margin: 0 auto;
+  z-index: 2;
+  position:relative;
+  margin : 0;
+  top:-43px;
+  left: 75%;
+  margin-bottom: -20px;
+}
+
+.help .question {
+  height: 20px;
+  width: 20px;
+  background: rgb(245, 242, 242);
+  font-size: 15px;
+  color:black;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.help .question a {
+  text-decoration: none;
+  font-weight: 900;
+}
+
+
     </style>
+
+
+
+
+
 <script type="text/javascript">
  
   function checkfield(){
@@ -258,16 +304,28 @@ form button:hover {
         <h1>Welcome</h1>
         
         
+        
 <form action="/users/input" name="addjoin" method="POST">
   <input type='button' onClick="location.href='<%=data%>'" value='Receive Google Token' style="background-color:#50a3a2; color:#f5f7f9"/>
+  <div class="help">
+  
+    <div class="question"><a href="https://www.notion.so/Note-How-to-manage-your-account-permissions-9f9831d12f8a4c9cb8c2c32bf8abd45e" target="_blank">?</a></div>
+  
+  </div>
   <input type="text" name = "github_id" placeholder="Github Username">      
   <input type="text" name = "waka_id" placeholder="Wakatime Username">
   <input type="text" name = "api_key" placeholder="Wakatime Api key">
   <input type="text" name = "refresh_token" value="<%=token%>" readonly>
   <input type="button" value="Enrollment" onClick ="checkfield();" style="background-color:#f5f7f9; color:#50a3a2" >
- </form>
-      </div>
-      
+
+  
+</form>
+
+
+</div>
+<a href="https://www.naver.com" target="_blank" class="view-on-github">View this project on github @github-readme-developer-health</a>
+
+
       <ul class="bg-bubbles">
         <li></li>
         <li></li>
@@ -281,5 +339,7 @@ form button:hover {
         <li></li>
       </ul>
     </div>
+
+    
   </body>
 </html>
