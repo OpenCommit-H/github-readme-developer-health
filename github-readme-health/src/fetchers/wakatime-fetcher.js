@@ -17,9 +17,17 @@ const fetchWakatimeStats = async ({ wakaname, api_domain, range, api_key }) => {
 
     return dataList;
   } catch (err) {
-    if (err.response.status < 200 || err.response.status > 299) {
+    if (err.response.status == 401) {
       throw new Error(
-        "Wakatime user not found, make sure you have a wakatime profile",
+        "Wakatime api_key is wrong. Please re-enorll your account with right api_key",
+      );
+    } else if (err.response.status == 404) {
+      throw new Error(
+        "Wakatime username is not exist. Please re-enorll your account with right username",
+      );
+    } else if (err.response.status < 200 || err.response.status > 299) {
+      throw new Error(
+        "Wakatime user not found, make sure you have a wakatime username and api_key",
       );
     }
     throw err;

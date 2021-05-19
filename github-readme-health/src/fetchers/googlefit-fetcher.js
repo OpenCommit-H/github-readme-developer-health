@@ -63,7 +63,8 @@ const getAccessToken = async refreshToken => {
       );
       return accessTokenObj.data.access_token;
     } catch (err) {
-      console.log(err);
+        console.log(err);
+        return null;
     }
   };
 
