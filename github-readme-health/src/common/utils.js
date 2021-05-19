@@ -182,21 +182,11 @@ const CONSTANTS = {
   ONE_DAY: 86400,
 };
 
-const SECONDARY_ERROR_MESSAGES = {
-  MAX_RETRY:
-    "Please add an env variable called PAT_1 with your github token in vercel",
-  USER_NOT_FOUND: "Your username is not exist in github. Please re-enroll your account",
-};
-
 class CustomError extends Error {
-  constructor(message, type) {
+  constructor(message, secondaryMessage) {
     super(message);
-    this.type = type;
-    this.secondaryMessage = SECONDARY_ERROR_MESSAGES[type] || "adsad";
+    this.secondaryMessage = secondaryMessage;
   }
-
-  static MAX_RETRY = "MAX_RETRY";
-  static USER_NOT_FOUND = "USER_NOT_FOUND";
 }
 
 // https://stackoverflow.com/a/48172630/10629172
