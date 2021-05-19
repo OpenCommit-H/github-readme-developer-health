@@ -61,11 +61,11 @@ const calendarCard = (data = {}, options = {} ) => {
       if(monthActive[i][1]<level1){
         commitColor += `#commit${i} {fill: ${selectTheme.level0Color};}`
       }else if(level1<=monthActive[i][1]&&monthActive[i][1]<level2){
-        commitColor += `#commit${i+1} {fill: #C5E99B;}`
+        commitColor += `#commit${i} {fill: ${selectTheme.level1Color};}`
       }else if(level2<=monthActive[i][1]&&monthActive[i][1]<level3){
-        commitColor += `#commit${i+1} {fill: #D499B9;}`
+        commitColor += `#commit${i} {fill: ${selectTheme.level2Color};}`
       }else{
-        commitColor += `#commit${i+1} {fill: #9055A2;}`
+        commitColor += `#commit${i} {fill: ${selectTheme.level3Color};}`
       }
     }
   }
