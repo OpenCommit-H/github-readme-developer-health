@@ -1,8 +1,8 @@
 const I18n = require("../common/I18n");
-const Card = require("../common/Card");
+const Card = require("../common/card");
 const icons = require("../common/icons");
 const animals = require("../common/animals");
-const drinks = require("../common/drinks");
+const objects = require("../common/objects");
 const { getStyles } = require("../getStyles");
 const { statCardLocales } = require("../translations");
 const circleThemes = require("../../themes/circleThemes");
@@ -103,7 +103,7 @@ const renderAnimalObjectCard = (stats = {}) => {
       describeDrink = "beginning"
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="-3%" y="2%" viewBox="-20 -20 140 140">
-      ${drinks.babyBottle}
+      ${objects.babyBottle}
       </svg>
       `;
     };
@@ -111,7 +111,7 @@ const renderAnimalObjectCard = (stats = {}) => {
       describeDrink = "Relaxed"
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="6%" y="10%" viewBox="-20 -20 168 168">
-      ${drinks.tea}
+      ${objects.tea}
       </svg>
       `;
     };
@@ -119,7 +119,7 @@ const renderAnimalObjectCard = (stats = {}) => {
       describeDrink = "passion"
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="0%" y="4%" viewBox="-20 -20 140 140">
-      ${drinks.coffee}
+      ${objects.coffee}
       </svg>
       `;  
     };
@@ -127,7 +127,7 @@ const renderAnimalObjectCard = (stats = {}) => {
       describeDrink = "flaming"
       return `
       <svg preserveAspectRatio="xMidYMid meet" x="2%" y="3%" viewBox="-20 -20 150 150">
-      ${drinks.fire}
+      ${objects.fire}
       </svg>
       `;  
     };

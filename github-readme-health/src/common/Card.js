@@ -1,4 +1,4 @@
-const { FlexLayout, encodeHTML } = require("../common/utils");
+const { FlexLayout, encodeHTML } = require("./utils");
 const { getAnimations } = require("../getStyles");
 
 class Card {

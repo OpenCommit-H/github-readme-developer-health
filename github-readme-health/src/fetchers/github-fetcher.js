@@ -117,7 +117,7 @@ const day7CommitsFetcher = async (username) => {
   }
 };
 
-async function fetchStats(
+async function fetchGithubGetWeeklyData(
   username,
 ) {
   if (!username) throw Error("Invalid username");
@@ -145,4 +145,4 @@ async function fetchStats(
   return stats;
 }
 
-module.exports = fetchStats;
+module.exports = fetchGithubGetWeeklyData;
