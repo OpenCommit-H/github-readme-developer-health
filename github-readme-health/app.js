@@ -1,41 +1,62 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+require("dotenv").config();
+const app = require('express')();
+const cors = require("cors");
+const bodyParser = require("body-parser");
 
+const session = require('express-session');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
+
+//const fileStore = require('session-file-store')(session);
+
+var path = require('path');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var cardsRouter = require('./routes/cards');
 
-var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set("view engine", "ejs");
+app.use(cors());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: '@#@$MYSIGN#@$#$',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_DB,
+    collection: "sessions",
+    autoRemove: 'native'
+  })
+}));
+
+
+// 2. testDB 세팅
+mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost:17017/githupHealthDB', {useNewUrlParser: true,useUnifiedTopology: true });
+
+// 3. 연결된 testDB 사용
+var db = mongoose.connection;
+// 4. 연결 실패
+db.on('error', function(){
+    console.log('Connection Failed!');
+});
+// 5. 연결 성공
+db.once('open', function() {
+    console.log('Connected!');
+});
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/cards', cardsRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+// var chartview = require('../api/routes/chartview');
+// app.get('/api/chart', chartview.renderChart);
 
-module.exports = app;
+
+module.exports = app
