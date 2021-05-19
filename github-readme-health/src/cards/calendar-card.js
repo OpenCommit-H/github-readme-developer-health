@@ -8,8 +8,10 @@ const calendarCard = (data = {}, options = {} ) => {
     username,
   } = data;
   const {
-    theme= "default",
+    theme = "default",
     size = 5,
+    outline = true,
+    hide = false,
   } = options;
 
   const selectTheme = calendarThemes[theme];
@@ -35,11 +37,13 @@ const calendarCard = (data = {}, options = {} ) => {
 
   var calendarSvg = "";
   for (i=0; i<calendarSize; i++){
-    calendarSvg += `
-    <g id="Rectangle ${i}" filter="url(#filter${i}_f)">
-      <rect id="commit${i}" x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100" rx="30" ry="30"/>
-      <rect x="${4.5+(i%7)*100}" y="${155.5+parseInt((i/7)%7)*100}" width="101" height="101" stroke="black" rx="30" ry="30"/>
-    </g>`
+    calendarSvg += `<rect id="commit${i}" x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100" rx="50" ry="50"/>`
+    if (outline){
+      calendarSvg +=`
+        <g id="Rectangle ${i}" filter="url(#filter${i}_f)">
+          <rect x="${4.5+(i%7)*100}" y="${155.5+parseInt((i/7)%7)*100}" width="101" height="101" stroke="black" rx="50" ry="50"/>
+        </g>`
+    }
   }
 
   var filterSvg = "";
@@ -73,20 +77,17 @@ const calendarCard = (data = {}, options = {} ) => {
   var textNode = "";
   for (i=idx; i<idx+active_minutes.length; i++){
     textNode += `
-      <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}" font-size="25">${monthActive[i][0]}</text>
-    `
+      <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}" font-size="25">${monthActive[i][0]}</text>`
     if (monthActive[i][1]){
       textNode +=`
-        <text x="${20+(i%7)*100}" y="${205+parseInt((i/7)%7)*100}" font-size="20">${monthActive[i][1]} Min</text>
-      `
+        <text x="${20+(i%7)*100}" y="${205+parseInt((i/7)%7)*100}" font-size="20">${monthActive[i][1]} Min</text>`
     }
   }
+  var avgTime = parseInt(totalTime/activeDay) ? parseInt(totalTime/activeDay) : 0;
+  var time = hide ? `` : `
+  <text id="total" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="690.424">total ${totalTime} Min</tspan></text>
+  <text id="average" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="730.424">average ${avgTime} Min</tspan></text>`;
 
-  var time = `
-    <text id="january" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="95%" y="695.424">total ${totalTime} Min</tspan></text>
-    <text id="january" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="95%" y="735.424">average ${avgTime} Min</tspan></text>
-  `
-  
   return `
     <svg width="${71*size}" height="${76.1*size}" viewBox="0 0 710 761" xmlns="http://www.w3.org/2000/svg">
       <svg width="710" height="761" viewBox="0 0 710 761" fill="none" xmlns="http://www.w3.org/2000/svg">

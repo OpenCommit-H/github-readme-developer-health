@@ -12,6 +12,8 @@ exports.rendercalendarCard = async (req, res) => {
     month,
     size,
     theme,
+    outline,
+    hide,
   } = req.query;
 
   var date = new Date();
@@ -31,7 +33,7 @@ exports.rendercalendarCard = async (req, res) => {
     data.selectedMonth = selectedMonth;
     data.username = username;
 
-    res.send(calendarCard(data,{ size, theme }));
+    res.send(calendarCard(data,{ size, theme, outline, hide }));
   } catch (err) {
     return res.send(renderError(err.message, err.secondaryMessage));
   }
