@@ -38,13 +38,24 @@ const calendarCard = (data = {}, options = {} ) => {
   var calendarSvg = "";
   for (i=0; i<calendarSize; i++){
     calendarSvg += `
-    <g id="Rectangle ${i}" filter="url(#filter${i}_f)" class="section">
+    <g id="Rectangle ${i}" filter="url(#filter${i}_f)" class="section" transform-origin="${55+(i%7)*100} ${206+parseInt((i/7)%7)*100}">
       <rect id="commit${i}" x="${5+(i%7)*100}" y="${156+parseInt((i/7)%7)*100}" width="100" height="100" rx="50" ry="50"/>`
     if (outline){
       calendarSvg +=`
           <rect x="${4.5+(i%7)*100}" y="${155.5+parseInt((i/7)%7)*100}" width="101" height="101" stroke="black" rx="50" ry="50"/>`
     }
     calendarSvg += `</g>`
+  }
+
+  var textNode = "";
+  for (i=idx; i<idx+active_minutes.length; i++){
+    textNode += `<g class="section" transform-origin="${55+(i%7)*100} ${206+parseInt((i/7)%7)*100}">
+      <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}" font-size="25">${monthActive[i][0]}</text>`
+    if (monthActive[i][1]){
+      textNode +=`
+        <text x="${20+(i%7)*100}" y="${205+parseInt((i/7)%7)*100}" font-size="20">${monthActive[i][1]} Min</text>`
+    }
+    textNode +=`</g>`
   }
 
   var filterSvg = "";
@@ -77,16 +88,6 @@ const calendarCard = (data = {}, options = {} ) => {
     }
   }
   
-  var textNode = "";
-  for (i=idx; i<idx+active_minutes.length; i++){
-    textNode += `<g class="section">
-      <text x="${20+(i%7)*100}" y="${180+parseInt((i/7)%7)*100}" font-size="25">${monthActive[i][0]}</text>`
-    if (monthActive[i][1]){
-      textNode +=`
-        <text x="${20+(i%7)*100}" y="${205+parseInt((i/7)%7)*100}" font-size="20">${monthActive[i][1]} Min</text>`
-    }
-    textNode +=`</g>`
-  }
   var avgTime = parseInt(totalTime/activeDay) ? parseInt(totalTime/activeDay) : 0;
   var time = hide ? `` : `
   <text id="total" fill="black" xml:space="preserve" style="white-space: pre" font-size="28" letter-spacing="0em" alignment-baseline="middle" text-anchor="end"><tspan x="98%" y="690.424">${totalTime} Min/Month</tspan></text>
@@ -102,11 +103,10 @@ const calendarCard = (data = {}, options = {} ) => {
             font-family: 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif;
           }
           .section:hover {
-            transform: scale(1.2);
+            transform: scale(1.3);
           }
           .section {
-            transition: all 1s;
-            transform-origin: center;
+            transition: all 0.1s;
           }
         </style>
         <defs>
