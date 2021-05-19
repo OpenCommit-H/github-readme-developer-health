@@ -5,7 +5,7 @@ const animals = require("../common/animals");
 const objects = require("../common/objects");
 const { getStyles } = require("../getStyles");
 const { statCardLocales } = require("../translations");
-const circleThemes = require("../../themes/circleThemes");
+const badgeThemes = require("../../themes/badgeThemes");
 const {
   kFormatter,
   FlexLayout,
@@ -62,7 +62,7 @@ const renderAnimalCard = (stats = {}) => {
 
   // 여기서부터 코드 작성한거
   const magni = 20;
-  const selectTheme = theme ? circleThemes[theme] : circleThemes["default"];
+  const selectTheme = theme ? badgeThemes[theme] : badgeThemes["default"];
 
   const selectAnimal = () => {
     if (animal == "sloth") {

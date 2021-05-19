@@ -1,4 +1,4 @@
-const circleThemes = {
+const badgeThemes = {
     "default": {
         outcircleColor: "#C7FFC0",
         incircleColor: "#FFFFFF",
@@ -168,4 +168,4 @@ const circleThemes = {
         `,
     },
 }
-module.exports = circleThemes;
+module.exports = badgeThemes;
