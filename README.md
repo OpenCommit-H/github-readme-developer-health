@@ -376,7 +376,7 @@ We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) b
 
 # 9. Supported
 
-### __*This Project is supported by*__ :blue_heart::purple_heart::heart::yellow_heart::green_heart:
+### __*This Project is supported by*__ 
 
 
 
