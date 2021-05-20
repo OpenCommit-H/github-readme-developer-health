@@ -180,6 +180,10 @@ Change the `?username=` value to your Github username.
 ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/badge?username=pyoki32)
 ```
 
+**_As a Note, Please [click](./algorithm.md) if you want to check our object selection algorithm policy._**
+
+
+
 ## Themes
 
 You can use variouse themes that we provide.
