@@ -16,6 +16,7 @@ exports.rendercalendarCard = async (req, res) => {
     outline,
     hide,
     animation,
+    cache_seconds,
   } = req.query;
 
   var date = new Date();
@@ -24,6 +25,18 @@ exports.rendercalendarCard = async (req, res) => {
   try {
 
     res.setHeader("Content-Type", "image/svg+xml");
+
+    let cacheSeconds = clampValue(
+      parseInt(cache_seconds || CONSTANTS.TWO_HOURS, 10),
+      CONSTANTS.TWO_HOURS,
+      CONSTANTS.ONE_DAY,
+    );
+  
+    if (!cache_seconds) {
+      cacheSeconds = CONSTANTS.FOUR_HOURS;
+    }
+  
+    res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
 
     const userStats = await userinfoStats({ username });
 
