@@ -4,7 +4,6 @@ function calculateWakatime(inputTime) {
   const DVELOPTIME_WEEK_BABYBOTTLE = 1;
   const DVELOPTIME_WEEK_TEA = 2;
   const DVELOPTIME_WEEK_COFFEE= 40;
-  console.log(inputTime)
   let drink = "";
 
   if(inputTime<DVELOPTIME_WEEK_BABYBOTTLE){

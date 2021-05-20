@@ -3,7 +3,6 @@ const Card = require("../common/Card");
 const icons = require("../common/icons");
 const renderAnimalCard = require("./animal-card");
 const { getStyles } = require("../getStyles");
-const { statCardLocales } = require("../translations");
 const {
   kFormatter,
   FlexLayout,
@@ -46,7 +45,7 @@ const createTextNode = ({
   `;
 };
 
-const renderStatsCard = (abc = {}, options = { hide: [] }) => {
+const renderStatsCard = (data = {}, options = { hide: [] }) => {
   const {
     name,
     step,
@@ -56,7 +55,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
     heart_minutes,
     sleep,
     animal,
-  } = abc;
+  } = data;
   const {
     hide = [],
     show_icons = false,
@@ -91,10 +90,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
   const apostrophe = ["x", "s"].includes(name.slice(-1).toLocaleLowerCase())
     ? ""
     : "s";
-  const i18n = new I18n({
-    locale,
-    translations: statCardLocales({ name, apostrophe }),
-  });
+
 
   const STATS = {
     step: {
@@ -161,10 +157,13 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
     hide_badge ? 0 : 150,
   );
 
+  size = (height-145)/100 + 1
+  
   var badgeStats = {
     name: name,
     animal: animal,
-    theme: badge_theme
+    theme: badge_theme,
+    size: size,
   };
 
   const badgeCircle = hide_badge

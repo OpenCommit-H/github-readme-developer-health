@@ -14,7 +14,7 @@ exports.renderChart = async (req, res) => {
     const {
       range,
       api_domain,
-      themes,
+      theme,
       username,
       cache_seconds,
       size,
@@ -89,7 +89,6 @@ exports.renderChart = async (req, res) => {
 
         // last 7days github api
         const githubStats = await fetchGithubGetWeeklyData(username);
-        console.log(githubStats.day7commits)
         for (i=0; i<githubStats.day7commits.length; i++){
           data[githubStats.day7commits[i].day].commits ++
         }
@@ -99,7 +98,6 @@ exports.renderChart = async (req, res) => {
         return res.send(renderError("Your google api token is wrong","Please re-enorll your account with right token"));
       }
       const test = await fetchGoogleFitGetData(access_token);
-      // console.log(test);
       
       test.active_minutes.forEach((element) => {
         dayIdx %= 7;
@@ -116,7 +114,7 @@ exports.renderChart = async (req, res) => {
       })
         // make data
 
-        res.send(renderChartCard(data, wakaname, themes, size));
+        res.send(renderChartCard(data, wakaname, theme, size));
     } catch (err) {
         return res.send(renderError(err.message, err.secondaryMessage));
     }

@@ -7,7 +7,6 @@ const {
   CONSTANTS,
 } = require("../src/common/utils");
 const blacklist = require("../src/common/blacklist");
-const { isLocaleAvailable } = require("../src/translations");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
 const { fetchGoogleFitGetData, getAccessToken } = require("../src/fetchers/googlefit-fetcher");
 const renderFitStatsCard = require("../src/cards/fit-card");
@@ -41,9 +40,6 @@ exports.renderFitCard = async (req, res) => {
     return res.send(renderError("Something went wrong"));
   }
 
-  if (locale && !isLocaleAvailable(locale)) {
-    return res.send(renderError("Something went wrong", "Language not found"));
-  }
   try {
     const userStats = await userinfoStats({ username });
     const { refresh_token } = userStats;
