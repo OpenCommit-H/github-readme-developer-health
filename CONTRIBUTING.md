@@ -1,4 +1,4 @@
-# Contributing to github-readme-health
+# Contributing to github-readme-developer-health
 
 We welcome your comments!
 
