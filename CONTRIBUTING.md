@@ -22,7 +22,7 @@ We want to contribute this project as easily and useful as possible
 
 ## Themes Contribution
 
-Github Readme Health supports custom themes and you can also contribute new themes!
+Github-Readme-Developer-Health supports custom themes and you can also contribute new themes!
 
 If you want to add your theme, edit js file under [themes/](./github-readme-health/themes)  and add yours at the end of the file.
 
