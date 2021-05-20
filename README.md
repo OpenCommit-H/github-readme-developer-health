@@ -24,7 +24,8 @@
 - [5.Deploy on Your Own](#5.-deploy-on-your-own)
 - [6.Tech](#6.-tech)
 - [7.Contributer](#7.-contributer)
-- [8,Supported](#8.-supported)
+- [8.Refered](#8.-refered)
+- [9,Supported](#9.-supported)
 
 
 
@@ -105,7 +106,7 @@ https://github-readme-developer-health.com/home
    ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/calendar?username=JoChoSunghoon)
    ```
 
-7.  Please refer to the document below for customization.
+7.  Please refer to the document below for customization.
 
 # 3-1. Re-enroll Your Infos
 
@@ -358,7 +359,17 @@ for example,
 
 
 
-# 8. Supported
+# 8. Refered
+
+We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) because we were inspired to see your open source.
+
+
+
+
+
+
+
+# 9. Supported
 
 ### __*This Project is supported by*__
 
