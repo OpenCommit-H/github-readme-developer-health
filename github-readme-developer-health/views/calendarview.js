@@ -38,7 +38,7 @@ exports.rendercalendarCard = async (req, res) => {
       cacheSeconds = CONSTANTS.FOUR_HOURS;
     }
   
-    res.setHeader("Content-Type", "image/svg+xml");
+    res.setHeader("Cache-Control", "no-store");
 
     const userStats = await userinfoStats({ username });
 
