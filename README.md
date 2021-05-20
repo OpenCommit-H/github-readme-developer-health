@@ -157,9 +157,9 @@ for example,
 
 #### Common Options:
 
-- size - Card-view's size in your readme (default size is 350 pixel)
-- theme - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
-- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
+- `size` - Card-view's size in your readme (default size is 350 pixel)
+- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
+- cache_seconds - set the cache header manually _(min: 1800, max: 86400)_
 
 _As a note, have a default cache of 4 hours (14400 seconds)_
 
@@ -201,9 +201,9 @@ for example,
 
 #### Common Options:
 
-- theme - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
-- size - size proportional to the default size (default is 2)
-- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
+- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- `size` - size proportional to the default size (default is 2)
+- cache_seconds - set the cache header manually _(min: 1800, max: 86400)_
 
 
 
@@ -245,13 +245,13 @@ for example,
 
 #### Common Options:
 
-- theme - name of the themes, choose [available themes](./github-readme-health/themes/index.js)
-- badge_theme - theme name of animal badge, choose [available themes](./github-readme-health/themes/circleThemes.js)
-- hide - Items you want to hide. for example, ```&hide=animal,sleep,...```
+- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/index.js)
+- `badge_theme` - theme name of animal badge, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- `hide` - Items you want to hide. for example, ```&hide=animal,sleep,...```
 - hide_badge - boolean type param for showing animal badge, _true or false_
 - hide_border - boolean type param for showing card view border, _true or false_
 - show icons - boolean type param for showing icons of items, _true or false_
-- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
+- cache_seconds - set the cache header manually _(min: 1800, max: 86400)_
 
 
 
@@ -291,14 +291,12 @@ for example,
 
 #### Common Options:
 
-- theme - name of the themes, choose [available themes](./github-readme-health/themes/calendarTheme.js)
-- size - size proportional to the default size (default is 5)
-- outline -  boolean type param for showing day border, _true or false_
-
+- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/calendarTheme.js)
+- `size` - size proportional to the default size (default is 5)
+- `outline` -  boolean type param for showing day border, _true or false_
 - animation - boolean type param for showing hover and fade in, _true or false_
-
 - hide - boolean type param for showing summary , _true or false_
-- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
+- cache_seconds - set the cache header manually _(min: 1800, max: 86400)_
 
 
 
