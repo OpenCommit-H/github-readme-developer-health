@@ -4,6 +4,10 @@ const {fetchGoogleFitGetUrl, getRefreshToken} = require(
     "../src/fetchers/googlefit-fetcher"
 );
 
+router.get('/', function(req, res, next) {
+  res.redirect('https://github.com/OpenCommit-H/github-readme-developer-health');
+});
+
 router.get('/home', async (req, res) => {
     const url = await fetchGoogleFitGetUrl();
     if (req.session.refresh_token) {
