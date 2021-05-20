@@ -150,7 +150,7 @@ defaultTheme, forest, blue, darkforest, cherry, night
 
 ## Customization
 
-You can customize the appearence of your Chart card-view with URL params.
+You can customize the appearence of your Health-Chart-Badge with URL params.
 
 for example,
 
@@ -198,7 +198,7 @@ default, pink, sky, forest, dark, sunset
 
 ## Customization
 
-You can customize the appearence of your Health-badge with URL params.
+You can customize the appearence of your Health-Stats-Badge with URL params.
 
 for example,
 
@@ -242,7 +242,7 @@ default, dark, radical, merko, tokyonight, onedark, cobalt, synthwave, highcontr
 
 ## Customization
 
-You can customize the appearence of your Health-Stats with URL params.
+You can customize the appearence of your Health-Stats-Card with URL params.
 
 for example,
 
@@ -288,7 +288,7 @@ default, grape, sky, green, orange, grass
 
 ## Customization
 
-You can customize the appearence of your Health-Calendar with URL params.
+You can customize the appearence of your Health-Calendar-Card with URL params.
 
 for example,
 
