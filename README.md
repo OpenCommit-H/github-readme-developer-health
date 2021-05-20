@@ -12,20 +12,20 @@
 
 # Features
 
-- [1.Introduction](#1.-introduction)
-- [2.Gather Your Data](#2.-gather-your-data)
-- [3.Register Your Infos](#3.-register-your-infos)
-  - [3-1.Re-enroll Your Infos](#3-1.-re-enroll-your-infos)
-- [4.Card & Badge](#4.-card-&-badge)
-  - [4-1.Chart Card](#4-1.-chart-card)
-  - [4-2.Health Badge](#4-2.-health-badge)
-  - [4-3.Health Stats](#4-3.-health-stats)
-  - [4-4.Health Calendar](#4-4.-health-calendar)
-- [5.Deploy on Your Own](#5.-deploy-on-your-own)
-- [6.Tech](#6.-tech)
-- [7.Contributer](#7.-contributer)
-- [8.Refered](#8.-refered)
-- [9,Supported](#9.-supported)
+- [1. Introduction](#1.-introduction)
+- [2. Gather Your Data](#2.-gather-your-data)
+- [3. Register Your Infos](#3.-register-your-infos)
+  - [3-1. Re-Register Your Infos](#3-1.-re-register-your-infos)
+- [4. Views](#4.-views)
+  - [4-1. Health Chart Badge](#4-1.-health-chart-badge)
+  - [4-2. Health Stats Badge](#4-2.-health-stats-badge)
+  - [4-3. Health Stats Card](#4-3.-health-stats Card)
+  - [4-4. Health Calendar Card](#4-4.-health-calendar-card)
+- [5. Deploy on Your Own](#5.-deploy-on-your-own)
+- [6. Tech](#6.-tech)
+- [7. Contributer](#7.-contributer)
+- [8. Reference](#8.-reference)
+- [9, Supported](#9.-supported)
 
 
 
@@ -120,9 +120,9 @@ https://github-readme-developer-health.com/home
 
 
 
-# 4. Card & Badge
+# 4. Views
 
-# 4-1. Chart Card
+# 4-1. Health Chart Badge
 
 > This Chart Card shows exercise time, development time, sleep time, and number of commits over a week.
 
@@ -166,9 +166,9 @@ _As a note, have a default cache of 4 hours (14400 seconds)_
 
 
 
-# 4-2. Health Badge
+# 4-2. Health Stats Badge
 
-> This Health Badge calculates development time and exercise time to express your development habits in a cute way.
+> This health badge calculates development time and exercise time to express your development habits in a cute way.
 >
 > If you work out hard, you can get dynamic animal picture, and if you work hard on developing, your drink will be upgraded.
 
@@ -212,9 +212,9 @@ for example,
 
 
 
-# 4-3. Health Stats
+# 4-3. Health Stats Card
 
-> This Health Stats shows a week's workout stats and shows dynamic animals if you exercise hard.
+> This health stats shows a week's workout stats and shows dynamic animals if you exercise hard.
 
 Copy-paste this into your readme or other markdown editor.
 
@@ -260,9 +260,9 @@ for example,
 
 
 
-# 4-4. Health Calendar
+# 4-4. Health Calendar Card
 
-> This Health Calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
+> This health calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
 >
 > It's a timeline that can mark 'one-day one-exercise' well like github's grass.
 
@@ -364,7 +364,7 @@ for example,
 
 
 
-# 8. Refered
+# 8. Reference
 
 We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) because we were inspired to see your open source.
 
@@ -376,7 +376,7 @@ We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) b
 
 # 9. Supported
 
-### __*This Project is supported by*__ 
+### __*This Project is supported by*__ 
 
 
 
@@ -386,7 +386,7 @@ We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) b
 
 
 
-### [<img src="./assets/samsung.png" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics
+### [<img src="./assets/samsung.png" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics Co., Ltd.
 
 
 
