@@ -1,5 +1,5 @@
 <p algin="center">
-    <img width="300px" src="./README/gym.png" aling="center" alt="Github Readme Health" />
+    <img width="300px" src="./assets/gym.png" aling="center" alt="Github Readme Health" />
     <h1 align="center">Github Readme Health</h1>
 	<p align="center">Let's do one-day one-exercise!</p>
 </p>
@@ -9,25 +9,30 @@
 
 
 
+
 # Features
 
-- [Introduction](#introduction)
-- [Gather Your Data](#gather-your-data)
-- [Register Your Data](#register-your-data)
-- [Chart Card](#chart-card)
-- [Health Badge](#health-badge)
-- [Health Stats](#health-stats)
-- [Health Calendar](#health-calendar)
-- [Deploy on Your Own](#deploy-on-your-own)
-- [Tech](#tech)
-- [Contributer](#contributer)
-- [Supported](#supported)
+- [1.Introduction](#1.-introduction)
+- [2.Gather Your Data](#2.-gather-your-data)
+- [3.Register Your Infos](#3.-register-your-infos)
+  - [3-1.Re-enroll Your Infos](#3-1.-re-enroll-your-infos)
+- [4.Card & Badge](#4.-card-&-badge)
+  - [4-1.Chart Card](#4-1.-chart-card)
+  - [4-2.Health Badge](#4-2.-health-badge)
+  - [4-3.Health Stats](#4-3.-health-stats)
+  - [4-4.Health Calendar](#4-4.-health-calendar)
+- [5.Deploy on Your Own](#5.-deploy-on-your-own)
+- [6.Tech](#6.-tech)
+- [7.Contributer](#7.-contributer)
+- [8,Supported](#8.-supported)
 
 
 
 
 
-# Introduction
+
+
+# 1. Introduction
 
 Today, developers work in the same position for a long time.
 
@@ -41,13 +46,19 @@ So, **Our service is aimed at a one-day one-exercise campaign for developers.**
 
 
 
-# Gather Your Data
+
+
+# 2. Gather Your Data
 
 we compare development time and exercise time, then provide a cute card-view at your readme.
 
 First of all, you need to collect data on exercise time and development time.
 
 Our servive use wakatime for gathering development time, and google fitness application for gathering exercise time.
+
+Wakatime is a plugin on IDEs for estimating your coding time.
+
+Google fitness is a cell-phone application for checking your exercise.
 
 - [Install wakatime plugin at your IDEs](https://wakatime.com/plugins)
 - [Install google fitness application on your cell phone](https://play.google.com/store/apps/details?id=com.google.android.apps.fitness&hl=ko&gl=US)
@@ -58,16 +69,20 @@ _As a note, If you use wakatime, then have to register username and set public y
 
 
 
-# Register Your Infos
+
+
+# 3. Register Your Infos
 
 Register your data for using our service.
 
 We need your github username, wakatime username, wakatime api_key and google api token.
 
+
+
 1. Access our register page.
 
 ```
-https://github-readme-developer-health.com/api
+https://github-readme-developer-health.com/home
 ```
 
 2. Write your usernames and api_key.
@@ -76,11 +91,37 @@ https://github-readme-developer-health.com/api
 
 4. Register your Infos.
 
+5. Create the same repository as your github ID and create a README.md file.
+
+6. Write in README.md as desired in the script below.
+
+   ```
+   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/chart?username=JoChoSunghoon)
+   
+   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/badge?username=JoChoSunghoon)
+   
+   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/fit?username=JoChoSunghoon)
+   
+   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/calendar?username=JoChoSunghoon)
+   ```
+
+7.  Please refer to the document below for customization.
+
+# 3-1. Re-enroll Your Infos
+
+1. Please refer to the following document and delete our application permissions.
+   - [delete application permissions](https://www.notion.so/Note-How-to-remove-third-party-account-access-8ea5291859664c4db94e8a18f8a46000)
+2. Follow the above precedure [#3](#3.-register-your-infos) again.
 
 
 
 
-# Chart Card
+
+
+
+# 4. Card & Badge
+
+# 4-1. Chart Card
 
 > This chart card shows exercise time, development time, sleep time, and number of commits over a week.
 
@@ -116,13 +157,15 @@ for example,
 
 #### Common Options:
 
-- size - Card-view's size in your readme (pixel)
-
+- size - Card-view's size in your readme (default size is 350 pixel)
 - theme - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
+- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
+
+_As a note, have a default cache of 4 hours (14400 seconds)_
 
 
 
-# Health Badge
+# 4-2. Health Badge
 
 > This badge calculates development time and exercise time to express your development habits in a cute way.
 >
@@ -158,12 +201,12 @@ for example,
 
 #### Common Options:
 
-- size - size proportional to the default size (default is 2)
 - theme - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- size - size proportional to the default size (default is 2)
 
 
 
-# Health Stats
+# 4-3. Health Stats
 
 > This Health stats shows a week's workout stats and shows dynamic animals if you exercise hard.
 
@@ -210,7 +253,7 @@ for example,
 
 
 
-# Health Calendar
+# 4-4. Health Calendar
 
 > This calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
 >
@@ -232,9 +275,9 @@ You can use variouse themes that we provide.
 
 default, grape, sky, green, orange, grass
 
+<img src="./assets/defaultCalendar.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/grapeCalendar.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/skyCalendar.PNG" alt="Github Readme Health Themes" width="30%"/>
 
-
-images
+<img src="./assets/greenCalendar.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/orangeCalendar.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/grassCalendar.PNG" alt="Github Readme Health Themes" width="30%"/>
 
 ## Customization
 
@@ -247,10 +290,20 @@ for example,
 #### Common Options:
 
 - theme - name of the themes, choose [available themes](./github-readme-health/themes/calendarTheme.js)
+- size - size proportional to the default size (default is 5)
+- outline -  boolean type param for showing day border, _true or false_
+
+- animation - boolean type param for showing hover and fade in, _true or false_
+
+- hide - boolean type param for showing summary , _true or false_
 
 
 
-# Deploy on Your Own
+
+
+
+
+# 5. Deploy on Your Own
 
 1. Clone our project
 2. [make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md)
@@ -268,7 +321,9 @@ for example,
 
 
 
-# Tech
+
+
+# 6. Tech
 
 | Platform                               | Languages           | Environment             |
 | -------------------------------------- | ------------------- | ----------------------- |
@@ -282,7 +337,9 @@ for example,
 
 
 
-# Contributer
+
+
+# 7. Contributer
 
 ### Team Name: _Open-mind_
 
@@ -298,7 +355,9 @@ for example,
 
 
 
-# Supported
+
+
+# 8. Supported
 
 ### __*This Project is supported by*__
 
@@ -310,7 +369,7 @@ for example,
 
 
 
-### [<img src="./assets/Samsung_wordmark.svg" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics
+### [<img src="./assets/samsung.png" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics
 
 
 
