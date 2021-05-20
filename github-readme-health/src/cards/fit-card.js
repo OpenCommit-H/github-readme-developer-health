@@ -1,9 +1,8 @@
 const I18n = require("../common/I18n");
 const Card = require("../common/Card");
 const icons = require("../common/icons");
-const renderTestCard = require("./animal-card");
+const renderAnimalCard = require("./animal-card");
 const { getStyles } = require("../getStyles");
-const { statCardLocales } = require("../translations");
 const {
   kFormatter,
   FlexLayout,
@@ -46,7 +45,7 @@ const createTextNode = ({
   `;
 };
 
-const renderStatsCard = (abc = {}, options = { hide: [] }) => {
+const renderStatsCard = (data = {}, options = { hide: [] }) => {
   const {
     name,
     step,
@@ -56,21 +55,20 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
     heart_minutes,
     sleep,
     animal,
-    rank,
-  } = abc;
+  } = data;
   const {
     hide = [],
     show_icons = false,
     hide_title = false,
     hide_border = false,
-    hide_rank = false,
-    include_all_commits = false,
+    hide_badge = false,
     line_height = 25,
     title_color,
     icon_color,
     text_color,
     bg_color,
     theme = "default",
+    badge_theme = "default",
     custom_title,
     border_radius,
     border_color,
@@ -80,7 +78,6 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
 
   const lheight = parseInt(line_height, 10);
 
-  // returns theme based colors with proper overrides and defaults
   const { titleColor, textColor, iconColor, bgColor, borderColor } = getCardColors({
     title_color,
     icon_color,
@@ -93,12 +90,8 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
   const apostrophe = ["x", "s"].includes(name.slice(-1).toLocaleLowerCase())
     ? ""
     : "s";
-  const i18n = new I18n({
-    locale,
-    translations: statCardLocales({ name, apostrophe }),
-  });
 
-  // Meta data for creating text nodes with createTextNode function
+
   const STATS = {
     step: {
       icon: icons.step,
@@ -147,57 +140,52 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
   const longLocales = ["cn", "es", "fr", "pt-br", "ru", "uk-ua", "id", "my", "pl"];
   const isLongLocale = longLocales.includes(locale) === true;
 
-  // filter out hidden stats defined by user & create the text nodes
   const statItems = Object.keys(STATS)
     .filter((key) => !hide.includes(key))
     .map((key, index) =>
-      // create the text nodes, and pass index so that we can calculate the line spacing
       createTextNode({
         ...STATS[key],
         index,
         showIcons: show_icons,
         shiftValuePos:
-          (!include_all_commits ? 50 : 20) + (isLongLocale ? 50 : 0),
+          (isLongLocale ? 50 : 0),
       }),
     );
 
-  // Calculate the card height depending on how many items there are
-  // but if rank circle is visible clamp the minimum height to `150`
   let height = Math.max(
     45 + (statItems.length + 1) * lheight,
-    hide_rank ? 0 : 150,
+    hide_badge ? 0 : 150,
   );
-    var stats = {
-      name: name,
-      animal: animal,
-      drink: 4,
-      theme: "default"
-    };
-  // Conditionally rendered elements
-  const rankCircle = hide_rank
+
+  size = (height-145)/100 + 1
+  
+  var badgeStats = {
+    name: name,
+    animal: animal,
+    theme: badge_theme,
+    size: size,
+  };
+
+  const badgeCircle = hide_badge
     ? ""
     : `
-    <g data-testid="rank-circle" 
-          transform="translate(280, -30)">
-    ${renderTestCard(stats)}
-    </g>`
+      <g data-testid="rank-circle" 
+      transform="translate(280, -30)">
+      ${renderAnimalCard(badgeStats)}
+      </g>`
 
-  // the better user's score the the rank will be closer to zero so
-  // subtracting 100 to get the progress in 100%
-  const progress = 100 - rank.score;
   const cssStyles = getStyles({
     titleColor,
     textColor,
     iconColor,
     show_icons,
-    progress,
   });
 
   const calculateTextWidth = () => {
     return measureText(custom_title ? custom_title : `${name}'s Health Stats`);
   };
 
-  const width = hide_rank
+  const width = hide_badge
     ? clampValue(
         50 /* padding */ + calculateTextWidth() * 2,
         270 /* min */,
@@ -207,7 +195,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
 
   const card = new Card({
     customTitle: custom_title,
-    defaultTitle: `${name}'s Health Stats`,
+    defaultTitle: `${name}'s 7days Health Stats`,
     width,
     height,
     border_radius,
@@ -227,7 +215,7 @@ const renderStatsCard = (abc = {}, options = { hide: [] }) => {
   if (disable_animations) card.disableAnimations();
 
   return card.render(`
-    ${rankCircle}
+    ${badgeCircle}
 
     <svg x="0" y="0">
       ${FlexLayout({

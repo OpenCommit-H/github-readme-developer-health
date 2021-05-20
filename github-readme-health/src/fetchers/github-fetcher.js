@@ -73,7 +73,6 @@ const day7CommitsFetcher = async (username) => {
       return getDateStr(d);
     }
     date = lastWeek();
-    console.log(date);
     return axios({
       method: "get",
       // url: `https://api.github.com/search/commits?q=author:${variables.login}`,

@@ -1,6 +1,6 @@
 const chartThemes = require("../../themes/chartTheme");
 
-const renderChartCard = (data, wakaname, themes, size) => {
+const renderChartCard = (data, wakaname, theme, size) => {
     var svgSizeWidth = 200;
     var svgSizeHeight = 200;
 
@@ -27,7 +27,7 @@ const renderChartCard = (data, wakaname, themes, size) => {
     })
     maxCommit += 1;
 
-    const theme = themes ? chartThemes[themes] : chartThemes["defaultTheme"];
+    const selectTheme = theme ? chartThemes[theme] : chartThemes["defaultTheme"];
     const len = size ? size : 250;
     svgSizeWidth = svgSizeHeight = len;
     
@@ -91,22 +91,22 @@ const renderChartCard = (data, wakaname, themes, size) => {
     var style = `
         <defs>
             <linearGradient id="myGradient" gradientTransform="rotate(90)">
-                <stop offset="5%"  stop-color="${theme.gradientStart}" />
-                <stop offset="95%" stop-color="${theme.gradientEnd}" />
+                <stop offset="5%"  stop-color="${selectTheme.gradientStart}" />
+                <stop offset="95%" stop-color="${selectTheme.gradientEnd}" />
             </linearGradient>
         </defs>
         <style>
         circle {
             fill: url('#myGradient');
-            stroke: ${theme.circleLine};
+            stroke: ${selectTheme.circleLine};
             stroke-width: 0.4px;
         }
         .bar {
-            stroke: ${theme.barLine};
+            stroke: ${selectTheme.barLine};
             stroke-width: 0.3px;
         }
         text {
-            fill: ${theme.text};
+            fill: ${selectTheme.text};
             stroke-width: 0.3px;
         }
         #title {
@@ -118,24 +118,24 @@ const renderChartCard = (data, wakaname, themes, size) => {
         }
         polyline {
             fill:none;
-            stroke:${theme.polyline};
+            stroke:${selectTheme.polyline};
             stroke-width:4;
         }
         .commit {
-            fill:${theme.polyline};
+            fill:${selectTheme.polyline};
         }
         #chart {
-            stroke:${theme.chartLine};
+            stroke:${selectTheme.chartLine};
             stroke-width:0.4px;
         }
         .sleep {
-            fill: ${theme.sleep};
+            fill: ${selectTheme.sleep};
         }
         .waka {
-            fill: ${theme.waka};
+            fill: ${selectTheme.waka};
         }
         .fit {
-            fill: ${theme.fit};
+            fill: ${selectTheme.fit};
         }
         </style>
     `;
