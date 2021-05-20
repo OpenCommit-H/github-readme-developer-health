@@ -311,14 +311,14 @@ for example,
 
 # 5. Deploy on Your Own
 
-1. Clone our project
-2. [make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md)
-3. add redirect_url that is written in Google application.
+1. Clone our project.
+2. [make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md).
+3. Add redirect_url that is written in Google application.
 4. [Create github application token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token), then add token as a value and 'PAT_1' as a key in .env file.
-5. [Install mongoDB](https://www.mongodb.com/try/download/community)
+5. [Install mongoDB](https://www.mongodb.com/try/download/community).
 6. Add 'MONGO_DB' as a key and host address of mongodb as a value in .env file.
-7. install packages ```npm install```
-8. run application ```npm start``` or ```pm2 start ./bin/www```
+7. Install packages ```npm install```.
+8. Run application ```npm start``` or ```pm2 start ./bin/www```.
 
 *As a note, .env file example*
 
