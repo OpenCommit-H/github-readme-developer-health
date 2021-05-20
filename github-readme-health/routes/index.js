@@ -4,7 +4,7 @@ const {fetchGoogleFitGetUrl, getRefreshToken} = require(
     "../src/fetchers/googlefit-fetcher"
 );
 
-router.get('/api', async (req, res) => {
+router.get('/home', async (req, res) => {
     const url = await fetchGoogleFitGetUrl();
     if (req.session.refresh_token) {
         const refresh_token = req.session.refresh_token;
@@ -23,7 +23,7 @@ router.get('/api', async (req, res) => {
     }
 });
 
-router.get('/api/googleFit', async (req, res) => {
+router.get('/home/googleFit', async (req, res) => {
     const code = req.query.code;
     const refresh_token = await getRefreshToken(code)
     req.session.refresh_token = refresh_token;
@@ -32,7 +32,7 @@ router.get('/api/googleFit', async (req, res) => {
     req
         .session
         .save(function (err) {
-            res.redirect('/api');
+            res.redirect('/home');
         });
 });
 

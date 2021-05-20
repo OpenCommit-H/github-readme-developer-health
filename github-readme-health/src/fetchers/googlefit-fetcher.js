@@ -13,7 +13,7 @@ const fetchGoogleFitGetUrl = async () => {
             process.env.CLIENT_ID,
             // client secret
             process.env.CLIENT_SECRET,
-            // link to redirect to  https://domain/api/googleFit
+            // link to redirect to  https://domain/home/googleFit
             process.env.REDIRECT_URL
         );
 
@@ -43,7 +43,7 @@ const getRefreshToken = async code => {
             process.env.CLIENT_ID,
             // client secret
             process.env.CLIENT_SECRET,
-            // link to redirect to  https://domain/api/googleFit
+            // link to redirect to  https://domain/home/googleFit
             process.env.REDIRECT_URL
         );
 
