@@ -108,7 +108,7 @@ https://github-readme-developer-health.com/home
 
 7.  Please refer to the document below for customization.
 
-# 3-1. Re-enroll Your Infos
+# 3-1. Re-Register Your Infos
 
 1. Please refer to the following document and delete our application permissions.
    - [delete application permissions](https://www.notion.so/Note-How-to-remove-third-party-account-access-8ea5291859664c4db94e8a18f8a46000)
@@ -124,7 +124,7 @@ https://github-readme-developer-health.com/home
 
 # 4-1. Chart Card
 
-> This chart card shows exercise time, development time, sleep time, and number of commits over a week.
+> This Chart Card shows exercise time, development time, sleep time, and number of commits over a week.
 
 Copy-paste this into your readme or other markdown editor.
 
@@ -168,7 +168,7 @@ _As a note, have a default cache of 4 hours (14400 seconds)_
 
 # 4-2. Health Badge
 
-> This badge calculates development time and exercise time to express your development habits in a cute way.
+> This Health Badge calculates development time and exercise time to express your development habits in a cute way.
 >
 > If you work out hard, you can get dynamic animal picture, and if you work hard on developing, your drink will be upgraded.
 
@@ -214,7 +214,7 @@ for example,
 
 # 4-3. Health Stats
 
-> This Health stats shows a week's workout stats and shows dynamic animals if you exercise hard.
+> This Health Stats shows a week's workout stats and shows dynamic animals if you exercise hard.
 
 Copy-paste this into your readme or other markdown editor.
 
@@ -262,7 +262,7 @@ for example,
 
 # 4-4. Health Calendar
 
-> This calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
+> This Health Calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
 >
 > It's a timeline that can mark 'one-day one-exercise' well like github's grass.
 
