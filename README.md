@@ -203,6 +203,7 @@ for example,
 
 - theme - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
 - size - size proportional to the default size (default is 2)
+- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
 
 
 
@@ -250,6 +251,7 @@ for example,
 - hide_badge - boolean type param for showing animal badge, _true or false_
 - hide_border - boolean type param for showing card view border, _true or false_
 - show icons - boolean type param for showing icons of items, _true or false_
+- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
 
 
 
@@ -296,6 +298,7 @@ for example,
 - animation - boolean type param for showing hover and fade in, _true or false_
 
 - hide - boolean type param for showing summary , _true or false_
+- `cache_seconds` - set the cache header manually _(min: 1800, max: 86400)_
 
 
 
