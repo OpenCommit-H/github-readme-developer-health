@@ -70,7 +70,7 @@ exports.renderFitCard = async (req, res) => {
       animal: temp.animal,
     }
     
-    res.setHeader("Content-Type", "image/svg+xml");
+    res.setHeader("Cache-Control", "no-store");
 
     return res.send(renderFitStatsCard(stats, {
       hide: parseArray(hide),
