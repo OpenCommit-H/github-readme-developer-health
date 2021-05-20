@@ -25,7 +25,7 @@
 - [6. Tech](#6.-tech)
 - [7. Contributer](#7.-contributer)
 - [8. Reference](#8.-reference)
-- [9, Supported](#9.-supported)
+- [9, Acknowledgement](#9.-supported)
 
 
 
