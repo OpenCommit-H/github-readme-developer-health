@@ -20,6 +20,7 @@ router.post('/input', function (req, res) {
         if (error) {} else {
             if (open_id == null) {
                 newOpen_id.save();
+                res.render('welcome',{github: req.body.github_id});
             } else {
                 Open_id.deleteOne({
                     github_id: req.body.github_id
@@ -29,10 +30,10 @@ router.post('/input', function (req, res) {
                     }
                 );
                 newOpen_id.save();
+                res.render('welcome',{github: req.body.github_id});
             }
         }
     });
-    res.send("Registration was successful");
 });
 
 router.post('/getInfo/:username', function (req, res) {
