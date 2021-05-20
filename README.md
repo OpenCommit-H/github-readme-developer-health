@@ -97,13 +97,13 @@ https://github-readme-developer-health.com/home
 6. Write in README.md as desired in the script below.
 
    ```
-   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/chart?username=JoChoSunghoon)
+   ![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/chart?username=JoChoSunghoon)
    
-   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/badge?username=JoChoSunghoon)
+   ![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/badge?username=JoChoSunghoon)
    
-   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/fit?username=JoChoSunghoon)
+   ![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/fit?username=JoChoSunghoon)
    
-   ![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/calendar?username=JoChoSunghoon)
+   ![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/calendar?username=JoChoSunghoon)
    ```
 
 7.  Please refer to the document below for customization.
@@ -131,7 +131,7 @@ Copy-paste this into your readme or other markdown editor.
 Change the `?username=` value to your Github username.
 
 ```
-![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/chart?username=pyoki32)
+![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/chart?username=pyoki32)
 ```
 
 ## Themes
@@ -177,7 +177,7 @@ Copy-paste this into your readme or other markdown editor.
 Change the `?username=` value to your Github username.
 
 ```
-![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/badge?username=pyoki32)
+![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/badge?username=pyoki32)
 ```
 
 **_As a Note, Please [click](./algorithm.md) if you want to check our object selection algorithm policy._**
@@ -221,7 +221,7 @@ Copy-paste this into your readme or other markdown editor.
 Change the `?username=` value to your Github username.
 
 ```
-![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/fit?username=pyoki32)
+![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/fit?username=pyoki32)
 ```
 
 ## Themes
@@ -271,7 +271,7 @@ Copy-paste this into your readme or other markdown editor.
 Change the `?username=` value to your Github username.
 
 ```
-![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/calendar?username=pyoki32)
+![OpenCommit-H's Github-Readme-Developer-Health](https://github-readme-developer-health.com/cards/calendar?username=pyoki32)
 ```
 
 ## Themes
@@ -348,7 +348,7 @@ for example,
 
 # 7. Contributer
 
-### Team Name: _Open-mind_
+### Team Name: _OpenCommit-H_
 
 | Name                                                         | Github                                            | Role                |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------- |
