@@ -1,5 +1,5 @@
 const I18n = require("../common/I18n");
-const Card = require("../common/Card");
+const Card = require("../common/card");
 const icons = require("../common/icons");
 const renderAnimalCard = require("./animal-card");
 const { getStyles } = require("../getStyles");
