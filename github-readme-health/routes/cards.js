@@ -1,13 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-
-var chartview = require('../views/chartview');
+const chartview = require('../views/chartview');
 router.get('/chart', chartview.renderChart);
-var badgeview = require('../views/badgeview');
+const badgeview = require('../views/badgeview');
 router.get('/badge', badgeview.renderBadge);
-var fitcardview = require('../views/fitcardview');
+const fitcardview = require('../views/fitcardview');
 router.get('/fit', fitcardview.renderFitCard);
-var calendarview = require('../views/calendarview');
+const calendarview = require('../views/calendarview');
 router.get('/calendar', calendarview.rendercalendarCard);
+
 module.exports = router;
