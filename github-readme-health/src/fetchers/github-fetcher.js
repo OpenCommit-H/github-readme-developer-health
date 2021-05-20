@@ -48,9 +48,6 @@ const fetcher = (variables, token) => {
   );
 };
 
-// https://github.com/anuraghazra/github-readme-stats/issues/92#issuecomment-661026467
-// https://github.com/anuraghazra/github-readme-stats/pull/211/
-
 const day7CommitsFetcher = async (username) => {
   if (!githubUsernameRegex.test(username)) {
     logger.log("Invalid username");
@@ -97,11 +94,9 @@ const day7CommitsFetcher = async (username) => {
     }
     var week = new Array('Sun', 'Mon', 'Tue', 'wen', 'Thu', 'Fri', 'Sat');
     let res = await retryer(fetchday7Commits, { login: username });
-    // console.log(JSON.stringify(res.data, null, '\t'))
     if (res.data.total_count) {
       var commits = [];
       for (i=0; i<res.data.total_count; i++){
-        // res.data.items[i].commit['day']=week[whatDay(res.data.items[i].commit.author.date)]
         res.data.items[i].commit['day']=whatDay(res.data.items[i].commit.author.date)
         commits.push(res.data.items[i].commit)
       }
@@ -111,8 +106,6 @@ const day7CommitsFetcher = async (username) => {
     }
   } catch (err) {
     logger.log(err);
-    // just return 0 if there is something wrong so that
-    // we don't break the whole app
     return 0;
   }
 };
@@ -139,9 +132,6 @@ async function fetchGithubGetWeeklyData(
   const user = res.data.data.user;
   stats.name = user.name || user.login;
   stats.day7commits = await day7CommitsFetcher(username);
-
-  // console.log(stats)
-  // console.log(username)
   return stats;
 }
 

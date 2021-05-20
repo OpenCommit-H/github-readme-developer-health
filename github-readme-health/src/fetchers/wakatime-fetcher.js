@@ -14,7 +14,6 @@ const fetchWakatimeStats = async ({ wakaname, api_domain, range, api_key }) => {
       data.grand_total.date = data.range.text;
       dataList.push(data.grand_total);
     });
-
     return dataList;
   } catch (err) {
     if (err.response.status == 401) {

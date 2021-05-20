@@ -9,7 +9,6 @@ const userinfoStats = async ({ username }) => {
             api_key: getUserData.data.api_key,
             refresh_token: getUserData.data.refresh_token
         }
-        
         return userData;
     } catch (err) {
         if (err.response.status < 200 || err.response.status > 299) {
