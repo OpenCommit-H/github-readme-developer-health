@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Git Health Card</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <style>
       @font-face {
         font-family: 'Source Sans Pro';
@@ -60,21 +60,16 @@
         background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
         position: absolute;
         left: 0;
-        top: 50%;
         width: 100%;
-        height: 600px;
-        margin-top: -300px;
-
         overflow: hidden;
       }
       .wrapper.form-success .container h1 {
         transform: translateY(85px);
       }
       .container {
-        max-width: 600px;
+        max-width: 800px;
         margin: 0 auto;
         padding: 80px 0;
-        height: 400px;
         text-align: center;
       }
       .container h1 {
@@ -126,14 +121,12 @@
         font-size: 18px;
         transition-duration: 0.25s;
       }
-      .form-button:hover {
-        position: relative;
+      form button:hover {
         background-color: #f5f7f9;
-        z-index: 2;
       }
       .bg-bubbles {
         position: absolute;
-        top: 0;
+        
         left: 0;
         width: 100%;
         height: 100%;
@@ -146,7 +139,8 @@
         width: 40px;
         height: 40px;
         background-color: rgba(255, 255, 255, 0.15);
-        bottom: -160px;
+        top: 0px;
+        bottom: -700px;
         -webkit-animation: square 25s infinite;
         animation: square 25s infinite;
         -webkit-transition-timing-function: linear;
@@ -260,52 +254,101 @@
         text-decoration: none;
         font-weight: 900;
       }
+      .myBackground {
+        background-color: rgba(255,255,255, 0.3);
+        color: inherit;
+      }
+      .how-section1{
+        margin-top:-15%;
+        padding: 10%;
+      }
+      .how-section1 h4{
+        color: #ffa500;
+        font-weight: bold;
+        font-size: 30px;
+      }
+      .how-section1 .subheading{
+        color: #3931af;
+        font-size: 20px;
+      }
+      .how-section1 .row
+      {
+        margin-top: 10%;
+      }
+      .how-img 
+      {
+        text-align: center;
+      }
+      .how-img img{
+        width: 70%;
+      }
     </style>
     <script type="text/javascript">
-    
-      function checkfield(){
-      
-       if(document.addjoin.github_id.value==""){ 
-       alert("Please enter your github ID");        
-       document.addjoin.github_id.focus();
-       exit;
-      
-       }else if(document.addjoin.waka_id.value==""){
-       alert("Please enter your wakatime ID");
-       document.addjoin.waka_id.focus();
-       exit;
-      
-       }else if(document.addjoin.api_key.value==""){
-       alert("Please enter your wakatime api key");
-       document.addjoin.api_key.focus();
-       exit;
-      
-       }else if(document.addjoin.refresh_token.value==""){
-       alert("Please Get a your googleApi-refresh-token");
-       document.addjoin.refresh_token.focus();
-       exit;
-       }
-      document.addjoin.submit();
-      }
     </script>    
   </head>
   <body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <div class="wrapper">
       <div class="container">
-        <h1>Welcome</h1>
-        <form action="/users/input" name="addjoin" method="POST">
-          <input class="form-button" type='button' onClick="location.href='<%=data%>'" value='Receive Google Token' style="background-color:#50a3a2; color:#f5f7f9"/>
-          <div class="help">
-            <div class="question">
-              <a href="https://www.notion.so/Note-How-to-manage-your-account-permissions-9f9831d12f8a4c9cb8c2c32bf8abd45e" target="_blank">?</a>
+        <h1>Congratulations!</h1>
+        <h2 class="whitney">Now you can use your health card</h2>
+        <br>
+        <div class="jumbotron myBackground">
+          <br>
+          <h4>Please copy and paste the link below into the Github Readme.md</h3>
+          <div class="how-section1">
+            <div class="row">
+              <div class="col-md-6 how-img">
+                <img src="https://github-readme-developer-health.com/cards/badge?username=<%= github %>" class="img-fluid" alt=""/>
+              </div>
+              <div class="col-md-6">
+                <h4 class="subheading">Badge</h4>
+                <p>This badge calculates development time and exercise time to express your development habits in a cute way.
+                  If you work out hard, you can get dynamic animal picture, and if you work hard on developing, your drink will be upgraded.</p>
+                <a href="https://github-readme-developer-health.com/cards/badge?username=<%= github %>" class="text-muted">![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/badge?username=<%= github %>)</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="subheading">Fitness Card</h4>
+                <p>This Health stats shows a week's workout stats and shows dynamic animals if you exercise hard.</p>
+                <a href="https://github-readme-developer-health.com/cards/fit?username=<%= github %>" class="text-muted">![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/fit?username=<%= github %>)</a>
+              </div>
+              <div class="col-md-6 how-img">
+                <img src="https://github-readme-developer-health.com/cards/fit?username=<%= github %>" class="img-fluid" alt=""/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 how-img">
+                <img src="https://github-readme-developer-health.com/cards/calendar?username=<%= github %>" class="img-fluid" alt=""/>
+              </div>
+              <div class="col-md-6">
+                <h4 class="subheading">Health Calendar</h4>
+                <p>This calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
+                  It's a timeline that can mark 'one-day one-exercise' well like github's grass.</p>
+                <a href="https://github-readme-developer-health.com/cards/calendar?username=<%= github %>" class="text-muted">![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/calendar?username=<%= github %>)</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="subheading">Chart Card</h4>
+                <p>This chart card shows exercise time, development time, sleep time, and number of commits over a week.</p>
+                <a href="https://github-readme-developer-health.com/cards/chart?username=<%= github %>" class="text-muted">![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/chart?username=<%= github %>)</a>
+              </div>
+              <div class="col-md-6 how-img">
+                <img src="https://github-readme-developer-health.com/cards/chart?username=<%= github %>" class="img-fluid" alt=""/>
+              </div>
             </div>
           </div>
-          <input type="text" name = "github_id" placeholder="Github Username">      
-          <input type="text" name = "waka_id" placeholder="Wakatime Username">
-          <input type="text" name = "api_key" placeholder="Wakatime Api key">
-          <input type="text" name = "refresh_token" placeholder="Google Refresh Token" value="<%=token%>" readonly>
-          <input type="button" class="form-button" value="Register" onClick ="checkfield();" style="background-color:#f5f7f9; color:#50a3a2" >
-        </form>
+        </div>
       </div>
       <a href="https://github.com/OpenCommit-H/github-readme-developer-health" target="_blank" class="view-on-github">View this project on github @github-readme-developer-health</a>
       <ul class="bg-bubbles">
@@ -323,7 +366,6 @@
     </div>
   </body>
 </html>
-
 <!-- Copyright (c) 2021 by Lewi Hussey (https://codepen.io/Lewitje/pen/BNNJjo)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:

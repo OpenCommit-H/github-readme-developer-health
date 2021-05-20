@@ -10,6 +10,9 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 
+var favicon = require('serve-favicon');
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
+
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "ejs");
 app.use(cors());
