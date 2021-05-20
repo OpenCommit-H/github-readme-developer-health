@@ -51,7 +51,7 @@ So, **Our service is aimed at a one-day one-exercise campaign for developers.**
 
 # 2. Gather Your Data
 
-we compare development time and exercise time, then provide a cute card-view at your readme.
+We compare development time and exercise time, then provide a cute card-view at your readme.
 
 First of all, you need to collect data on exercise time and development time.
 
