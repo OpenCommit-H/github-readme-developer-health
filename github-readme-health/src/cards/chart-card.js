@@ -28,7 +28,7 @@ const renderChartCard = (data, wakaname, theme, size) => {
     maxCommit += 1;
 
     const selectTheme = theme ? chartThemes[theme] : chartThemes["defaultTheme"];
-    const len = size ? size : 250;
+    const len = size ? size : 350;
     svgSizeWidth = svgSizeHeight = len;
     
     var minus = [-1, 1];
