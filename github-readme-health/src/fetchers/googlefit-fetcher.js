@@ -181,7 +181,7 @@ const fetchGoogleFitGetData = async (access_token) => {
                         for (let i = 0; i <= DAY; i++) {
                              // 86400000 millis = 24 hours
                             if (p.startTimeNanos / 1000000 >= START + (86400000 * i) && p.endTimeNanos / 1000000 <= START + (86400000 * (i + 1))) {
-                                stats.sleep[i] += (p.endTimeNanos - p.startTimeNanos) / 1000000000 / 60
+                                stats.sleep[i] += (Math.round)((p.endTimeNanos - p.startTimeNanos) / 1000000000 / 60);
                             }
 
                         }
