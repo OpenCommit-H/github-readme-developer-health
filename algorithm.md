@@ -2,7 +2,6 @@
 
 
 
-
 # Point-weekly least levels of physical activity
 
 
@@ -11,7 +10,7 @@
 
 Available animals are horse(15750),dog(5250~15749),pig(2625~5249),sloth(0~26249) 
 
-The values are calculated by  simple formula using step, active_minutes, heart_minutes, heart_level  and owned google-fit-data. The implementation can be investigated at [src/calculateActivity.js](https://github.com/OpenCommit-H/github-readme-developer-health/src/calculateActivity.js)*
+The values are calculated by  simple formula using step, active_minutes, heart_minutes, heart_level  and owned google-fit-data. The implementation can be investigated at [src/calculateActivity.js](./github-readme-developer-health/src/calculateActivity.js)*
 
 
 ```
