@@ -2,6 +2,7 @@
     <img width="300px" src="./assets/gym.png" aling="center" alt="Github Readme Health" />
     <h1 align="center">Github Readme Developer Health</h1>
 	<p align="center">Let's do one-day one-exercise!</p>
+	<p align="center">Commit your health in your github</p>
 </p>
 
 
