@@ -17,6 +17,7 @@
 - [Chart Card](#chart-card)
 - [Health Badge](#health-badge)
 - [Health Stats](#health-stats)
+- [Health Calendar](#health-calendar)
 - [Deploy on Your Own](#deploy-on-your-own)
 - [Tech](#tech)
 - [Contributer](#contributer)
@@ -99,9 +100,9 @@ You can use variouse themes that we provide.
 
 defaultTheme, forest, blue, darkforest, cherry, night
 
-<img src="./README/defaultChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/forestChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/blueChart.PNG" alt="Github Readme Health Themes" width="30%"/>
+<img src="./assets/defaultChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/forestChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/blueChart.PNG" alt="Github Readme Health Themes" width="30%"/>
 
-<img src="./README/darkforestChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/cherryChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/nightChart.PNG" alt="Github Readme Health Themes" width="30%"/>
+<img src="./assets/darkforestChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/cherryChart.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/nightChart.PNG" alt="Github Readme Health Themes" width="30%"/>
 
 
 
@@ -111,13 +112,13 @@ You can customize the appearence of your Chart card-view with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/chart?username=pyoki32&size=250&themes=forest```
+```https://github-readme-developer-health.com/cards/chart?username=pyoki32&size=250&theme=forest```
 
 #### Common Options:
 
 - size - Card-view's size in your readme (pixel)
 
-- themes - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
+- theme - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
 
 
 
@@ -143,9 +144,9 @@ You can use variouse themes that we provide.
 
 default, pink, sky, forest, dark, sunset
 
-<img src="./README/defaultBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/pinkBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/skyBadge.PNG" alt="Github Readme Health Themes" width="30%"/>
+<img src="./assets/defaultBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/pinkBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/skyBadge.PNG" alt="Github Readme Health Themes" width="30%"/>
 
-<img src="./README/forestBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/darkBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./README/sunsetBadge.PNG" alt="Github Readme Health Themes" width="30%"/>
+<img src="./assets/forestBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/darkBadge.PNG" alt="Github Readme Health Themes" width="30%"/><img src="./assets/sunsetBadge.PNG" alt="Github Readme Health Themes" width="30%"/>
 
 ## Customization
 
@@ -153,12 +154,12 @@ You can customize the appearence of your Health-badge with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/badge?username=pyoki32&size=250&themes=forest```
+```https://github-readme-developer-health.com/cards/badge?username=pyoki32&size=1.5&theme=forest```
 
 #### Common Options:
 
-- size - Health-badge's size in your readme (pixel)
-- themes - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- size - size proportional to the default size (default is 2)
+- theme - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
 
 
 
@@ -182,25 +183,70 @@ You can use variouse themes that we provide.
 
 default, dark, radical, merko, tokyonight, onedark, cobalt, synthwave, highcontrast, dracula
 
-<img src="./README/defaultHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/darkHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+<img src="./assets/defaultHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./assets/darkHS.PNG" alt="Github Readme Health Themes" width="40%"/>
 
-<img src="./README/radicalHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/merkoHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+<img src="./assets/radicalHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./assets/merkoHS.PNG" alt="Github Readme Health Themes" width="40%"/>
 
-<img src="./README/tokyonightHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/onedarkHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+<img src="./assets/tokyonightHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./assets/onedarkHS.PNG" alt="Github Readme Health Themes" width="40%"/>
 
-<img src="./README/cobaltHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./README/synthwaveHS.PNG" alt="Github Readme Health Themes" width="40%"/>
+<img src="./assets/cobaltHS.PNG" alt="Github Readme Health Themes" width="40%"/><img src="./assets/synthwaveHS.PNG" alt="Github Readme Health Themes" width="40%"/>
 
 ## Customization
 
-You can customize the appearence of your Health-badge with URL params.
+You can customize the appearence of your Health-Stats with URL params.
 
 for example,
 
-```https://github-readme-developer-health.com/cards/fit?username=pyoki32&theme=dark```
+```https://github-readme-developer-health.com/cards/fit?username=pyoki32&theme=dark&badge_theme=pink```
 
 #### Common Options:
 
 - theme - name of the themes, choose [available themes](./github-readme-health/themes/index.js)
+- badge_theme - theme name of animal badge, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- hide - Items you want to hide. for example, ```&hide=animal,sleep,...```
+- hide_badge - boolean type param for showing animal badge, _true or false_
+- hide_border - boolean type param for showing card view border, _true or false_
+- show icons - boolean type param for showing icons of items, _true or false_
+
+
+
+# Health Calendar
+
+> This calandar marks the time you worked out every day and expresses it as if the grapes are ripe.
+>
+> It's a timeline that can mark 'one-day one-exercise' well like github's grass.
+
+Copy-paste this into your readme or other markdown editor.
+
+Change the `?username=` value to your Github username.
+
+```
+![Openmind's Github Readme Health](https://github-readme-developer-health.com/cards/calendar?username=pyoki32)
+```
+
+## Themes
+
+You can use variouse themes that we provide.
+
+#### All themes:
+
+default, grape, sky, green, orange, grass
+
+
+
+images
+
+## Customization
+
+You can customize the appearence of your Health-Calendar with URL params.
+
+for example,
+
+```https://github-readme-developer-health.com/cards/calendar?username=pyoki32&theme=grape```
+
+#### Common Options:
+
+- theme - name of the themes, choose [available themes](./github-readme-health/themes/calendarTheme.js)
 
 
 
@@ -216,7 +262,7 @@ for example,
 
 *As a note, .env file example*
 
- <img src="./README/dotenv.PNG" width="500px" />
+ <img src="./assets/dotenv.PNG" width="500px" />
 
 
 
@@ -230,7 +276,7 @@ for example,
 
 |              |                                                    |
 | ------------ | -------------------------------------------------- |
-| architecture | <img src='./README/architecture.PNG' width='100%'> |
+| architecture | <img src='./assets/architecture.PNG' width='100%'> |
 
 
 
@@ -242,11 +288,11 @@ for example,
 
 | Name                                                         | Github                                            | Role                |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------- |
-| <img src="./README/kjw.png" width="50px"/>김정웅, Jeongung Kim | [real100woong](https://github.com/real100woong)   | Team Leader         |
-| <img src="./README/sdj.png" width="50px"/>신다정, Dajeong Shin | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
-| <img src="./README/lsw.png" width="50px"/>이석원, Seokwon Lee | [clalsw](https://github.com/clalsw)               | Presentation Leader |
-| <img src="./README/csh.png" width="50px"/>조성훈, Sunghoon Cho | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
-| <img src="./README/pkd.png" width="50px"/>표기동, Kidong Pyo | [pyoki32](https://github.com/pyoki32)             | Ending Leader       |
+| <img src="./assets/kjw.png" width="50px"/>김정웅, Jeongung Kim | [real100woong](https://github.com/real100woong)   | Team Leader         |
+| <img src="./assets/sdj.png" width="50px"/>신다정, Dajeong Shin | [ShinDajeong](https://github.com/ShinDajeong)     | Deployment Leader   |
+| <img src="./assets/lsw.png" width="50px"/>이석원, Seokwon Lee | [clalsw](https://github.com/clalsw)               | Presentation Leader |
+| <img src="./assets/csh.png" width="50px"/>조성훈, Sunghoon Cho | [JoChoSunghoon](https://github.com/JoChoSunghoon) | Employment Leader   |
+| <img src="./assets/pkd.png" width="50px"/>표기동, Kidong Pyo | [pyoki32](https://github.com/pyoki32)             | Ending Leader       |
 
 
 
@@ -258,17 +304,17 @@ for example,
 
 
 
-###                         [<img src="./README/ssafy.PNG" width='120px'>](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp)                 Samsung Software Academy for Youth
+###                         [<img src="./assets/ssafy.PNG" width='120px'>](https://www.ssafy.com/ksp/jsp/swp/swpMain.jsp)                 Samsung Software Academy for Youth
 
 
 
 
 
-### [<img src="./README/Samsung_wordmark.svg" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics
+### [<img src="./assets/Samsung_wordmark.svg" width='200px' >](https://www.samsung.com/sec/business/)    Samsung Electronics
 
 
 
 
 
-### [<img src="./README/ministry_of_employment_and_labor.jpg" width='200px'>](http://www.moel.go.kr/index.do)    Ministry of Employment and Labor, Korea
+### [<img src="./assets/ministry_of_employment_and_labor.jpg" width='200px'>](http://www.moel.go.kr/index.do)    Ministry of Employment and Labor, Korea
 
