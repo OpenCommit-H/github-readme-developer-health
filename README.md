@@ -312,7 +312,7 @@ for example,
 # 5. Deploy on Your Own
 
 1. Clone our project.
-2. [make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md).
+2. [Make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md).
 3. Add redirect_url that is written in Google application.
 4. [Create github application token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token), then add token as a value and 'PAT_1' as a key in .env file.
 5. [Install mongoDB](https://www.mongodb.com/try/download/community).
