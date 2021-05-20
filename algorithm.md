@@ -1,7 +1,6 @@
 
 
 
-
 # Point-weekly least levels of physical activity
 
 
@@ -28,7 +27,7 @@ heart_level - Heart Reinforcement Score
 ## simple formula
 
 
-weekly least levels of physical activity
+Weekly least levels of physical activity
 
 The minimum number of steps per week is 21000.
 
