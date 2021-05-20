@@ -374,7 +374,7 @@ We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) b
 
 
 
-# 9. Supported
+# 9. Acknowledgement
 
 ### __*This Project is supported by*__ 
 
