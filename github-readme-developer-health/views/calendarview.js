@@ -2,6 +2,8 @@ require("dotenv").config();
 const {
   parseBoolean,
   renderError,
+  CONSTANTS,
+  clampValue,
 } = require("../src/common/utils");
 const calendarCard = require("../src/cards/calendar-card");
 const { userinfoStats } = require("../src/fetchers/userinfo-fetcher");
@@ -36,7 +38,7 @@ exports.rendercalendarCard = async (req, res) => {
       cacheSeconds = CONSTANTS.FOUR_HOURS;
     }
   
-    res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
+    res.setHeader("Content-Type", "image/svg+xml");
 
     const userStats = await userinfoStats({ username });
 

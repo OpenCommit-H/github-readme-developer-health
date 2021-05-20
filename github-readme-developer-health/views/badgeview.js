@@ -32,7 +32,7 @@ exports.renderBadge = async (req, res) => {
     cacheSeconds = CONSTANTS.FOUR_HOURS;
   }
 
-  res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
+  res.setHeader("Cache-Control", "no-store");
   
   try {
     const userStats = await userinfoStats({ username });

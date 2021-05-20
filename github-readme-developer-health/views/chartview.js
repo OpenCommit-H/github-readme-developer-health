@@ -31,7 +31,7 @@ exports.renderChart = async (req, res) => {
     cacheSeconds = CONSTANTS.FOUR_HOURS;
   }
 
-  res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
+  res.setHeader("Content-Type", "image/svg+xml");
 
     // default data
     // if create total fetcher, then fit, commits, sleep will erase
