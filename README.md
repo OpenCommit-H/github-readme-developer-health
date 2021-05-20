@@ -124,7 +124,7 @@ https://github-readme-developer-health.com/home
 
 # 4-1. Health Chart Badge
 
-> This chart card shows exercise time, development time, sleep time, and number of commits over a week.
+> This Chart Card shows exercise time, development time, sleep time, and number of commits over a week.
 
 Copy-paste this into your readme or other markdown editor.
 
