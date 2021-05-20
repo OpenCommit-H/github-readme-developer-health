@@ -1,6 +1,5 @@
 
 
-
 # Point-weekly least levels of physical activity
 
 
@@ -50,3 +49,6 @@ If you satisfy 1, 2, 3, you can get the image of a horse.
 
 
 (If you have a better calculation, please share.)
+
+
+## Reference
