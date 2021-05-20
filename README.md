@@ -159,7 +159,7 @@ for example,
 #### Common Options:
 
 - `size` - Card-view's size in your readme (default size is 350 pixel)
-- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/chartTheme.js)
+- `theme` - name of the themes, choose [available themes](./github-readme-developer-health/themes/chartTheme.js)
 - cache_seconds - set the cache header manually _(min: 1800, max: 86400)_
 
 _As a note, have a default cache of 4 hours (14400 seconds)_
@@ -206,7 +206,7 @@ for example,
 
 #### Common Options:
 
-- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- `theme` - name of the themes, choose [available themes](./github-readme-developer-health/themes/circleThemes.js)
 - `size` - size proportional to the default size (default is 2)
 - cache_seconds - set the cache header manually _(min: 1800, max: 86400)_
 
@@ -250,8 +250,8 @@ for example,
 
 #### Common Options:
 
-- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/index.js)
-- `badge_theme` - theme name of animal badge, choose [available themes](./github-readme-health/themes/circleThemes.js)
+- `theme` - name of the themes, choose [available themes](./github-readme-developer-health/themes/index.js)
+- `badge_theme` - theme name of animal badge, choose [available themes](./github-readme-developer-health/themes/circleThemes.js)
 - `hide` - Items you want to hide. for example, ```&hide=animal,sleep,...```
 - hide_badge - boolean type param for showing animal badge, _true or false_
 - hide_border - boolean type param for showing card view border, _true or false_
@@ -296,7 +296,7 @@ for example,
 
 #### Common Options:
 
-- `theme` - name of the themes, choose [available themes](./github-readme-health/themes/calendarTheme.js)
+- `theme` - name of the themes, choose [available themes](./github-readme-developer-health/themes/calendarTheme.js)
 - `size` - size proportional to the default size (default is 5)
 - `outline` -  boolean type param for showing day border, _true or false_
 - animation - boolean type param for showing hover and fade in, _true or false_
@@ -313,11 +313,12 @@ for example,
 
 1. Clone our project
 2. [make Google Application and add CLIENT_ID & CLIENT_SECRET in .env file](./Google Fitness REST API.md)
-3. [Create github application token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token), then add token as a value and 'PAT_1' as a key in .env file.
-4. [Install mongoDB](https://www.mongodb.com/try/download/community)
-5. Add 'MONGO_DB' as a key and host address of mongodb as a value in .env file.
-6.  install packages ```npm install```
-7. run application ```npm start``` or ```pm2 start ./bin/www```
+3. add redirect_url that is written in Google application.
+4. [Create github application token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token), then add token as a value and 'PAT_1' as a key in .env file.
+5. [Install mongoDB](https://www.mongodb.com/try/download/community)
+6. Add 'MONGO_DB' as a key and host address of mongodb as a value in .env file.
+7. install packages ```npm install```
+8. run application ```npm start``` or ```pm2 start ./bin/www```
 
 *As a note, .env file example*
 
@@ -375,7 +376,7 @@ We Thanks to [anuraghazra](https://github.com/anuraghazra/github-readme-stats) b
 
 # 9. Supported
 
-### __*This Project is supported by*__
+### __*This Project is supported by*__ :blue_heart::purple_heart::heart::yellow_heart::green_heart:
 
 
 
