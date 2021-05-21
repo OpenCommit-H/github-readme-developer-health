@@ -48,8 +48,8 @@ _Please refer to our UCC_
 
 | Classification | Youtube                                                      |
 | -------------- | ------------------------------------------------------------ |
-| Introduction   | [<img src="./assets/introductionYoutube.png" width="40%">](https://youtu.be/7aPnPmix49I) |
-| Usage          | [<img src="./assets/usageYoutube.png" width="40%">](https://youtu.be/bmBeqX17eZk) |
+| Introduction   | [<img src="./assets/introductionYoutube.PNG" width="40%">](https://youtu.be/7aPnPmix49I) |
+| Usage          | [<img src="./assets/usageYoutube.PNG" width="40%">](https://youtu.be/bmBeqX17eZk) |
 
 
 
