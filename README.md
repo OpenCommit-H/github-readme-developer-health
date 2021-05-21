@@ -44,6 +44,13 @@ This causes problems such as gaining weight or poor posture.
 
 So, **Our service is aimed at a one-day one-exercise campaign for developers.**
 
+_Please refer to our UCC_
+
+| Classification | Youtube                                                      |
+| -------------- | ------------------------------------------------------------ |
+| Introduction   | [<img src="./assets/introductionYoutube.png" width="40%">](https://youtu.be/7aPnPmix49I) |
+| Usage          | [<img src="./assets/usageYoutube.png" width="40%">](https://youtu.be/bmBeqX17eZk) |
+
 
 
 
@@ -349,7 +356,7 @@ for example,
 
 # 7. Contributer
 
-### Team Name: _OpenCommit-H_
+### Team Name: ![_OpenCommit-H_](./assets/OpenCommit-H.png)
 
 | Name                                                         | Github                                            | Role                |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------- |
